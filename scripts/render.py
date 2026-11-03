@@ -114,9 +114,9 @@ def render(post, index):
         d.text((74,80),"VERSICHERUNGSWISSEN",font=f(35,True),fill=accent)
         d.rounded_rectangle((72,178,365,243),radius=30,fill=accent)
         d.text((94,197),cat[:21],font=f(24,True),fill=base)
-        d.ellipse((612,330,1118,870),fill=(26,66,93))
-        icon(d,post["category"],838,575,180,accent,ink)
-        y=headline(d,title,72,320,690,520,ink,77)
+        d.ellipse((839,282,1065,518),fill=(26,66,93))
+        icon(d,post["category"],952,394,69,accent,ink)
+        y=headline(d,title,72,320,735,520,ink,77)
         d.rounded_rectangle((70,905,1000,1105),radius=28,outline=accent,width=5)
         subline(d,subtitle,110,952,840,ink,36)
         footer(d,ink,base,n)
@@ -131,7 +131,8 @@ def render(post, index):
         headline(d,title,70,365,455,680,ink,68)
         d.rectangle((55,1080,1025,1162),fill=ink)
         subline(d,subtitle,75,1101,920,base,27,maxheight=50)
-        footer(d,ink,base,n)
+        d.rectangle((0,1180,1080,1350),fill=ink)
+        footer(d,base,ink,n)
     # Variant 3: bold illustration with curved yellow stage, title bottom
     elif variant=="ILLUSTRATION":
         d.ellipse((-220,-450,1300,790),fill=accent)
@@ -152,8 +153,12 @@ def render(post, index):
         d.rounded_rectangle((88,204,385,274),radius=14,fill=accent)
         d.text((112,223),cat[:21],font=f(24,True),fill=(255,255,255))
         headline(d,title,95,360,830,475,ink,75)
-        d.rounded_rectangle((86,908,988,1073),radius=26,fill=(248,231,232))
-        subline(d,subtitle,116,955,835,ink,31)
+        for j,check in enumerate(("WAS IST WICHTIG?","WAS DECKT MEIN VERTRAG?","PASST DIE ABSICHERUNG?")):
+            yy=755+j*78
+            d.rounded_rectangle((96,yy+8,132,yy+44),radius=7,outline=accent,width=5)
+            d.text((154,yy+4),check,font=f(27,True),fill=ink)
+        d.rounded_rectangle((86,1034,988,1144),radius=26,fill=(248,231,232))
+        subline(d,subtitle,116,1060,835,ink,27,maxheight=77)
         footer(d,ink,base,n)
     # Variant 5: dramatic centered mono headline with small illustration + motif
     elif variant=="POSTER":
@@ -172,13 +177,13 @@ def render(post, index):
     # Variant 6: bright question card with geometric stickers
     else:
         d.ellipse((790,-180,1290,370),fill=accent)
-        d.ellipse((-230,790,300,1290),outline=accent,width=28)
+        d.ellipse((0,800,220,998),outline=accent,width=22)
         d.text((70,83),"DIE FRAGE DER WOCHE",font=f(31,True),fill=ink)
         d.rounded_rectangle((72,209,420,283),radius=34,fill=accent)
         d.text((94,228),cat[:21],font=f(27,True),fill=(255,255,255))
-        d.ellipse((788,326,1023,562),outline=ink,width=12)
-        d.text((846,330),"?",font=f(152,True),fill=ink)
-        headline(d,title,70,390,900,495,ink,84)
+        d.ellipse((798,201,1003,403),outline=ink,width=12)
+        d.text((854,202),"?",font=f(130,True),fill=ink)
+        headline(d,title,70,449,895,475,ink,81)
         d.rounded_rectangle((68,996,1013,1122),radius=25,fill=accent)
         subline(d,subtitle,99,1026,875,(255,255,255),29,maxheight=100)
         footer(d,ink,base,n)
