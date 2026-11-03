@@ -34,3 +34,4 @@ jobs:
           LEGAL_APPROVED: ${{ vars.LEGAL_APPROVED }}
           ACTION: ${{ github.event_name == 'schedule' && 'publish' || github.event_name == 'push' && 'validate' || inputs.action }}
         run: python3 scripts/autopilot.py "$ACTION"
+# Buffer read-only validation requested 2026-11-03 after key correction
