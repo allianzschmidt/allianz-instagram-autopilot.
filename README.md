@@ -10,11 +10,13 @@
 ## Was schon eingerichtet ist
 
 - `posts.json`: **30 deutschsprachige Entwürfe** über Haftpflicht, Berufsunfähigkeit, Kfz, Hausrat, Wohngebäude, Zahnzusatz, Familie und Beratung in Döbeln. Alle haben `"approved": false`.
-- `scripts/render.py`: generiert passende eigene JPEG-Grafiken in `assets/`, ohne kopierte Allianz-Logos.
+- `scripts/render.py`: erzeugt nun **sechs deutlich unterschiedliche Entwurfs-Layouts** in `assets/`, mit geometrischen Illustrationen statt identischen Textkacheln; keine kopierten Allianz-Logos.
 - `.github/workflows/generate-assets.yml`: erzeugt Grafiken über GitHub Actions und checkt sie in das Repository ein.
 - `scripts/autopilot.py`: sucht **ausschließlich** `@allianzschmidtdoebeln` im Buffer-Konto, prüft die Freigaben, verhindert Wiederholungen bereits bekannter Captions und legt höchstens einen neuen freigegebenen Beitrag pro Werktag in die Buffer-Warteschlange.
 - `.github/workflows/instagram-autopilot.yml`: startet werktags morgens mit `publish`; ohne explizite Freischaltung wird nichts zu Buffer übertragen.
 - `.github/workflows/instagram-weekly.yml`: montags ein technischer Bericht mit Status und den über die persönliche Buffer-API abrufbaren Metriken. Fehlende Daten werden nicht als Null interpretiert.
+
+**Neue Richtung:** Siehe [REDESIGN_30_BEITRAEGE.md](./REDESIGN_30_BEITRAEGE.md) mit 12 Reels, 10 Karussells, 5 echten Agenturfotos und 3 Quiz-Ideen (erst Storyboards, noch keine fertigen Videos). Alte 30 Bildbeiträge bleiben gesperrte Entwürfe.
 
 Aktuell sind **Feed-Bildbeiträge** vorgesehen. **Reels, Stories, Kommentare, DMs, Leads und die automatische Produktion neuer Beiträge** gehören noch nicht zu diesem Paket.
 
