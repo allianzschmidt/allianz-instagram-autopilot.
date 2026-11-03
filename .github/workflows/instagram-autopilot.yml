@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/instagram-autopilot.yml'
+      - 'scripts/autopilot.py'
   schedule:
     - cron: '15 8 * * 1-5'
   workflow_dispatch:
