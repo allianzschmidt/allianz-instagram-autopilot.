@@ -1,0 +1,16 @@
+name: Allianz Instagram - Wochenanalyse
+on:
+  schedule:
+    - cron: '00 9 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  analytics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Buffer-Status und Metriken auswerten
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: python3 scripts/autopilot.py report
