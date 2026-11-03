@@ -17,6 +17,12 @@ def query(gql):
     key = os.getenv("BUFFER_API_KEY", "").strip()
     if not key:
         raise RuntimeError("BUFFER_API_KEY fehlt: GitHub Actions Secret hinterlegen.")
+    if key.startswith("Bearer ") or key.startswith("bearer "):
+        raise RuntimeError("BUFFER_API_KEY muss nur den reinen API-Schlüssel enthalten, nicht den Text Bearer.")
+    try:
+        key.encode("ascii")
+    except UnicodeEncodeError as exc:
+        raise RuntimeError("BUFFER_API_KEY enthält Sonderzeichen. Erneut nur den reinen, unveränderten Schlüssel aus Buffer einfügen; keinen Beschreibungstext.") from exc
     body = json.dumps({"query": gql}, ensure_ascii=False).encode()
     req = urllib.request.Request(
         API, data=body, method="POST",
