@@ -1,5 +1,8 @@
 name: Allianz Instagram - sichere Buffer-Automation
 on:
+  push:
+    paths:
+      - '.github/workflows/instagram-autopilot.yml'
   schedule:
     - cron: '15 8 * * 1-5'
   workflow_dispatch:
@@ -28,5 +31,5 @@ jobs:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
           LEGAL_APPROVED: ${{ vars.LEGAL_APPROVED }}
-          ACTION: ${{ github.event_name == 'schedule' && 'publish' || inputs.action }}
+          ACTION: ${{ github.event_name == 'schedule' && 'publish' || github.event_name == 'push' && 'validate' || inputs.action }}
         run: python3 scripts/autopilot.py "$ACTION"
