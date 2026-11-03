@@ -1,0 +1,302 @@
+[
+  {
+    "id": "AGD01",
+    "category": "Haftpflicht",
+    "title": "Wer bezahlt, wenn du aus Versehen etwas beschädigst?",
+    "subtitle": "Nicht jeder Schaden ist automatisch versichert.",
+    "caption": "Wer bezahlt, wenn du aus Versehen etwas beschädigst?\n\nEine private Haftpflichtversicherung kann berechtigte Schadenersatzforderungen abdecken und unberechtigte Forderungen abwehren. Ob das in deinem Fall gilt, hängt von den Bedingungen ab.\n\n💬 Kennst du deine vereinbarte Versicherungssumme?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD01.jpg"
+  },
+  {
+    "id": "AGD02",
+    "category": "Berufsunfähigkeit",
+    "title": "Dein Einkommen ist mehr wert als dein Handy.",
+    "subtitle": "Was passiert, wenn du länger nicht arbeiten kannst?",
+    "caption": "Dein Einkommen ist mehr wert als dein Handy.\n\nDie Berufsunfähigkeitsversicherung kann eine vereinbarte Rente zahlen, wenn die vertraglichen Voraussetzungen erfüllt sind. Wie hoch der Schutz sein sollte, hängt unter anderem vom Einkommen ab.\n\n💬 Hast du deine monatlichen Fixkosten einmal zusammengerechnet?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD02.jpg"
+  },
+  {
+    "id": "AGD03",
+    "category": "Kfz",
+    "title": "Nur Haftpflicht oder auch Kasko?",
+    "subtitle": "Der Unterschied ist größer als der Preis.",
+    "caption": "Nur Haftpflicht oder auch Kasko?\n\nDie Kfz-Haftpflicht schützt vor berechtigten Ansprüchen anderer. Teil- und Vollkasko betreffen Schäden am eigenen Fahrzeug – je nach gewähltem Versicherungsschutz.\n\n💬 Wie alt ist dein Fahrzeug?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD03.jpg"
+  },
+  {
+    "id": "AGD04",
+    "category": "Hausrat",
+    "title": "Was wäre dein gesamter Hausrat wert?",
+    "subtitle": "Viele unterschätzen die Summe.",
+    "caption": "Was wäre dein gesamter Hausrat wert?\n\nMöbel, Technik, Kleidung und vieles mehr ergeben zusammen einen hohen Wiederbeschaffungswert. Eine Hausratversicherung kann bei vereinbarten Gefahren helfen.\n\n💬 Wie hoch würdest du deinen Hausrat einschätzen?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD04.jpg"
+  },
+  {
+    "id": "AGD05",
+    "category": "Wohngebäude",
+    "title": "Hausrat ist nicht Wohngebäude.",
+    "subtitle": "Eine wichtige Unterscheidung.",
+    "caption": "Hausrat ist nicht Wohngebäude.\n\nVereinfacht gesagt schützt eine Wohngebäudeversicherung das Gebäude, während die Hausratversicherung bewegliche Sachen absichern kann. Bei Einbauten zählt die genaue Vertragsdefinition.\n\n💬 Kennst du den Unterschied?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD05.jpg"
+  },
+  {
+    "id": "AGD06",
+    "category": "Zahnzusatz",
+    "title": "Zahnersatz kann teuer werden.",
+    "subtitle": "Ein Eigenanteil kann überraschen.",
+    "caption": "Zahnersatz kann teuer werden.\n\nEine Zahnzusatzversicherung kann je nach Tarif Eigenanteile reduzieren. Wichtig sind Leistungsgrenzen, Zahnstaffeln und der Umgang mit bereits angeratenen Behandlungen.\n\n💬 Welche Leistungen wären dir besonders wichtig?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD06.jpg"
+  },
+  {
+    "id": "AGD07",
+    "category": "Rechtsschutz",
+    "title": "Recht haben ist nicht immer günstig.",
+    "subtitle": "Welche Kosten entstehen im Streitfall?",
+    "caption": "Recht haben ist nicht immer günstig.\n\nRechtsschutz kann im vereinbarten Umfang Kosten für Anwälte oder Gerichte übernehmen. Nicht jeder Streit und nicht jeder Rechtsbereich ist automatisch eingeschlossen.\n\n💬 Welche Bereiche würdest du absichern wollen?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD07.jpg"
+  },
+  {
+    "id": "AGD08",
+    "category": "Unfall",
+    "title": "Unfallversicherung ist nicht Krankenversicherung.",
+    "subtitle": "Zwei Versicherungen mit unterschiedlichen Aufgaben.",
+    "caption": "Unfallversicherung ist nicht Krankenversicherung.\n\nEine Krankenversicherung deckt medizinische Leistungen im vereinbarten oder gesetzlichen Umfang. Eine private Unfallversicherung kann bei dauerhafter unfallbedingter Invalidität Leistungen erbringen.\n\n💬 Weißt du, welche Unfälle dein Vertrag einschließt?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD08.jpg"
+  },
+  {
+    "id": "AGD09",
+    "category": "Schüler-BU",
+    "title": "Berufsunfähigkeit schon in der Schulzeit?",
+    "subtitle": "Frühzeitig über Möglichkeiten informieren.",
+    "caption": "Berufsunfähigkeit schon in der Schulzeit?\n\nFür Schülerinnen und Schüler gibt es besondere Absicherungskonzepte. Entscheidend sind Tarif, Gesundheitsprüfung und die vertraglichen Bedingungen.\n\n💬 Soll ich erklären, worauf Eltern achten sollten?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD09.jpg"
+  },
+  {
+    "id": "AGD10",
+    "category": "Familie",
+    "title": "Wenn du Familie hast, zählt ein guter Plan.",
+    "subtitle": "Existenzielle Risiken zuerst betrachten.",
+    "caption": "Wenn du Familie hast, zählt ein guter Plan.\n\nMit Kindern oder anderen finanziell abhängigen Personen ändern sich oft die Absicherungsbedürfnisse. Einkommen und Hinterbliebenenschutz verdienen besondere Aufmerksamkeit.\n\n💬 Was wäre für deine Familie finanziell am wichtigsten?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD10.jpg"
+  },
+  {
+    "id": "AGD11",
+    "category": "Mieter",
+    "title": "Mieter: Zwei Versicherungen werden oft verwechselt.",
+    "subtitle": "Haftpflicht und Hausrat erfüllen andere Zwecke.",
+    "caption": "Mieter: Zwei Versicherungen werden oft verwechselt.\n\nDie Haftpflicht kann bei Schäden helfen, für die du anderen gegenüber haftest. Hausrat betrifft versicherte Schäden an deinen eigenen beweglichen Sachen.\n\n💬 Hast du beides schon einmal verglichen?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD11.jpg"
+  },
+  {
+    "id": "AGD12",
+    "category": "Eigenheim",
+    "title": "Eigenheim? Prüfe diese drei Punkte.",
+    "subtitle": "Gebäude, Naturgefahren und Haftung.",
+    "caption": "Eigenheim? Prüfe diese drei Punkte.\n\nBei Wohneigentum lohnt sich der Blick auf Wohngebäude, Elementarschäden und mögliche Haftungsrisiken. Welche Bausteine sinnvoll sind, hängt vom Objekt ab.\n\n💬 Wann wurde dein Gebäudeschutz zuletzt geprüft?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD12.jpg"
+  },
+  {
+    "id": "AGD13",
+    "category": "Erste Wohnung",
+    "title": "Erste eigene Wohnung – was nun?",
+    "subtitle": "Mit wenigen Fragen anfangen.",
+    "caption": "Erste eigene Wohnung – was nun?\n\nDer Umzug in die erste Wohnung ist ein guter Anlass, den eigenen Hausratwert und mögliche Haftungsrisiken zu prüfen.\n\n💬 Bist du gerade umgezogen?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD13.jpg"
+  },
+  {
+    "id": "AGD14",
+    "category": "Kfz",
+    "title": "Gebrauchtwagen gekauft?",
+    "subtitle": "An den Versicherungsschutz denken.",
+    "caption": "Gebrauchtwagen gekauft?\n\nBeim Fahrzeugwechsel sollte rechtzeitig geklärt werden, welcher Versicherungsschutz zum Wert des Autos passt und ab wann er gelten soll.\n\n💬 Kaufst du eher neu oder gebraucht?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD14.jpg"
+  },
+  {
+    "id": "AGD15",
+    "category": "Selbstbeteiligung",
+    "title": "Was bedeutet eigentlich Selbstbeteiligung?",
+    "subtitle": "Nicht nur auf den Beitrag achten.",
+    "caption": "Was bedeutet eigentlich Selbstbeteiligung?\n\nEine Selbstbeteiligung bedeutet, dass du einen vereinbarten Teil eines versicherten Schadens selbst trägst. Im Gegenzug kann der Beitrag niedriger sein.\n\n💬 Wäre dir ein niedriger Beitrag oder eine niedrige Selbstbeteiligung wichtiger?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD15.jpg"
+  },
+  {
+    "id": "AGD16",
+    "category": "Grundlagen",
+    "title": "Was ist eine Versicherungssumme?",
+    "subtitle": "Die Zahl im Vertrag verstehen.",
+    "caption": "Was ist eine Versicherungssumme?\n\nDie Versicherungssumme beschreibt häufig die vereinbarte Obergrenze eines Schutzes. Bei manchen Produkten gelten andere Leistungsregeln; die genaue Definition steht in den Bedingungen.\n\n💬 Wann hast du deine Summen zuletzt geprüft?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD16.jpg"
+  },
+  {
+    "id": "AGD17",
+    "category": "Berufsunfähigkeit",
+    "title": "BU: Nicht erst bei Krankheit nachdenken.",
+    "subtitle": "Gesundheitsfragen sind wichtig.",
+    "caption": "BU: Nicht erst bei Krankheit nachdenken.\n\nBei einem BU-Antrag spielen Gesundheitsangaben und individuelle Risikoprüfung eine wichtige Rolle. Frühzeitig informieren kann helfen, Optionen sorgfältig zu prüfen.\n\n💬 Kennst du die wesentlichen Fragen beim Antrag?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD17.jpg"
+  },
+  {
+    "id": "AGD18",
+    "category": "Haftpflicht",
+    "title": "Schlüssel verloren – und jetzt?",
+    "subtitle": "Nicht jeder Schlüssel ist gleich abgesichert.",
+    "caption": "Schlüssel verloren – und jetzt?\n\nOb ein verlorener fremder Schlüssel und mögliche Folgekosten versichert sind, hängt vom Haftpflichtvertrag und seinen Einschlüssen ab.\n\n💬 Weißt du, ob Schlüsselverlust in deinem Vertrag steht?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD18.jpg"
+  },
+  {
+    "id": "AGD19",
+    "category": "Fahrrad",
+    "title": "Fahrraddiebstahl ist nicht überall gleich versichert.",
+    "subtitle": "Auf Ort und Umfang achten.",
+    "caption": "Fahrraddiebstahl ist nicht überall gleich versichert.\n\nHausrat- und spezielle Fahrradversicherungen können sich deutlich unterscheiden. Relevant sind etwa Versicherungsort, Sicherung und Summen.\n\n💬 Wie sicherst du dein Fahrrad ab?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD19.jpg"
+  },
+  {
+    "id": "AGD20",
+    "category": "Elementarschäden",
+    "title": "Starkregen: Was deckt deine Police?",
+    "subtitle": "Naturgefahren bewusst prüfen.",
+    "caption": "Starkregen: Was deckt deine Police?\n\nÜberschwemmung oder Rückstau können besondere Elementarbausteine erfordern. Die Deckung hängt vom Vertrag und von definierten Voraussetzungen ab.\n\n💬 Ist Elementarschutz bei dir vereinbart?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD20.jpg"
+  },
+  {
+    "id": "AGD21",
+    "category": "Wartezeit",
+    "title": "Wartezeit – warum gibt es sie?",
+    "subtitle": "Ein Begriff, der oft Fragen aufwirft.",
+    "caption": "Wartezeit – warum gibt es sie?\n\nManche Tarife sehen Wartezeiten vor, bevor bestimmte Leistungen beansprucht werden können. Andere Tarife verzichten teilweise darauf.\n\n💬 Prüfst du Wartezeiten vor dem Abschluss?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD21.jpg"
+  },
+  {
+    "id": "AGD22",
+    "category": "Unfall",
+    "title": "Freizeitunfall: Was passiert finanziell?",
+    "subtitle": "Dauerhafte Folgen nicht unterschätzen.",
+    "caption": "Freizeitunfall: Was passiert finanziell?\n\nEin Unfall in der Freizeit kann finanzielle Auswirkungen haben. Eine private Unfallversicherung kann je nach Vertrag bei dauerhafter Invalidität unterstützen.\n\n💬 Welche Absicherung hast du für Freizeitunfälle?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD22.jpg"
+  },
+  {
+    "id": "AGD23",
+    "category": "Beratung",
+    "title": "Persönliche Beratung in Döbeln.",
+    "subtitle": "Menschen statt nur Formulare.",
+    "caption": "Persönliche Beratung in Döbeln.\n\nVersicherungsschutz sollte zu deiner tatsächlichen Lebenssituation passen. In unserer Agentur in Döbeln sprechen wir über Ziele, Risiken und bestehende Verträge.\n\n💬 Welches Versicherungsthema möchtest du verständlich erklärt bekommen?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD23.jpg"
+  },
+  {
+    "id": "AGD24",
+    "category": "Versicherungsmythen",
+    "title": "Mythos: Viel versichert heißt gut versichert.",
+    "subtitle": "Wichtiger als die Anzahl ist der Bedarf.",
+    "caption": "Mythos: Viel versichert heißt gut versichert.\n\nViele Policen sind nicht automatisch besser. Entscheidend sind passende Leistungen, sinnvolle Summen und ein abgestimmtes Konzept.\n\n💬 Wann wurde dein Schutz zuletzt systematisch überprüft?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD24.jpg"
+  },
+  {
+    "id": "AGD25",
+    "category": "Berufsunfähigkeit",
+    "title": "Wie hoch sollte eine BU-Rente sein?",
+    "subtitle": "Die Antwort ist individuell.",
+    "caption": "Wie hoch sollte eine BU-Rente sein?\n\nDie passende Berufsunfähigkeitsrente orientiert sich unter anderem an laufenden Kosten und möglichen anderen Leistungen. Ein pauschaler Betrag passt selten zu allen.\n\n💬 Hast du eine monatliche Zielsumme?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD25.jpg"
+  },
+  {
+    "id": "AGD26",
+    "category": "Fahranfänger",
+    "title": "Fahranfänger: Nur auf den Preis schauen?",
+    "subtitle": "Günstig ist nicht immer passend.",
+    "caption": "Fahranfänger: Nur auf den Preis schauen?\n\nNeben dem Beitrag zählen bei der Kfz-Versicherung Deckungsumfang, Selbstbeteiligung und vereinbarte Zusatzleistungen.\n\n💬 Was wäre dir beim ersten Auto am wichtigsten?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD26.jpg"
+  },
+  {
+    "id": "AGD27",
+    "category": "Wohngebäude",
+    "title": "Umbau geplant? Sag deiner Versicherung Bescheid.",
+    "subtitle": "Veränderungen können wichtig sein.",
+    "caption": "Umbau geplant? Sag deiner Versicherung Bescheid.\n\nGrößere Umbauten oder Nutzungsänderungen können Einfluss auf den Versicherungsschutz haben. Melde solche Vorhaben frühzeitig und kläre den Handlungsbedarf.\n\n💬 Planst du gerade eine Modernisierung?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD27.jpg"
+  },
+  {
+    "id": "AGD28",
+    "category": "Zahnzusatz",
+    "title": "Zahnzusatz: 100 % ist nicht immer alles.",
+    "subtitle": "Bedingungen genau lesen.",
+    "caption": "Zahnzusatz: 100 % ist nicht immer alles.\n\nProzentangaben zur Erstattung beziehen sich auf bestimmte Leistungen und Berechnungsgrundlagen. Grenzen und Leistungsstaffeln können zusätzlich gelten.\n\n💬 Vergleichst du Tarife auch nach den Bedingungen?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD28.jpg"
+  },
+  {
+    "id": "AGD29",
+    "category": "Familie",
+    "title": "Kinder und Haftpflicht: Ein wichtiger Unterschied.",
+    "subtitle": "Auf Deliktsfähigkeit und Bedingungen achten.",
+    "caption": "Kinder und Haftpflicht: Ein wichtiger Unterschied.\n\nBei Schäden durch Kinder kommt es unter anderem auf das Alter, die Haftungsvoraussetzungen und den vertraglichen Schutz an. Manche Policen haben besondere Regelungen.\n\n💬 Weißt du, was dein Familientarif vorsieht?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD29.jpg"
+  },
+  {
+    "id": "AGD30",
+    "category": "Versicherungscheck",
+    "title": "Versicherungscheck: Drei Fragen zum Start.",
+    "subtitle": "Einfach und strukturiert überprüfen.",
+    "caption": "Versicherungscheck: Drei Fragen zum Start.\n\nWas hat sich in deinem Leben verändert? Welche Risiken wären finanziell schwer zu tragen? Wo bestehen unklare Leistungen oder doppelte Absicherungen? Ein gemeinsamer Blick hilft beim Sortieren.\n\n💬 Welche dieser Fragen beschäftigt dich aktuell?\n\nAllgemeine Information, keine individuelle Leistungszusage. Maßgeblich sind Vertrag und Bedingungen.\n\n#Versicherung #Döbeln #Mittelsachsen #Versicherungswissen",
+    "approved": false,
+    "format": "POST",
+    "asset": "assets/AGD30.jpg"
+  }
+]
