@@ -38,6 +38,12 @@ def wrap(draw, text, font, width):
     if current: lines.append(current)
     return lines
 
+def label_font(draw,text,maxw,base=27):
+    size=base
+    while size>17 and draw.textbbox((0,0),text,font=f(size,True))[2]>maxw:
+        size-=1
+    return f(size,True)
+
 def headline(draw, text, x, y, maxw, maxh, color, starting=82, align="left"):
     size=starting
     while size>=34:
@@ -113,7 +119,7 @@ def render(post, index):
         d.rectangle((0,0,W,18),fill=accent)
         d.text((74,80),"VERSICHERUNGSWISSEN",font=f(35,True),fill=accent)
         d.rounded_rectangle((72,178,365,243),radius=30,fill=accent)
-        d.text((94,197),cat[:21],font=f(24,True),fill=base)
+        d.text((94,197),cat[:21],font=label_font(d,cat[:21],242,24),fill=base)
         d.ellipse((839,282,1065,518),fill=(26,66,93))
         icon(d,post["category"],952,394,69,accent,ink)
         y=headline(d,title,72,320,735,520,ink,77)
@@ -126,7 +132,7 @@ def render(post, index):
         d.rectangle((540,0,W,H),fill=accent)
         d.text((70,90),"SCHMIDT / DÖBELN",font=f(29,True),fill=ink)
         d.rounded_rectangle((68,208,482,277),radius=22,fill=accent)
-        d.text((90,225),cat[:20],font=f(25,True),fill=base)
+        d.text((90,225),cat[:20],font=label_font(d,cat[:20],370,25),fill=base)
         icon(d,post["category"],807,550,235,base,ink)
         headline(d,title,70,365,455,680,ink,68)
         d.rectangle((55,1080,1025,1162),fill=ink)
@@ -151,7 +157,7 @@ def render(post, index):
             d.line((90,yy,982,yy),fill=(221,232,243),width=3)
         d.text((94,96),"CHECKLISTE  •  VERSICHERUNGEN",font=f(29,True),fill=ink)
         d.rounded_rectangle((88,204,385,274),radius=14,fill=accent)
-        d.text((112,223),cat[:21],font=f(24,True),fill=(255,255,255))
+        d.text((112,223),cat[:21],font=label_font(d,cat[:21],245,24),fill=(255,255,255))
         headline(d,title,95,360,830,475,ink,75)
         for j,check in enumerate(("WAS IST WICHTIG?","WAS DECKT MEIN VERTRAG?","PASST DIE ABSICHERUNG?")):
             yy=755+j*78
@@ -180,7 +186,7 @@ def render(post, index):
         d.ellipse((0,800,220,998),outline=accent,width=22)
         d.text((70,83),"DIE FRAGE DER WOCHE",font=f(31,True),fill=ink)
         d.rounded_rectangle((72,209,420,283),radius=34,fill=accent)
-        d.text((94,228),cat[:21],font=f(27,True),fill=(255,255,255))
+        d.text((94,228),cat[:21],font=label_font(d,cat[:21],299,27),fill=(255,255,255))
         d.ellipse((798,201,1003,403),outline=ink,width=12)
         d.text((854,202),"?",font=f(130,True),fill=ink)
         headline(d,title,70,449,895,475,ink,81)
