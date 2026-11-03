@@ -1,0 +1,32 @@
+name: Allianz Instagram - sichere Buffer-Automation
+on:
+  schedule:
+    - cron: '15 8 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "validate, publish oder report"
+        required: true
+        default: validate
+        type: choice
+        options:
+          - validate
+          - publish
+          - report
+permissions:
+  contents: read
+concurrency:
+  group: allianz-buffer
+  cancel-in-progress: false
+jobs:
+  autopilot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Buffer sicher pruefen oder planen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
+          LEGAL_APPROVED: ${{ vars.LEGAL_APPROVED }}
+          ACTION: ${{ github.event_name == 'schedule' && 'publish' || inputs.action }}
+        run: python3 scripts/autopilot.py "$ACTION"
