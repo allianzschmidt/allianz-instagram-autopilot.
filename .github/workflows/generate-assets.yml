@@ -1,5 +1,8 @@
 name: Allianz Instagram - Grafiken erzeugen
 on:
+  push:
+    paths:
+      - README.md
   workflow_dispatch:
   schedule:
     - cron: '30 7 * * 1-5'
