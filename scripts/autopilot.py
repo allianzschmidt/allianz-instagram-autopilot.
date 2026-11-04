@@ -113,7 +113,16 @@ def do_publish(drafts):
     if outstanding >= 9:  # Buffer Free: maximal 10 geplante Beiträge
         note("⏸️ Buffer-Warteschlange voll oder fast voll; kein weiterer Beitrag.")
         return
-    eligible = [p for p in drafts if p["approved"] is True and p["caption"] not in already]
+    # Verbindliche Logo-Sperre: Eine individuelle Sichtprüfung jedes finalen
+    # Bildes/Videos ist nötig. Ein allgemeines Agentur-OK reicht NICHT aus.
+    # Selbst bei approved=true bleibt ein nicht gesondert geprüftes Medium gesperrt.
+    for p in drafts:
+        if p.get("approved") is True and p.get("logo_free_verified") is not True:
+            raise RuntimeError("LOGO-STOPP: Freigegebener Beitrag ohne bestätigte Prüfung auf sämtliche Allianz-Logos: " + p.get("id", "unbekannt"))
+        asset = p.get("asset", "").lower()
+        if "website_previews" in asset or "agency.jpg" in asset:
+            raise RuntimeError("LOGO-STOPP: Agenturfotos mit sichtbaren Logos sind generell ausgeschlossen.")
+    eligible = [p for p in drafts if p["approved"] is True and p.get("logo_free_verified") is True and p["caption"] not in already]
     if not eligible:
         note("⏸️ Keine individuell freigegebenen neuen Beiträge.")
         return
