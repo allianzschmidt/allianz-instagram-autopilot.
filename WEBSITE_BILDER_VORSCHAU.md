@@ -14,11 +14,9 @@ Der Nutzer möchte in Bild-, Story-, Reel- und Karussellbeiträgen **nur sein am
 
 Das Foto ist in diesem Chat vorhanden und wurde für den Upload nach GitHub als `paul_schmidt.jpg` vorbereitet. Für den automatischen Renderer muss es in diesem Repository unter `assets/portrait/paul_schmidt.jpg` hochgeladen werden.
 
-## Bereits verwendetes echtes Agenturfoto
+## Bisheriges Agenturfoto ausgeschlossen
 
-![Empfangsbereich – noch nicht veröffentlichter Entwurf](assets/website_previews/agency.jpg)
-
-Quelle: [Döbelner Firmenverzeichnis](https://mein-doebeln.de/firma/Versicherung). Vor einer Instagram-Veröffentlichung sind Bildrechte und Allianz-Markenfreigabe zu klären.
+Die ehemalige Empfangsaufnahme und ihre Vorlage wurden aus den aktiven Materialien entfernt. Ihre sichtbare Firmenmarkierung ist mit der neuen Vorgabe unvereinbar. Weitere Fotografien dürfen nur ohne sichtbare Logos genutzt werden. Siehe [verbindliche Regel](./KEINE_ALLIANZ_LOGOS.md).
 
 ## Vorbereiteter Porträt-Workflow
 
