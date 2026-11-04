@@ -4,12 +4,14 @@
   "person_policy": {
     "only_person": "Paul Schmidt",
     "allowed_person_image": "assets/portrait/paul_schmidt.jpg",
-    "source": "Vom Nutzer am 04.11.2026 in ChatGPT hochgeladenes eigenes Porträt; als Datei im Repository noch einzupflegen",
+    "source": "Vom Nutzer hochgeladenes eigenes Porträt. Datenschutzbewusst komprimierte Vorschaukopie (300 × 299 px) am 04.11.2026 unter assets/portrait/paul_schmidt.jpg ins öffentliche Repository übernommen; Originaldatei liegt weiterhin im Chat.",
     "prohibit_other_people": true,
     "prohibit_synthetic_people": true,
     "prohibit_synthetic_speech_or_lipsync": true,
     "forbid_other_staff_portraits": true,
-    "must_not_publish_unapproved": true
+    "must_not_publish_unapproved": true,
+    "upload_completed": true,
+    "github_preview_resolution": "300x299"
   },
   "assets": [
     {
