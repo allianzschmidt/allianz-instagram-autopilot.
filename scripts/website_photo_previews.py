@@ -1,4 +1,4 @@
-"""Sechs öffentliche Website-Fotomotive als NICHT FREIGEGEBENE Instagram-Vorschau gestalten.
+"""Nur menschenleere Agentur-/Raumfotos als NICHT FREIGEGEBENE Instagram-Vorschau gestalten.
 
 Quelle: website_media.json. Es werden keine Bilder generiert oder Personen erfunden.
 Bilder bleiben ENTWURF und werden von Buffer nicht automatisch veröffentlicht.
@@ -92,6 +92,9 @@ def main():
         raise RuntimeError("Bildgenerator erzeugt ausschließlich Entwürfe; kein Veröffentlichungsflag setzen")
     OUTPUT.mkdir(parents=True,exist_ok=True)
     successful=0
+    for item in config["assets"]:
+        if item.get("kind") == "person" or item.get("id") != "agency":
+            raise RuntimeError("Andere Personenbilder sind gesperrt. Nur Pauls eigenes lokal hinterlegtes Porträt ist erlaubt.")
     for i,item in enumerate(config["assets"]):
         try:
             make(item,i)
