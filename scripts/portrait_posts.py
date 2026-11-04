@@ -102,7 +102,7 @@ def preview(photo,item,index):
    d.text((135,yy+5),txt,font=font(28,True),fill=INK)
   d.text((64,1148),item["subtitle"],font=font(31,True),fill=INK)
  d.line((55,1260,1022,1260),fill=GOLD,width=4)
- d.text((65,1282),"@allianzschmidtdoebeln  ·  ENTWURF",font=font(24),fill=WHITE if index in (0,1,3) else INK)
+ d.text((65,1282),"@allianzschmidtdoebeln  ·  ENTWURF",font=font(24),fill=WHITE if index in (0,3) else INK)
  dest=OUT/("paul_"+item["id"]+".jpg")
  im.save(dest,"JPEG",quality=92,optimize=True)
  print(dest)
