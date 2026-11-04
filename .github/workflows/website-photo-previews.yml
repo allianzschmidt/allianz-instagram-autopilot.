@@ -1,0 +1,31 @@
+name: Allianz Website-Fotos – geschützte Entwürfe
+on:
+  push:
+    paths:
+      - 'website_media.json'
+      - 'scripts/website_photo_previews.py'
+      - '.github/workflows/website-photo-previews.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: allianz-photo-previews
+  cancel-in-progress: false
+jobs:
+  build-previews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pillow installieren
+        run: python3 -m pip install --user Pillow
+      - name: Originalfotos laden und Entwürfe erstellen
+        run: python3 scripts/website_photo_previews.py
+      - name: Ausschließlich Entwürfe einchecken
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/website_previews/
+          if ! git diff --cached --quiet; then
+            git commit -m "Add authentic website-photo drafts (not approved for publishing)"
+            git push
+          fi
