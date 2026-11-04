@@ -27,5 +27,7 @@ jobs:
           git add assets/portrait_cards/
           if ! git diff --cached --quiet; then
             git commit -m "Create five non-published Instagram drafts from Paul's photo"
-            git push
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
           fi
