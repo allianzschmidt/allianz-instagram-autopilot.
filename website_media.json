@@ -1,0 +1,66 @@
+{
+  "description": "Quellen für Entwurfs-Grafiken; Rechte/Einwilligungen vor Social-Media-Veröffentlichung prüfen. Von der offiziellen Allianz-Agenturseite und Döbelner Firmenportal.",
+  "publication_approved": false,
+  "assets": [
+    {
+      "id": "agency",
+      "label": "Unsere Agentur in Döbeln",
+      "role": "Empfang und Beratung",
+      "src": "https://www.mein-doebeln.de/img/firmen/image_fotos/orig/B-ro_2.jpg",
+      "source_page": "https://mein-doebeln.de/firma/Versicherung",
+      "kind": "location",
+      "concept": "Willkommen bei uns in der Leipziger Straße 4a. Persönliche Beratung vor Ort, digital und telefonisch.",
+      "warning": "Das Bild stammt aus einem Stadtportal. Vor werblicher Wiederverwendung Bildrechte überprüfen."
+    },
+    {
+      "id": "ralf",
+      "label": "Ralf Schmidt",
+      "role": "Agenturinhaber",
+      "src": "https://vertretung.allianz.de/ralf.schmidt2/homepage/_jcr_content/root/parsys/teamoverview/teamMemberAvatar_246b864c-7580-49a6-bed6-0a5b67ed7f2b.img.82.3360.jpeg/1741605793654/teammemberavatar-246b864c-7580-49a6-bed6-0a5b67ed7f2b.jpeg",
+      "source_page": "https://vertretung.allianz.de/ralf.schmidt2/",
+      "kind": "person",
+      "concept": "Das Team kennenlernen: Ralf Schmidt, Agenturinhaber. Seit 1996 ist die Generalvertretung in Döbeln aktiv.",
+      "warning": "Personenbild/Arbeitnehmer-Einwilligung und Allianz-Werbefreigabe prüfen."
+    },
+    {
+      "id": "anja",
+      "label": "Anja Sonnenberg",
+      "role": "Kundenberaterin",
+      "src": "https://vertretung.allianz.de/ralf.schmidt2/homepage/_jcr_content/root/parsys/teamoverview/teamMemberAvatar_3b6d384c-33f9-4902-adf2-2363d78fde9b.img.82.3360.jpeg/1741605793334/teammemberavatar-3b6d384c-33f9-4902-adf2-2363d78fde9b.jpeg",
+      "source_page": "https://vertretung.allianz.de/ralf.schmidt2/",
+      "kind": "person",
+      "concept": "Kundenberatung bei der Agentur Schmidt: Heute stellen wir Anja Sonnenberg vor.",
+      "warning": "Personenbild/Arbeitnehmer-Einwilligung und Allianz-Werbefreigabe prüfen."
+    },
+    {
+      "id": "kerstin",
+      "label": "Kerstin Zimmermann",
+      "role": "Büroleiterin",
+      "src": "https://vertretung.allianz.de/ralf.schmidt2/homepage/_jcr_content/root/parsys/teamoverview/teamMemberAvatar_d21f6b69-e1cf-4e8e-9872-66a285733b0f.img.82.3360.jpeg/1741605792992/teammemberavatar-d21f6b69-e1cf-4e8e-9872-66a285733b0f.jpeg",
+      "source_page": "https://vertretung.allianz.de/ralf.schmidt2/",
+      "kind": "person",
+      "concept": "Teamvorstellung: Kerstin Zimmermann, Büroleiterin – Menschen, die in Döbeln persönlich erreichbar sind.",
+      "warning": "Personenbild/Arbeitnehmer-Einwilligung und Allianz-Werbefreigabe prüfen."
+    },
+    {
+      "id": "paul",
+      "label": "Paul Schmidt",
+      "role": "Kundenberater",
+      "src": "https://vertretung.allianz.de/ralf.schmidt2/homepage/_jcr_content/root/parsys/teamoverview/teamMemberAvatar_5147109d-833f-4e95-b182-74480cfb4d02.img.82.3360.jpeg/1741605793330/teammemberavatar-5147109d-833f-4e95-b182-74480cfb4d02.jpeg",
+      "source_page": "https://vertretung.allianz.de/ralf.schmidt2/",
+      "kind": "person",
+      "concept": "Ein Gesicht hinter unserer Beratung: Paul Schmidt, Kundenberater in Döbeln. Was möchtest du zum Thema Versicherungen wissen?",
+      "warning": "Personenbild/Arbeitnehmer-Einwilligung und Allianz-Werbefreigabe prüfen."
+    },
+    {
+      "id": "simone",
+      "label": "Simone Schmidt",
+      "role": "Büroangestellte",
+      "src": "https://vertretung.allianz.de/ralf.schmidt2/homepage/_jcr_content/root/parsys/teamoverview/teamMemberAvatar_351e815b-6914-41e2-9e04-8453fb9605de.img.82.3360.jpeg/1741605793408/teammemberavatar-351e815b-6914-41e2-9e04-8453fb9605de.jpeg",
+      "source_page": "https://vertretung.allianz.de/ralf.schmidt2/",
+      "kind": "person",
+      "concept": "Menschen hinter der Agentur: Simone Schmidt aus unserem Büroteam.",
+      "warning": "Personenbild/Arbeitnehmer-Einwilligung und Allianz-Werbefreigabe prüfen."
+    }
+  ]
+}
