@@ -68,12 +68,12 @@ def preview(photo,item,index):
   im.paste(pic,(x+(pw-pic.width)//2,y+(ph-pic.height)//2))
   d=ImageDraw.Draw(im)
   if layout=="bottom":
-   d.text((70,72),"FRAG PAUL  •  ALLIANZ DÖBELN",font=font(31,True),fill=GOLD)
+   d.text((70,72),"FRAG PAUL  •  DÖBELN",font=font(31,True),fill=GOLD)
    title_text(d,item["title"],(78,180,910,155),WHITE,64)
    d.rectangle((44,1050,1032,1219),fill=BLUE)
    d.text((78,1088),item["subtitle"],font=font(30),fill=WHITE)
   else:
-   d.text((72,68),"ALLIANZ AGENTUR SCHMIDT  ·  DÖBELN",font=font(28,True),fill=GOLD)
+   d.text((72,68),"SCHMIDT  ·  VERSICHERUNGSBERATUNG DÖBELN",font=font(28,True),fill=GOLD)
    d.rectangle((45,900,1037,1165),fill=NAVY if layout=="editorial" else BLUE)
    title_text(d,item["title"],(72,932,930,155),WHITE,61)
    d.text((77,1128),item["subtitle"],font=font(26),fill=CREAM)
