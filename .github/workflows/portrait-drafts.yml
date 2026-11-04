@@ -27,7 +27,16 @@ jobs:
           git add assets/portrait_cards/
           if ! git diff --cached --quiet; then
             git commit -m "Create five non-published Instagram drafts from Paul's photo"
-            git fetch origin main
-            git rebase origin/main
-            git push origin HEAD:main
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                echo "Entwuerfe gespeichert."
+                exit 0
+              fi
+              echo "Zwischenzeitliche GitHub-Aenderung; versuche erneut."
+              sleep 3
+            done
+            echo "Push nach mehrfachen Konflikten fehlgeschlagen."
+            exit 1
           fi
