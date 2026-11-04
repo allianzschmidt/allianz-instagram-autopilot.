@@ -1,0 +1,29 @@
+name: Allianz – fünf persönliche Fotoentwürfe
+on:
+  push:
+    paths:
+      - 'assets/portrait/paul_schmidt.jpg'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: allianz-portrait-drafts
+  cancel-in-progress: false
+jobs:
+  create-drafts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pillow installieren
+        run: python3 -m pip install --user Pillow
+      - name: Einziges erlaubtes Personenfoto prüfen und Entwürfe erstellen
+        run: python3 scripts/portrait_posts.py
+      - name: Neue Entwürfe speichern, nicht veröffentlichen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/portrait_cards/
+          if ! git diff --cached --quiet; then
+            git commit -m "Create five non-published Instagram drafts from Paul's photo"
+            git push
+          fi
