@@ -1,5 +1,7 @@
 # Instagram-Autopilot – Allianz Schmidt Döbeln
 
+> **NEUER CONTENT-SCHWERPUNKT:** Ab 05.11.2026 ist die Informationskampagne zur Altersvorsorgereform 2027 mit einem eigenen Reel, einem Premium-Karussell und Stories geplant. [Fakten, Termine und Freigabestatus](./KAMPAGNE_ALTERSVORSORGEDEPOT_2027.md). Sie ist **noch nicht in Buffer eingeplant und nicht freigegeben**. Keine Logos, nur Pauls Originalporträt als Personenmotiv.
+
 **Instagram:** [@allianzschmidtdoebeln](https://www.instagram.com/allianzschmidtdoebeln/)  
 
 **ABSOLUTES LOGO-VERBOT:** Keine Allianz-Logos oder sonstige grafische Allianz-Markenzeichen in Bildern, Reels, Stories, Hintergründen, Dokumenten oder am Gebäude. Auch frühere Fotovorlagen mit Logo sind ausgeschlossen. [Verbindliche Richtlinie](./KEINE_ALLIANZ_LOGOS.md). Vor Buffer-Einplanung muss jeder einzelne Beitrag zusätzlich ausdrücklich `logo_free_verified: true` haben. Ohne Nachweis stoppt das System.
