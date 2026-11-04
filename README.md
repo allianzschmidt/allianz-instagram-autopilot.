@@ -16,7 +16,9 @@
 - `.github/workflows/instagram-autopilot.yml`: startet werktags morgens mit `publish`; ohne explizite Freischaltung wird nichts zu Buffer übertragen.
 - `.github/workflows/instagram-weekly.yml`: montags ein technischer Bericht mit Status und den über die persönliche Buffer-API abrufbaren Metriken. Fehlende Daten werden nicht als Null interpretiert.
 
-**Neue Richtung:** Siehe [REDESIGN_30_BEITRAEGE.md](./REDESIGN_30_BEITRAEGE.md) mit 12 Reels, 10 Karussells, 5 echten Agenturfotos und 3 Quiz-Ideen (erst Storyboards, noch keine fertigen Videos). Alte 30 Bildbeiträge bleiben gesperrte Entwürfe.
+**Neue Richtung:** Siehe [REDESIGN_30_BEITRAEGE.md](./REDESIGN_30_BEITRAEGE.md) mit 12 Reels, 10 Karussells, 5 echten Agentur-/Döbeln-/Porträtbeiträgen und 3 Quiz-Ideen (erst Storyboards, noch keine fertigen Videos). Alte 30 Bildbeiträge bleiben gesperrte Entwürfe.
+
+**VERBINDLICHE PERSONENREGEL (04.11.2026):** In allen Inhalten mit Menschen ausschließlich das vom Nutzer hochgeladene Foto von **Paul Schmidt** benutzen. Keine anderen Mitarbeitenden, Modelle, Familien, Kunden, Stock-Personen, KI-Gesichter oder synthetischen Paul-Videos. Alternative Motive müssen vollständig personenfrei sein. Datei für automatisches Rendern: `assets/portrait/paul_schmidt.jpg` (noch nicht ins Repo hochgeladen). Ein Workflow erzeugt nach Upload fünf Portrait-Beitragsentwürfe, **keine** Veröffentlichungen.
 
 Aktuell sind **Feed-Bildbeiträge** vorgesehen. **Reels, Stories, Kommentare, DMs, Leads und die automatische Produktion neuer Beiträge** gehören noch nicht zu diesem Paket.
 
