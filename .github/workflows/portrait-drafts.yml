@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - 'assets/portrait/paul_schmidt.jpg'
+      - 'scripts/portrait_posts.py'
+      - '.github/workflows/portrait-drafts.yml'
   workflow_dispatch:
 permissions:
   contents: write
