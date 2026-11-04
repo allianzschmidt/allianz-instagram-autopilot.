@@ -1,36 +1,37 @@
-# Authentische Bilder der Allianz-Agentur Schmidt Döbeln
+# Agenturfotos für Instagram – ausschließlich erlaubte Personenbilder
 
-**Quellen:** [Offizielle Allianz-Agenturseite](https://vertretung.allianz.de/ralf.schmidt2/) und [Döbelner Firmenverzeichnis](https://mein-doebeln.de/firma/Versicherung)  
-**Status:** Vorschauentwürfe, **nicht** zur Veröffentlichung freigegeben.
+**Account:** @allianzschmidtdoebeln  
+**Stand:** 04.11.2026  
+**Status:** Entwürfe, noch nicht zur Veröffentlichung freigegeben.
 
-## 1. Bereits technisch verarbeitet: Empfangsbereich
+## Verbindliche Personenregel
 
-![Entwurf mit dem tatsächlichen Empfangsbereich](assets/website_previews/agency.jpg)
+Der Nutzer möchte in Bild-, Story-, Reel- und Karussellbeiträgen **nur sein am 04.11.2026 hochgeladenes Porträt** als Personenmotiv verwenden.
 
-Das öffentlich zugängliche Agenturfoto zeigt den Empfang mit der Allianz-Wand. **Dieser Entwurf kann nach Klärung der Bildrechte und der Agenturwerbevorgaben weiterentwickelt werden.** Quelle: Stadtmarketing Döbeln, `B-ro_2.jpg`.
+- Erlaubt: Nur das persönliche Nutzerporträt von **Paul Schmidt**.
+- Nicht erlaubt: andere Teammitglieder, Kunden, Familienmodelle, Stock-Personen, künstlich erzeugte Menschen, synthetische Talking-Head-Videos und künstliche Lippenbewegungen.
+- Sach- und Ortsfotos bleiben möglich, sofern keine anderen Personen im Bild sichtbar sind und die erforderlichen Nutzungsrechte vorliegen.
 
-## 2. Auf der Website gefundene Portraitquellen (nicht automatisch abrufbar)
+Das Foto ist in diesem Chat vorhanden und wurde für den Upload nach GitHub als `paul_schmidt.jpg` vorbereitet. Für den automatischen Renderer muss es in diesem Repository unter `assets/portrait/paul_schmidt.jpg` hochgeladen werden.
 
-Auf der offiziellen Website werden folgende Ansprechpartner mit jeweils einem Porträtbild gezeigt:
+## Bereits verwendetes echtes Agenturfoto
 
-- Ralf Schmidt – Agenturinhaber
-- Anja Sonnenberg – Kundenberaterin
-- Kerstin Zimmermann – Büroleiterin
-- Paul Schmidt – Kundenberater
-- Simone Schmidt – Büroangestellte
+![Empfangsbereich – noch nicht veröffentlichter Entwurf](assets/website_previews/agency.jpg)
 
-Die Quell-URLs sind in [website_media.json](website_media.json) dokumentiert. Der technische Direktabruf liefert derzeit für alle fünf Allianz-Porträts **HTTP 403 Forbidden**. Deshalb wurden diese Bilder **nicht kopiert, nicht ersetzt und nicht öffentlich veröffentlicht**.
+Quelle: [Döbelner Firmenverzeichnis](https://mein-doebeln.de/firma/Versicherung). Vor einer Instagram-Veröffentlichung sind Bildrechte und Allianz-Markenfreigabe zu klären.
 
-**Praktische Alternative:** Die Agentur kann die bereits vorhandenen Originaldateien aus ihrer Website-Mediathek oder dem eigenen Bildarchiv bereitstellen. Ein freigegebener Datei-Upload ist deutlich zuverlässiger als Web-Hotlinking. Für Mitarbeiterfotos ist die Einwilligung zur Nutzung in Social Media erforderlich.
+## Vorbereiteter Porträt-Workflow
 
-## 3. Konkrete Posts mit Agenturmaterial
+Nach Upload von `assets/portrait/paul_schmidt.jpg` erstellt `scripts/portrait_posts.py` fünf persönlich gestaltete **unveröffentlichte** Entwurfs-Cover:
 
-1. **Willkommen bei Allianz Schmidt Döbeln** – Empfangsfoto + authentischer Einblick, Kontaktmöglichkeit über Profil.
-2. **Das Team kennenlernen** – echte Porträts, korrekte Namen und Funktionen, kein KI-generiertes Team.
-3. **Einblicke in die Beratung** – echte Agenturräume, kein nachgestellter Kundenkontakt.
-4. **Döbeln und Region** – belegte lokale Aktivitäten, z. B. der auf der Agenturseite erwähnte Eisfußball-Erfolg, nur mit autorisierten Bildern.
-5. **Versicherungswissen mit echten Ansprechpartnern** – Karussells mit fachlichen Infos und freigegebenen Teamfotos.
+1. Persönlich für dich da.
+2. Wer schützt eigentlich dein Einkommen?
+3. Drei Fragen vor jedem Versicherungsabschluss.
+4. Deine Fragen. Verständliche Antworten.
+5. Nicht irgendein Vertrag. Sondern der passende.
 
-## Veröffentlichungsschutz
+Alle werden ausschließlich aus dem hochgeladenen Foto und grafischen Formen/Typografie erzeugt. Ein automatisches Veröffentlichen ist in diesem Workflow nicht möglich.
 
-Alle Beiträge und Medien verbleiben Entwürfe. Die vorhandenen 30 früheren Posts in `posts.json` stehen auf `approved:false`; außerdem ist die Veröffentlichung in GitHub nur nach expliziter Agenturfreigabe und Aktivierung möglich. Vor Nutzung der Teamfotos müssen Bild-/Persönlichkeitsrechte und Allianz-Werberichtlinien geklärt werden.
+## Umsetzung
+
+Bitte zuerst fachliche Freigabe, Nutzungsrechte und Allianz-Werbevorgaben prüfen. Die bisherigen 30 Standard-Posts bleiben als Entwürfe mit `approved: false` gesperrt.
