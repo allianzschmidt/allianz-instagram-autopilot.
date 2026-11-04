@@ -2,14 +2,16 @@
 
 Account: **@allianzschmidtdoebeln**. KONZEPT UND SKRIPTE, **nicht** veröffentlichte oder freigegebene Medien.
 
-Die 30 alten, nahezu identischen Textkacheln bleiben im Repository als ausdrücklich **nicht freigegebene** Entwürfe (alle `approved: false`). Dieses Dokument ist die **neue kreative Richtung**. Ein vollständiger automatischer Video-/Story-/Karussell-Renderer und die Einzelmedien sind hierfür noch nicht erstellt. Fotos von echten Mitarbeitenden/der Agentur sind vor Veröffentlichung erforderlich; KI-Beispielfotos dürfen nicht als echtes Team ausgegeben werden.
+Die 30 alten, nahezu identischen Textkacheln bleiben im Repository als ausdrücklich **nicht freigegebene** Entwürfe (alle `approved: false`). Dieses Dokument ist die **neue kreative Richtung**. Ein vollständiger automatischer Video-/Story-/Karussell-Renderer und die Einzelmedien sind hierfür noch nicht erstellt. PERSONENREGEL: In sämtlichen Bildern, Reels, Story-Vorlagen und Karussells darf ausschließlich das vom Nutzer hochgeladene Porträt von Paul Schmidt vorkommen. Keine anderen Personen, auch nicht als Stock-Fotografie, Teamfotos, Kunden, Familienmodelle, Schauspieler oder KI-Gesichter. Für zusätzliche Motive sind Agenturräume ohne Menschen, Objekte, Autos, Gebäude, Icons und Typografie vorgesehen. Das Porträt muss noch unter `assets/portrait/paul_schmidt.jpg` sicher bereitgestellt werden.
 
 ## Formatmix
 
 - 12 Reels mit kurzen Szenen und starken Einstiegen
 - 10 Karussells mit konkreten Learnings und 4–5 Slides
-- 5 echte Agentur-/Döbeln-Fotobeiträge (nur mit Originalfotos und Rechten)
+- 5 echte Agentur-/Döbeln-/Porträtbeiträge (ausschließlich Paul oder keine Menschen, nur mit gesicherten Bildrechten)
 - 3 interaktive Quiz-Posts plus tägliche Stories auf Basis von Fragen, Umfragen, Blick hinter die Kulissen
+
+**Verbindliche Bildregel:** Auch auf Symbolbildern dürfen keine echten oder KI-generierten anderen Personen auftreten. Reels ohne Videoaufnahme von Paul dürfen nur mit Text, Gegenständen, Fotos von Räumen ohne Menschen und abstrakten Illustrationen gestaltet werden.
 
 Jede Caption erhält vor Veröffentlichung sachliche Prüfung, einheitliche Signatur, spezifischen CTA und nur passende Hashtags. Keine ungesicherten Produktversprechen und keine erfundenen Testimonials. Schrift, Logos und Markengestaltung ausschließlich nach Allianz-Freigaben.
 
@@ -19,7 +21,7 @@ Jede Caption erhält vor Veröffentlichung sachliche Prüfung, einheitliche Sign
 **Storyboard/Slides:** Selfie-Video: 'Welche Versicherung brauchst du wirklich?' → Haftpflicht als Existenzrisiko → Einkommensschutz individuell prüfen → weitere Risiken nach Lebenssituation
 **CTA:** Kommentiere CHECK für eine allgemeine Checkliste
 **Visuelle Richtung:** Helles Talking-Head-Video, gelbe Stichwort-Popups
-**Produktion/Freigabe:** Video: echte Person oder neutrale Animation
+**Produktion/Freigabe:** Nur Paul selbst, sein unverändertes Foto mit animierten Texteinblendungen oder eine vollständig menschenfreie Animation; kein künstlicher Talking Head
 
 ### 02. Haftpflicht vs. Hausrat: Der Unterschied in 5 Bildern (CAROUSEL)
 **Storyboard/Slides:** Slide 1: Dein Fahrrad beschädigt eine fremde Tür; Slide 2: Dein Sofa wird durch einen versicherten Leitungswasserschaden beschädigt; Slide 3: fremdes Eigentum → Haftpflicht; Slide 4: eigener Hausrat → Hausrat; Slide 5: Vertrag und Ausschlüsse prüfen
@@ -79,7 +81,7 @@ Jede Caption erhält vor Veröffentlichung sachliche Prüfung, einheitliche Sign
 **Storyboard/Slides:** Echter Arbeitsplatz: Begrüßung → Bestandsaufnahme → Prioritäten → individuelle Optionen
 **CTA:** Unverbindliche Anfrage über den Profilkontakt
 **Visuelle Richtung:** Echter Beratungsplatz, freundliche Fotografie
-**Produktion/Freigabe:** Originalfoto und Agenturfreigabe
+**Produktion/Freigabe:** Foto des Arbeitsplatzes ohne andere Personen oder Pauls eigenes Foto; Agenturfreigabe erforderlich
 
 ### 12. Vollkasko, Teilkasko oder nur Haftpflicht? (CAROUSEL)
 **Storyboard/Slides:** Fünf Karten: gesetzlich vorgeschriebene Haftpflicht; Teilkasko typische Gefahren abhängig vom Vertrag; Vollkasko weitere Schäden abhängig vom Tarif; Selbstbeteiligung; individuelle Entscheidung
@@ -148,10 +150,10 @@ Jede Caption erhält vor Veröffentlichung sachliche Prüfung, einheitliche Sign
 **Produktion/Freigabe:** Sachlich und nachprüfbar
 
 ### 23. Ein Blick hinter die Kulissen (AGENTURFOTO)
-**Storyboard/Slides:** Echte Aufnahme vom Team/Arbeitsalltag mit Zustimmung; was Kunden beim Termin erwartet
+**Storyboard/Slides:** Echtes Foto ausschließlich von Paul Schmidt oder menschenleere Agenturaufnahmen; was Kunden beim Termin erwartet
 **CTA:** Stell uns deine Versicherungsfrage
-**Visuelle Richtung:** Fotostrecke 3–4 echte Bilder
-**Produktion/Freigabe:** Keine generierten Mitarbeitenden
+**Visuelle Richtung:** Fotostrecke: Pauls Porträt plus echte menschenleere Arbeitsbereich-/Detailaufnahmen
+**Produktion/Freigabe:** Kein anderer Mensch; nur das Nutzerporträt oder menschenleere Motive
 
 ### 24. Wie hoch sollte eine BU-Rente sein? (REEL)
 **Storyboard/Slides:** Hook: 'Nicht einfach 1.000 Euro wählen' → laufende Ausgaben und Leistungen berücksichtigen → realistische individuelle Planung
@@ -162,8 +164,8 @@ Jede Caption erhält vor Veröffentlichung sachliche Prüfung, einheitliche Sign
 ### 25. Familie: Welche Risiken ändern sich? (CAROUSEL)
 **Storyboard/Slides:** Neue Verantwortung, Einkommen, Hinterbliebenenschutz, Kinder und Haftpflicht, Wohnen – mit kurzen Fragen zur Selbstprüfung
 **CTA:** Für Familien speichern
-**Visuelle Richtung:** Warme Familien-/Illustrationsoptik
-**Produktion/Freigabe:** Keine Verwendung realer Familien ohne Einwilligung
+**Visuelle Richtung:** Warme Symbol-/Objekt-Illustrationen ohne Menschen
+**Produktion/Freigabe:** Keine Familien-, Kinder- oder sonstigen Personenbilder verwenden; stattdessen Objekte, Gebäude und Icons
 
 ### 26. Fahranfänger: So vermeidest du typische Denkfehler (REEL)
 **Storyboard/Slides:** 'Nur Beitrag verglichen?' → Schutzumfang, SB, Besonderheiten des Fahrzeugs, Beratungsoption
@@ -186,7 +188,7 @@ Jede Caption erhält vor Veröffentlichung sachliche Prüfung, einheitliche Sign
 ### 29. Warum persönliche Beratung weiter wichtig ist (REEL)
 **Storyboard/Slides:** Hook: 'Ein Vergleichsrechner kennt deinen Alltag nicht' → Beratung fragt Ziele/Risiken ab → Vertragsdetails gemeinsam prüfen
 **CTA:** Lass uns über deinen Bedarf sprechen
-**Visuelle Richtung:** Agentur-Reel: echte Beraterkamera oder animierte Highlights
+**Visuelle Richtung:** Pauls eigenes Porträt oder eigenes Video; sonst menschenfreie Animation/Typografie
 **Produktion/Freigabe:** Agentur-/Mitarbeiterfreigabe
 
 ### 30. Was möchtest du im nächsten Monat sehen? (AGENTURFOTO)
@@ -197,7 +199,7 @@ Jede Caption erhält vor Veröffentlichung sachliche Prüfung, einheitliche Sign
 
 ## Was zur Umsetzung fehlt
 
-1. Für die Foto-Beiträge Originalbilder aus der Agentur und Döbeln mit Veröffentlichungsrechten.
+1. Für Personenbeiträge ausschließlich das am 04.11.2026 hochgeladene Porträt von Paul Schmidt verwenden. Das Original muss für den automatischen GitHub-Renderer einmalig unter `assets/portrait/paul_schmidt.jpg` bereitgestellt werden. Agentur-/Döbeln-Bilder nur ohne Personen und mit Rechten.
 2. Eigene Video-/Karussellgrafiken im gewünschten professionellen Stil produzieren und einzeln als Medien hinterlegen.
 3. Buffer-Autopilot für den jeweiligen Formattyp und Story-Veröffentlichung technisch erweitern und separat testen.
 4. Fachliche Freigabe nach Agentur- und Markenvorgaben. Bis dahin `PUBLISH_ENABLED` nicht aktivieren.
