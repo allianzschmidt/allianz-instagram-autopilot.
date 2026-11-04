@@ -1,6 +1,8 @@
 # Instagram-Autopilot – Allianz Schmidt Döbeln
 
 **Instagram:** [@allianzschmidtdoebeln](https://www.instagram.com/allianzschmidtdoebeln/)  
+
+**ABSOLUTES LOGO-VERBOT:** Keine Allianz-Logos oder sonstige grafische Allianz-Markenzeichen in Bildern, Reels, Stories, Hintergründen, Dokumenten oder am Gebäude. Auch frühere Fotovorlagen mit Logo sind ausgeschlossen. [Verbindliche Richtlinie](./KEINE_ALLIANZ_LOGOS.md). Vor Buffer-Einplanung muss jeder einzelne Beitrag zusätzlich ausdrücklich `logo_free_verified: true` haben. Ohne Nachweis stoppt das System.
 **Start:** 03.11.2026  
 **Status:** Noch NICHT live. Veröffentlichungen bleiben ohne vorherige Freigabe technisch gesperrt.  
 **Kosten:** Buffer Free + öffentliches GitHub-Repository / GitHub Actions (innerhalb der jeweiligen kostenlosen Nutzungsbedingungen).
