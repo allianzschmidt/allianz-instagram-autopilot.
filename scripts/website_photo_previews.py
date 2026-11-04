@@ -91,6 +91,9 @@ def main():
     if config.get("publication_approved") is True:
         raise RuntimeError("Bildgenerator erzeugt ausschließlich Entwürfe; kein Veröffentlichungsflag setzen")
     OUTPUT.mkdir(parents=True,exist_ok=True)
+    if not config.get("assets"):
+        print("No approved sources; no preview created.")
+        return
     successful=0
     for item in config["assets"]:
         if item.get("kind") == "person" or item.get("id") != "agency":
