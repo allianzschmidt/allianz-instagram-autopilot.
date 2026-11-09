@@ -1,3 +1,13 @@
+## Live-Status – 9. November 2026
+
+**Erster Live-Beitrag:** Fünf Premium-Karussell-Slides zur Reform 2027 wurden am 09.11.2026 um ca. **20:29 Uhr (Europe/Berlin)** von Buffer mit Status **sent** bestätigt. Instagram-Konto @allianzschmidtdoebeln; Buffer-Post-ID `6af21ee7eb73f8e77f54509f`. Nachweis: https://github.com/allianzschmidt/allianz-instagram-autopilot./actions/runs/42683849791
+
+**Zwei geplante Stories für Dienstag, 10.11.2026:** 08:30 Uhr (Buffer-ID `6af22009a16d1f1c1e97108f`) und 20:15 Uhr (Buffer-ID `6af2200aa16d1f1c1e9710b6`). Beide in Buffer mit Status **scheduled** bestätigt. Nachweis: https://github.com/allianzschmidt/allianz-instagram-autopilot./actions/runs/42684451939
+
+Die Bilder werden unter `assets/approved_depot2027/` in exakt geprüfter Originalqualität gehostet. **Nicht veröffentlicht:** Die zuvor abgelehnten KI-Sprecher-Videos, alte Standardgrafiken sowie noch nicht fertiggestellte Folgekarussells. Die bisherige allgemeine Publishing-Routine bleibt deaktiviert. Die Einmal-Workflows veröffentlichen ausschließlich ausdrücklich autorisierte und geprüfte Medien.
+
+**Hinweis:** Buffer-Status `sent` bedeutet, dass Buffer den automatischen Versand als abgeschlossen markiert hat. Bei Bedarf im Instagram-Feed zusätzlich überprüfen. Diese Bestätigung ist kein ausgelesener Instagram-Permalink.
+
 # Schwerpunktkampagne: Altersvorsorgedepot 2027
 
 **Stand:** 04.11.2026. **Status:** Produktion eines eigenen 34,5-Sekunden-Reels, 5-Slide-Karussells und zwei Story-Bildern abgeschlossen; die Medien liegen als Downloadpaket in der aktuellen Unterhaltung vor, **nicht** in diesem GitHub-Repository und **nicht** in Buffer. Veröffentlichungen weiter gesperrt.
