@@ -74,7 +74,7 @@ jobs:
               for attempt in range(5):
                   try:
                       with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Schmidt-Automation/1.0"}),timeout=35) as r:
-                          assert r.status==200 and r.read(3)==b"\\xff\\xd8\\xff"
+                          assert r.status==200 and r.read(3)==b"\xff\xd8\xff"
                       break
                   except Exception:
                       if attempt==4:raise
