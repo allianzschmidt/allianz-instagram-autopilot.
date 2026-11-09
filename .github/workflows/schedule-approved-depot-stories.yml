@@ -1,0 +1,94 @@
+name: Zwei freigegebene Altersvorsorge-Stories für 10. November
+on:
+  push:
+    paths:
+      - '.github/workflows/schedule-approved-depot-stories.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: approved-depot-stories-once
+  cancel-in-progress: false
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pillow bereitstellen
+        run: python3 -m pip install --user Pillow
+      - name: Geprüfte Story-Medien als Originaldateien übertragen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import hashlib,io,urllib.request
+          sources=["https://m.invideo.io/uploads/11e64f10-8613-4dcd-a322-9224e20accf3/11e64f10-8613-4dcd-a322-9224e20accf3?Expires=1794339161&Signature=cwV-3Y2S60JKdXixkJ5-H56l2K8FcGR60QIN64dQob2DVSdJdq5hQ8bYYORladf9ltLh65srpGQ1XNnKzo4apb1lrPzqQ1c96KZL~dq2-fjJL86Ovoi5v83X2QCIEQGj-yWcbBoUKl7u3PkHb1uieH3PBSdBFd8kZGaBIR23qXzVGL2Ld019jlKrONv88YA4GOz7kriZ6hyS62~S2azE29bA6onI9yO6i3fUJ3ye8iPubfRjsB36kaZL7smQa5EGW8w6EGyj2yJqXxpD1eEZjIiBhmmBmV82vB2ZESCysTcJVWDy2L7JhOrcHvHaxjpIW3vnBBiRxZoiEfyCUWvJ-Q__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/6fdb225f-f478-419e-ad31-68eeb9744e73/6fdb225f-f478-419e-ad31-68eeb9744e73?Expires=1794339161&Signature=vtSUVs0b-XORGBetTGSJSr8wMF679v6RzBPJP6K7d5mllyElrjH0F06B~DF6Qu-HQaY8k71y8OGS1gxG06rjrTAhhfk1wFV7d~Ib5boLTBzPf2uQ~CBSzzJsrGAiQiaV4FSq7ebrHuS-r8pP6EVmgGrj0h-wRQxNmTk3LLXLuyUk5Gm3LEj68qu-Rs3whnQyXXhOYGJG1GXxIgltNLEMCtQq~yWUpWPLqfya5~vGd7W0hVqqzYVINFX41VcJKX3cgVhR7WEuK8Pot0Tlerw~vWeShDwrJALW85fDhbGPdQcd01G0miS95HIsGngM6grXEghaseeGN2ujA23A6Vf5kw__&Key-Pair-Id=KX9I6OACHF5M3"]
+          hashes=["c879ca3442f6dcd161bbe8386eb63f5ba69c232df8edb61c863ad67ee87cc127","081e362dd04019e93a2c26358f480ea47f1c103ab0b5afbf0e723cff62780b9e"]
+          d=Path("assets/approved_depot2027/stories");d.mkdir(parents=True,exist_ok=True)
+          for i,(url,checksum) in enumerate(zip(sources,hashes),1):
+              with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Schmidt-Automation/1.0"}),timeout=50) as resp:
+                  raw=resp.read()
+              if hashlib.sha256(raw).hexdigest()!=checksum:raise RuntimeError("Story %s hash differs from approved image"%i)
+              pic=Image.open(io.BytesIO(raw))
+              if pic.format!="JPEG" or pic.size!=(1080,1920):raise RuntimeError("Unexpected Story format")
+              (d/("%02d.jpg"%i)).write_bytes(raw)
+              print("Original-Story gesichert:",i,len(raw))
+          PY
+      - name: Story-Bilder öffentlich für Buffer hosten
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/approved_depot2027/stories/
+          if ! git diff --cached --quiet; then
+            git commit -m "Add two individually approved retirement depot Stories"
+            for i in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$i" -eq 5 ]; then exit 1; fi
+              sleep 3
+            done
+          fi
+      - name: Beide Stories für Dienstag zu festgelegten Zeiten in Buffer planen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          CONFIRMED_MEDIA_RELEASE: approved-depot2027-stories
+        run: |
+          python3 - <<'PY'
+          import json,os,sys,time,urllib.request
+          sys.path.insert(0,"scripts")
+          from autopilot import get_channel,posts_from_buffer,query
+          if os.getenv("GITHUB_REPOSITORY")!="allianzschmidt/allianz-instagram-autopilot.":
+              raise RuntimeError("Wrong repository")
+          if os.getenv("CONFIRMED_MEDIA_RELEASE")!="approved-depot2027-stories":
+              raise RuntimeError("Missing explicit user release")
+          org,ch=get_channel()
+          entries=[("01.jpg","2026-11-10T07:30:00.000Z"),("02.jpg","2026-11-10T19:15:00.000Z")]
+          root="https://raw.githubusercontent.com/allianzschmidt/allianz-instagram-autopilot./main/assets/approved_depot2027/stories/"
+          for filename,due in entries:
+              posts=posts_from_buffer(org["id"],ch["id"])
+              if any(x.get("dueAt")==due for x in posts):
+                  print("Bereits ein Buffer-Eintrag zu",due,"vorhanden, kein doppelter Versand")
+                  continue
+              url=root+filename
+              for attempt in range(5):
+                  try:
+                      with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Schmidt-Automation/1.0"}),timeout=35) as r:
+                          assert r.status==200 and r.read(3)==b"\\xff\\xd8\\xff"
+                      break
+                  except Exception:
+                      if attempt==4:raise
+                      time.sleep(5)
+              gql=("mutation {createPost(input:{text:\"\""
+                   ",channelId:"+json.dumps(ch["id"])
+                   +",schedulingType:automatic,mode:customScheduled,dueAt:"+json.dumps(due)
+                   +",assets:[{image:{url:"+json.dumps(url)+"}}]"
+                   +",aiAssisted:true,metadata:{instagram:{type:story,shouldShareToFeed:false,isAiGenerated:true}}"
+                   +"}){... on PostActionSuccess {post{id status dueAt}} ... on MutationError{message}}}")
+              result=query(gql).get("createPost",{})
+              if not isinstance(result,dict) or "post" not in result:
+                  raise RuntimeError("Story rejected by Buffer: "+str(result))
+              post=result["post"]
+              print("STORY IN BUFFER:",filename,post["id"],post["status"],post.get("dueAt"))
+          
+          PY
