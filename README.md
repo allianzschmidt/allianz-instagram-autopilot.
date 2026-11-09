@@ -1,12 +1,12 @@
 # Instagram-Autopilot – Allianz Schmidt Döbeln
 
-> **NEUER CONTENT-SCHWERPUNKT:** Ab 05.11.2026 ist die Informationskampagne zur Altersvorsorgereform 2027 mit einem eigenen Reel, einem Premium-Karussell und Stories geplant. [Fakten, Termine und Freigabestatus](./KAMPAGNE_ALTERSVORSORGEDEPOT_2027.md). Sie ist **noch nicht in Buffer eingeplant und nicht freigegeben**. Keine Logos, nur Pauls Originalporträt als Personenmotiv.
+> **NEUER CONTENT-SCHWERPUNKT:** Ab 05.11.2026 ist die Informationskampagne zur Altersvorsorgereform 2027 mit einem eigenen Reel, einem Premium-Karussell und Stories geplant. [Fakten, Termine und Freigabestatus](./KAMPAGNE_ALTERSVORSORGEDEPOT_2027.md). Sie wurde am 09.11.2026 für den freigegebenen fünfseitigen Karussellpost veröffentlicht; zwei Storys für 10.11.2026 sind eingeplant. Alle anderen Entwürfe bleiben gesperrt. Keine Logos, nur Pauls Originalporträt als Personenmotiv.
 
 **Instagram:** [@allianzschmidtdoebeln](https://www.instagram.com/allianzschmidtdoebeln/)  
 
 **ABSOLUTES LOGO-VERBOT:** Keine Allianz-Logos oder sonstige grafische Allianz-Markenzeichen in Bildern, Reels, Stories, Hintergründen, Dokumenten oder am Gebäude. Auch frühere Fotovorlagen mit Logo sind ausgeschlossen. [Verbindliche Richtlinie](./KEINE_ALLIANZ_LOGOS.md). Vor Buffer-Einplanung muss jeder einzelne Beitrag zusätzlich ausdrücklich `logo_free_verified: true` haben. Ohne Nachweis stoppt das System.
 **Start:** 03.11.2026  
-**Status:** Noch NICHT live. Veröffentlichungen bleiben ohne vorherige Freigabe technisch gesperrt.  
+**Status (09.11.2026):** Erstes 5-Slide-Karussell „Altersvorsorgedepot 2027“ am 09.11.2026 durch Buffer um 20:29 Uhr mit Status `sent` bestätigt (Buffer-Post-ID `6af21ee7eb73f8e77f54509f`). Zwei automatisch veröffentlichende Altersvorsorge-Stories für 10.11.2026 um 08:30 und 20:15 Uhr Europe/Berlin in Buffer mit Status `scheduled` geplant. Die alten 30 Entwürfe bleiben einzeln blockiert; die allgemeine Publishing-Automation ist weiterhin AUS, und nur die ausdrücklich freigegebene Einzelkampagne wurde separat ausgeliefert.  
 **Kosten:** Buffer Free + öffentliches GitHub-Repository / GitHub Actions (innerhalb der jeweiligen kostenlosen Nutzungsbedingungen).
 
 > **Achtung zum Repository-Namen:** Dieses Repository wurde mit einem Punkt am Ende angelegt: `allianz-instagram-autopilot.`. Bitte den Punkt bei der GitHub-URL beachten.
