@@ -1,0 +1,34 @@
+name: Prüfen – Status erstes Depot-Karussell (nur lesend)
+on:
+  push:
+    paths:
+      - '.github/workflows/check-approved-depot.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ausschließlich Buffer-Status abfragen, ohne Posts zu verändern
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import sys
+          sys.path.insert(0,'scripts')
+          from autopilot import get_channel,posts_from_buffer
+          org,ch=get_channel()
+          target='6af21ee7eb73f8e77f54509f'
+          posts=posts_from_buffer(org['id'],ch['id'])
+          matches=[p for p in posts if p.get('id')==target]
+          if not matches:
+              raise SystemExit("Noch nicht in Buffer-Abfrage gefunden – keinen Veröffentlichungserfolg behaupten.")
+          for p in matches:
+              print("KONTO: @allianzschmidtdoebeln")
+              print("POST-ID:",p['id'])
+              print("BUFFER-STATUS:",p.get('status'))
+              print("DUE-AT:",p.get('dueAt'))
+              print("TEXT-BEGINN:",(p.get('text') or '')[:110])
+          PY
