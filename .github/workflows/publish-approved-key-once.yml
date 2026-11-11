@@ -1,0 +1,62 @@
+name: Freigabe – Schlüsselverlust-Karussell (4 Original-Slides)
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-approved-key-once.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-keyloss-2026-11-11
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bildprüfung vorbereiten
+        run: python3 -m pip install --user Pillow
+      - name: Exakt vier freigegebene Schlüsselverlust-Slides sicher übertragen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import hashlib,urllib.request,io
+          sources=["https://m.invideo.io/uploads/c13069f6-feec-4f75-9675-2b6e28b48571/c13069f6-feec-4f75-9675-2b6e28b48571?Expires=1794512082&Signature=n6cl9UCjhQvhy-EVZvAyQSXeboY7ORGn4t3jZoi1a5vvNxiv1AC3MQNRAYCVhDhGG~sJ4QbH3rWNyHR-08qkrKuyy~Y6tTO4RFmSulYIhXHIYlfzVSR2IQenLcvbfvQwedq2fDyN0HNv4lkfn7hdVF-pOPsWXU~Vp5Y8Ud8DkAwkucB375fRePs~syf~~ps5SZQIk8np7qSDqhKOyiRrWQ96iW2WrAfPvCvg6lHFFoJxSHnDMhe21q3ivMKf-o32t9WboAeVXkX5mnTQfftLFrGpcWeuAFz2o0b3xmXHRMnu~HxBvNpPZbMSyMBzE1-kyLh8gskbQ~UoeQ2HJBgPTQ__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/54bd33b8-d7eb-4baa-9b78-489c061acde4/54bd33b8-d7eb-4baa-9b78-489c061acde4?Expires=1794512084&Signature=pPj-6SOPUsNFgmSj0FhOOGohTeE02iD8Drd9ZW0pPSC1AvmhDkjc0gFraQPLtziWd7~VzAfcJFhQ0Iwi-d3ri7jSEYUbsE9uOqmqM-8beK~-m~J5Hl2-PvVsQUv1Cv-2lvuV~Uz9aJgcWvxzhpqqv-0-uRoMk3CXaMxigzgE2OKJ-bj~njdUV44OHVA650kzmzu-2QiEaG9YFUYhPCo~FMqLLcNhaMFTB-xEeDXhediuITVD1ylWVB1DfphayFAaXEaN~D03BVEhVQopLhgDZlcLlG0ispCJZpstbtbzko6MPEGYdsj8g1SCLhx8-VpZIFljZZZczvUJNtXeTx4--A__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/62a45157-5548-4741-ad84-8d15a638f839/62a45157-5548-4741-ad84-8d15a638f839?Expires=1794512082&Signature=t~PM3OBz1vyg70OE06rKJzKP5aBtkHczPe5z1iVjBwpbpxZmB3fd8RqsqTZvkML44lZRVWfTymHAiPY542zRRK7BSRptz3ryg1JgqlQQhxx5BB4KkDtCNECapfk3YkUARmzwJZ14oNeUhxU730RezufcE4Yxx-H4hMN7luAMl3drYbEDkZ-bS9Nw8J2TfMokGE0NuenTQtLCnOHmQlBfU02irQBw8o8LSGbUbTjINRWoI7jWrUkcW0GKm8TgnYt8ZfSi8-ivzhjcTo9Iy5KaOAEd34u0J6Fc8vDCfnqKhog6v5s6F-8Gg6llYmswh-83dntdHQzYrxkR487KMAo0KQ__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/90be14c6-3f07-409a-9fa9-796cbf4e2eab/90be14c6-3f07-409a-9fa9-796cbf4e2eab?Expires=1794512082&Signature=RmEbTV9Dipon5OSdYO3Yl87lEuu1pelTd5GT2VtlmKcwUCO-08cc6X1QRp8rvKiamECxHJaBqXyGX8-UJYExW3sU5r~DGbeYxxYpZw0zo1S1h0bGzOHJKS2eYgYI7v9DRdqTA7o~VALFr0c0dqKJlzv4aJSudi-ZrzA4L3wYOCqERU3QqN3SuEHqNigz7L3WuGZHdc2aY8CzwTfCWFrtu1wPNc3wE72hHk-wpY5G9QBaWN5NtalV-1mNjE~gO2j8tbeBR6WgpxoWCgSjcZqqrVlMoEbjwqPklDd4kqgOdoiwerFfeUAFtBPMyqakurRiGDYJiRYo8S-trxNOCq3gmA__&Key-Pair-Id=KX9I6OACHF5M3"]
+          checksums=["0f75e9db5c8560ab43520bc026e47656c85a96cb8bf2e553061b369e9fc1aaf7","73c781d8f6ec675f6abc03c5308ed883b99fec6d99b9e602e7d04712ad51ac29","288cbf594a51e33b0f776481326f68c3ead0d5eb8320be795311a43f1e139e85","35cab66b120e741efd1462126480108a9464477a4beef230c3437fa16bc7958f"]
+          dest=Path("assets/approved_keyloss")
+          dest.mkdir(parents=True,exist_ok=True)
+          for num,(url,checksum) in enumerate(zip(sources,checksums),1):
+              req=urllib.request.Request(url,headers={"User-Agent":"Schmidt-Approved-Media/1.0"})
+              with urllib.request.urlopen(req,timeout=60) as response:
+                  raw=response.read()
+              actual=hashlib.sha256(raw).hexdigest()
+              if actual!=checksum:
+                  raise RuntimeError("Bilddatei %d stimmt nicht mit dem freigegebenen Original überein: %s"%(num,actual))
+              pic=Image.open(io.BytesIO(raw))
+              if pic.format!="JPEG" or pic.size!=(1080,1350):
+                  raise RuntimeError("Bild %d hat falsche Maße: %s"%(num,pic.size))
+              (dest/("%02d.jpg"%num)).write_bytes(raw)
+              print("GEPRUEFTER ORIGINAL-SLIDE",num,len(raw))
+          PY
+      - name: Originale über GitHub für Buffer bereitstellen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/approved_keyloss/
+          if ! git diff --cached --quiet; then
+            git commit -m "Store four approved key-loss Instagram carousel slides"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 3
+            done
+          fi
+      - name: NUR das freigegebene Schlüssel-Karussell jetzt an Buffer senden
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          CONFIRMED_MEDIA_RELEASE: approved-key-loss-4-slides-11nov
+        run: |
+          python3 scripts/publish_approved_key_once.py
