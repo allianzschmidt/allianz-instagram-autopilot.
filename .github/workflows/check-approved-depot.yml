@@ -24,6 +24,12 @@ jobs:
           print("ACCOUNT @allianzschmidtdoebeln")
           print("QUEUE AUDIT: read only")
           print("COUNT", len(posts))
+          found = [p for p in posts if p.get('id') == '6af4c365cf36c484ae925f3c']
+          if not found:
+              raise SystemExit("SCHLUESSELSTATUS: noch nicht im Buffer-Ergebnis gefunden")
+          print("SCHLUESSELKARUSSELL_ID", found[0].get('id'))
+          print("SCHLUESSELKARUSSELL_STATUS", found[0].get('status'))
+          print("SCHLUESSELKARUSSELL_DUE", found[0].get('dueAt'))
           for p in posts:
               status = p.get('status','')
               due = p.get('dueAt','')
