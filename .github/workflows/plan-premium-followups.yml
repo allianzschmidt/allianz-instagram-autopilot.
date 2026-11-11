@@ -1,0 +1,59 @@
+name: Geprüfte Premium-Beiträge und Stories fest einplanen
+on:
+  push:
+    paths:
+      - '.github/workflows/plan-premium-followups.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: premium-instagram-followups
+  cancel-in-progress: false
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bildprüfungsbibliothek installieren
+        run: python3 -m pip install --user Pillow
+      - name: Nur vier bereits freigegebene Originalbilder mit Prüfsummen übertragen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          from hashlib import sha256
+          import io,urllib.request
+          names=["income.png","starkregen.png","key_story.png","water_story.png"]
+          urls=["https://m.invideo.io/uploads/05e3a38d-f93f-4561-9f87-ef7714f16a2b/05e3a38d-f93f-4561-9f87-ef7714f16a2b?Expires=1794522482&Signature=e2pOQohTrFRDUmnN4X32VXrtLyVZ0qDCrawUDLgIqOBhNV0eaTTGnxD-~Yy1uzYSXTJQwQMelFynTquPGitr-9xHC1h0nuLVIXeaQrDnyPOY3wW-7iMvYdV76CHuClH8g0RIW6-~isrwYyemCwcXvexGb-OfYmq3l3ZKoL-jtKwago1-NIeUMY62PMGW7y95mqmahUqxxF~37r6-CS3LVO~aTbIlQ5XmHhFwX6esca42aj7O~LYWUTdVMf8ZOQVrMpwzj0t4M~zBbu2LST-6UpANLb2BjO4uKm4dNi-HXwdOtttMHheumnsLCc6Xt1ARqCeq5jrQOqcGMKez7YbpcQ__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/dd4085d8-f1ee-44c5-91fe-f7cf572bf6d3/dd4085d8-f1ee-44c5-91fe-f7cf572bf6d3?Expires=1794522482&Signature=n~lj3zbWBgdqeurxDAHUlYYTeLT3rSV4BwBXRP5zSA9DDFUCUZxDeUSIPHt7rdzQVvkFVKdbSfk7Cg2BoH5DjdugXw9LU9gzUbDg86Z54t2pS9w93KUw~lsh9WiTHEre5wdVoh3h~wV1tXFwuc2lGD1mWQwkNoISj1oUWOTBkVDLil1iT2wbAp52JgTkX30PKvnhjD8eF3QGnNKlH~R3N4oTPA3PjpXxEqEFClUdEbso8QivveBnAJeynx22-4TWR1x9m5JYVO4loavXm1kHFGefU-gV3F47pxp~idnBDu-7V~ctAJyg0pYfvC01VfjFC6FevF9J3ayuaBXQHPgWNg__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/27ffc886-512d-4a07-b9ee-149168ac3b41/27ffc886-512d-4a07-b9ee-149168ac3b41?Expires=1794522482&Signature=aS9TDY7R4Wd6BQ1K4so4yvBLWMhStpocLjQJfQqyWTGpyTRC4wNR0WFxiHq-0CT1TXKkYpx3HL53hC6oOlxvQ32ramTWbmKCokhBv0OQv7ucckkrj8TtEVXHG0WJnrkV1cRy0NqEqIofytEnCdgxx1VF~bDlB9cyf7FhdU~SKed6PG4RW~idw8irvY4M-Vn16NiUR3C~h5iC1xMJoogq6XYzx9f7iIhZTAA5kNnVEzhEcEKP4ldjsGYiea-ySg8Bd-NkfRSRuG4mCZFMoGVN3g6v7KI4QBPaDqFy~yG0skoUTtdKFEJSVA2RSNKlWMUy4YuOWPBcEPtNXm74cmYtjg__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/ed1c2031-ef00-4f48-930e-73314ed213ef/ed1c2031-ef00-4f48-930e-73314ed213ef?Expires=1794522482&Signature=WMZV2frfRm1Kkh8eYbdW0rqpXWPoVGOW7lzynT8xBRS9RzNnmvygbIHHx17NpsJVNx3fJ1azxPdhwhOR1dUyDKxjd9z~MwTqXs1KTnILcXp~HnOFYzM9mh6wBiUcG3fhx447KS8JC~FpyAk~bh8qimJ1ZFb1TUJpDtjc8VyLhdzHlQHJVBterWtWftJWQU8PfkdY2XGrP1PihQLcpccLV3wvbtTrg3ygO37uQ3YW6Hl4NbInz4mod1iv0xX8VgsvNlvDq7YjrUNtycK2me8uqdMLvpHktx6tdxwlc-kAwtCbfPI2fkS9xo-07bVPt8~RqVkc8gKBlodE2TG1~Fk73g__&Key-Pair-Id=KX9I6OACHF5M3"]
+          digests=["63ec43808bcf57b0f2c667c8ab7fe7ad1d697cebdf13ba209fbb57476092d600","3ec91469f82a18d9e36fb8319806d4ee2fb5354e69798be0716af73f1091edfc","a0a3b13f9f6fa8f8166c65c9dd05c40deb8b88760f7307feb9e5e66fa1a8f99c","1bdb790f6a1db0ca39e9f9330df54ebf6e1fa6825ff700760e4f4115f7fada40"]
+          dims=[(1122,1402),(1122,1402),(941,1672),(941,1672)]
+          root=Path("assets/approved_followups_nov");root.mkdir(parents=True,exist_ok=True)
+          for name,url,digest,dim in zip(names,urls,digests,dims):
+              with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Schmidt-Approved-Media/1.0"}),timeout=60) as resp:
+                  raw=resp.read()
+              if sha256(raw).hexdigest()!=digest:raise RuntimeError("Bilddatei stimmt nicht mit dem Original überein: "+name)
+              img=Image.open(io.BytesIO(raw))
+              if img.size!=dim or img.format!="PNG":raise RuntimeError("Medienformat stimmt nicht: "+name)
+              (root/name).write_bytes(raw)
+              print("ORIGINAL PRUEFSUMME BESTAETIGT:",name,len(raw))
+          PY
+      - name: Freigegebene Bilddateien dauerhaft speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/approved_followups_nov/
+          if ! git diff --cached --quiet; then
+            git commit -m "Store four exact verified approved premium social assets"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 3
+            done
+          fi
+      - name: Nur bestätigte Premium-Inhalte an Buffer übergeben
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          CONFIRMED_MEDIA_RELEASE: premium-previously-approved-nov-2026
+        run: python3 scripts/schedule_approved_followups_nov.py
