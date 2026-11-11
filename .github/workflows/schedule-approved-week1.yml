@@ -1,0 +1,61 @@
+name: Terminierte Freigaben – Steinschlag + Wasserschaden
+on:
+  push:
+    paths:
+      - '.github/workflows/schedule-approved-week1.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-12-13-nov-approved
+  cancel-in-progress: false
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Medienprüfung bereitstellen
+        run: python3 -m pip install --user Pillow
+      - name: Ausschließlich freigegebene Originalmotive prüfen und übertragen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import urllib.request,io,hashlib
+          from PIL import Image
+          sources=["https://m.invideo.io/uploads/4a96aac5-ff78-4694-a281-1f4e8286f299/4a96aac5-ff78-4694-a281-1f4e8286f299?Expires=1794512420&Signature=yT6X2wOcND3Ro9Spu8rqYylWQ~7zNgUnaUYkfZ9kseeuBrmbrieItKlWLO1oJWJZAsNeTLd8xKl-qDqOxQLdkMW6tsTpejsZ4ibbnu~8e9IbrN2Arq7kBzC0fHBXUH6WVkBwnJAXGy87vTaoacVjMSksjSq3O-x23dv0Zd-Cou7ezxO2lHLYHp-tNrIIocEmgGB2cn~1~Gx7YO8eI6ULBct-pohww~cBBqTABVslcvLPJIENCd4L0T8MzlTjtz1AeDqQ6xOH7c0TQlSlDpzOcoloAG2GvmnojXAySDWbJI3~PxFM8B3E5-1XIhAtY9w7Qo~K-nW7rq9l4Ww9fX~rpw__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/6068da47-6c14-4d99-98d0-4c788e7901f5/6068da47-6c14-4d99-98d0-4c788e7901f5?Expires=1794512421&Signature=Tm~vgyhUj8m8pTTi9bEowqLbaCataLg93UKUjZQdWp5TlXKroF7CiqySpNTxsZmY3~g972rVyXTPVS0WrI2I5PR~wDVEknLu~LG7rGwfKlWudWSx9f8zNPH7PVWsHp85NcCLUhCXQ~ZmTPSOIm8NOQJSvxnD0uyisdRaPPtp4m2Ef2fgLdEsXvKVXGFv8SL4svnq8oGoPbrh9XmGGqcN1Q3zZa9fAnElYpwpljqyYeQLlVFvsJE5yIJjXnj4h7-GFmgjHqbh93DfRZq2kiHIe~X7m7OVWRWodm3RBxAN4~c3ItxKMImijqr6Cl5KYj3fZ3Q4OZJpPquskxhTwbfslg__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/cd6212b1-afe2-40d1-a687-19d125f62c23/cd6212b1-afe2-40d1-a687-19d125f62c23?Expires=1794512420&Signature=YQG6vnng3r2ufpVvq~ASVA9bdWoHeFDtSOsJSIA6ixIRjsbk0ql26ct8lFZ61SnTCFRwvAgJDHUbUFqk53ZHXvbO1nJ7JEWae6Sg2bHc9XT0N5YTjXX~se9E7WoYOnX0DHYiKHLzYONU2ZPehsYZ32nVrMBG3wcUplU8dytzcmdynbmjr~4hB955MuZlIBb4aXnGUGo9MWBwKAVwnInY-tM087IZW8kLF7UjP37yVxo-XoJ1OWmZ3~81RRxwUYSDTsLMbMg3xEg-JCh7ME8U0XP4xztty-4T2fYBUHvM-MwmUHlThNcw9x5Yp1eecEVFWtgOqQwixwQEV6Wi~OUAfA__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/cd6fde82-7ffa-46fe-afcc-ada431461667/cd6fde82-7ffa-46fe-afcc-ada431461667?Expires=1794512421&Signature=hizI~kV~PfvD1sNjvewwXdYAfOjkSRPq8ukuoAC6ovHGWw1XrVNIVU9knq5yrjldZOu4CvKOguG7f3JANBHUve4q9GGZIAaLtYMbVhhpYCjVwbUXq3dsGKvts4jhC48~NNkwMwvcMtzpCxX8wap-q0QQt1brbtejW~sjn9bSrJRuaSY64v19JIkQtLPMRgp991NMlBhBAHOiweTbiTBnBAE1zA0vZEyqEPBcdd-K0Wnow94XLwcxO2wvohrKsJLHzDv99Hx4-vr0TtdFptcu-8~5AePLZV1lk9PB5W6JJDvbc6nPSaESh8XBHnjOTbhfMawABHBj7~KBAzy-iHlvmw__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/b1327040-f75b-450d-aebc-38b68c0d6bb8/b1327040-f75b-450d-aebc-38b68c0d6bb8?Expires=1794512421&Signature=k-c4cBtZO3d-xriw3GbfgkFYWz8M~gVlBXZFPkccdKGXALmtRaJzRGZPLAW-uqqPGTKkGaUt4HYLrc6kUevPMnJfA90btlJiQcO7dludCkv7w0NwAs0gGyD5OQMuSP1FHtv-ZIvWRCF626UWVVqmOHXHTt8BGESp-~Sq1NXDAlBuWxyvfOZ27cODrzDo1IoWUkYlibOTsYV43pIuzvnb0Y1KS-8-ZIDUPDiQl~6zMZ~kCrVoabJP8NU14LZKfBVgZ83Y4zkdUIHy-I~Eyrz4H9hwUlOGF3m8FXIMyXH5sUEPdyTYrzZ-T3VgY8DBCCQCAI9GieoQlVEUt9ItrL8D5g__&Key-Pair-Id=KX9I6OACHF5M3"]
+          checksums=["6821a1ba55cdc707aa7cbb1174fb6df6adc35c417d0ae5de566cdfd3cdb5eb0d","b1a16f4185207b7e8b628b58b52f177b8193024fe1c1a883a68d727a168f990b","c477f3ec388be6c8bd305ac496d1830cd60c96775c74e065a1826888c02b5d52","9f159f0fbddc21c9374bb6a87dc68dd07dce61c457ac8a5b96decf6152d4ffff","6712c695014d75737425dd8d5d508677e757d4a2860e932472a07aafff94d032"]
+          names=["steinschlag.png","wasser_01.jpg","wasser_02.jpg","wasser_03.jpg","wasser_04.jpg"]
+          dest=Path("assets/approved_week1")
+          dest.mkdir(parents=True,exist_ok=True)
+          for i,(url,checksum,name) in enumerate(zip(sources,checksums,names),1):
+              with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Schmidt-Final-Media/1.0"}),timeout=70) as resp:
+                  data=resp.read()
+              if hashlib.sha256(data).hexdigest()!=checksum:
+                  raise RuntimeError("Originaldatei stimmt nicht überein: "+name)
+              im=Image.open(io.BytesIO(data))
+              exp=(1122,1402) if i==1 else (1080,1350)
+              if im.size!=exp or im.format!=("PNG" if i==1 else "JPEG"):
+                  raise RuntimeError("Formatabweichung: "+name)
+              (dest/name).write_bytes(data)
+              print("EXAKTES ORIGINAL:",name,len(data))
+          PY
+      - name: Bilder für Buffer im Repository speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/approved_week1/
+          if ! git diff --cached --quiet; then
+            git commit -m "Store individually approved Steinschlag and Wasserschaden images"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 3
+            done
+          fi
+      - name: Nur Steinschlag 12.11. und Wasserschaden 13.11. einplanen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          CONFIRMED_MEDIA_RELEASE: approved-week1-12-13nov
+        run: python3 scripts/schedule_approved_week1.py
