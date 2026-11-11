@@ -1,38 +1,59 @@
-name: Read-only Instagram Buffer queue audit
+name: Live-Kontrolle aller geplanten Instagram-Beiträge
 on:
   push:
     paths:
       - '.github/workflows/check-approved-depot.yml'
+  schedule:
+    - cron: '15 6,10,16,20 * * *'
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: schmidt-instagram-readonly-audit
+  cancel-in-progress: false
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check exact connected Instagram account and scheduled, sent posts (no writes)
+      - name: Konto und konkrete Termine in Buffer prüfen – nur lesend
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
         run: |
           python3 - <<'PY'
           import sys
-          sys.path.insert(0, 'scripts')
-          from autopilot import get_channel, posts_from_buffer
-          org, ch = get_channel()
-          posts = posts_from_buffer(org['id'], ch['id'])
-          print("ACCOUNT @allianzschmidtdoebeln")
-          print("QUEUE AUDIT: read only")
-          print("COUNT", len(posts))
-          found = [p for p in posts if p.get('id') == '6af4c365cf36c484ae925f3c']
-          if not found:
-              raise SystemExit("SCHLUESSELSTATUS: noch nicht im Buffer-Ergebnis gefunden")
-          print("SCHLUESSELKARUSSELL_ID", found[0].get('id'))
-          print("SCHLUESSELKARUSSELL_STATUS", found[0].get('status'))
-          print("SCHLUESSELKARUSSELL_DUE", found[0].get('dueAt'))
-          for p in posts:
-              status = p.get('status','')
-              due = p.get('dueAt','')
-              text = (p.get('text') or '').replace(chr(10),' ').replace(chr(13),' ')
-              print("ITEM", p.get('id'), "STATUS", status, "DUE", due, "CAPTION", text[:125])
+          from datetime import datetime,timezone,timedelta
+          sys.path.insert(0,'scripts')
+          from autopilot import get_channel,posts_from_buffer
+          org,ch=get_channel()
+          posts=posts_from_buffer(org['id'],ch['id'])
+          by_id={p['id']:p for p in posts}
+          now=datetime.now(timezone.utc)
+          wanted=[
+              ('2026-11-11T19:35:00Z','Schlüsselverlust Karussell','6af4c365cf36c484ae925f3c'),
+              ('2026-11-12T11:30:00Z','Steinschlag','6af4c4bab523db05a3eb3fb1'),
+              ('2026-11-13T17:30:00Z','Wasserschaden Karussell','6af4c4bbcf36c484ae92dbae'),
+          ]
+          print('EXAKTER INSTAGRAM-KANAL: @allianzschmidtdoebeln')
+          print('UTC-JETZT:',now.isoformat())
+          print('BUFFER-POSTS:',len(posts))
+          errors=[]
+          for date,title,post_id in wanted:
+              target=datetime.fromisoformat(date.replace('Z','+00:00'))
+              item=by_id.get(post_id)
+              status=item.get('status') if item else 'MISSING'
+              due=item.get('dueAt') if item else None
+              print('KONTROLLE:',title,'ID:',post_id,'STATUS:',status,'FAELLIG:',due)
+              if now>target+timedelta(minutes=45):
+                  if status!='sent':errors.append(title+' nicht als sent bestätigt: '+str(status))
+              elif now<target:
+                  if status not in ('scheduled','buffer','sending','sent'):
+                      errors.append(title+' nicht korrekt in Buffer: '+str(status))
+          other=[(p.get('id'),p.get('dueAt'),p.get('status')) for p in posts if p.get('status') in ('buffer','scheduled','sending')]
+          print('ZUSÄTZLICHE GEPLANTE:',other[:30])
+          if errors:
+              print('FEHLER / MANUELLE KONTROLLE NÖTIG:')
+              for x in errors: print(' -',x)
+              raise SystemExit(1)
+          print('ALLE BEKANNTEN NÄCHSTEN TERMINE SIND NOCH IM ERWARTETEN STATUS.')
           PY
