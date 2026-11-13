@@ -61,3 +61,5 @@ jobs:
               raise SystemExit(1)
           print('ALLE BEKANNTEN NÄCHSTEN TERMINE SIND NOCH IM ERWARTETEN STATUS.')
           PY
+
+# Read-only on-demand status audit: 2026-11-13 20:43 CET
