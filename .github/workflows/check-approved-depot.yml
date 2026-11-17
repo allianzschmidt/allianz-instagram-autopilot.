@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - '.github/workflows/check-approved-depot.yml'
+      - 'scripts/audit_editorial_calendar.py'
+      - 'scripts/premium_publish.py'
+      - 'content/premium_2026_11_12.json'
   schedule:
     - cron: '15 6,10,16,20 * * *'
   workflow_dispatch:
