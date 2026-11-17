@@ -1,0 +1,402 @@
+{
+  "version": "premium-2026-nov-dec-v1",
+  "account": "allianzschmidtdoebeln",
+  "brand_name": "Allianz Agentur Schmidt",
+  "palette": "blue-premium",
+  "no_logos": true,
+  "posts": [
+    {
+      "date": "2026-11-18",
+      "time": "18:30",
+      "type": "carousel",
+      "id": "zahnzusatz",
+      "icon": "tooth",
+      "tag": "ZAHNZUSATZ",
+      "slides": [
+        [
+          "100 %? ABER WOVON?",
+          "Bei Zahnzusatz zählt mehr als eine Prozentzahl."
+        ],
+        [
+          "ERSTATTUNG",
+          "Welche Kosten werden erstattet – und auf welcher Berechnungsgrundlage?"
+        ],
+        [
+          "ZAHNSTAFFELN",
+          "In den ersten Versicherungsjahren können Höchstgrenzen gelten."
+        ],
+        [
+          "VORBEHANDLUNG",
+          "Bereits angeratene Behandlungen sind häufig besonders geregelt."
+        ],
+        [
+          "DARAUF KOMMT ES AN",
+          "Leistungen, Grenzen und persönliche Bedürfnisse vergleichen."
+        ]
+      ],
+      "caption": "100 % Zahnzusatz? 🦷 Die Zahl allein reicht für einen sinnvollen Vergleich nicht. Entscheidend sind die erstattungsfähigen Kosten, mögliche Zahnstaffeln, Behandlungsausschlüsse und die konkreten Bedingungen. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Du möchtest die Unterschiede verstehen? Schreib uns. #Zahnzusatz #Döbeln #Versicherungswissen"
+    },
+    {
+      "date": "2026-11-20",
+      "time": "18:30",
+      "type": "carousel",
+      "id": "schueler_bu",
+      "icon": "shield",
+      "tag": "SCHÜLER-BU",
+      "slides": [
+        [
+          "BERUF NOCH OFFEN?",
+          "Warum Berufsunfähigkeit schon während der Schulzeit ein Thema sein kann."
+        ],
+        [
+          "FRÜH PRÜFEN",
+          "Je nach Tarif kann ein Einstieg bereits als Schülerin oder Schüler möglich sein."
+        ],
+        [
+          "GESUNDHEITSFRAGEN",
+          "Vollständige und richtige Angaben sind besonders wichtig."
+        ],
+        [
+          "OPTIONEN FÜR SPÄTER",
+          "Nachversicherung und spätere Anpassungen hängen vom gewählten Vertrag ab."
+        ],
+        [
+          "GUT VORBEREITET",
+          "Den Bedarf und die Bedingungen gemeinsam prüfen – ohne Abschlussdruck."
+        ]
+      ],
+      "caption": "Berufsunfähigkeitsversicherung schon in der Schulzeit? 🎓 Ein früher Einstieg kann je nach Voraussetzungen sinnvoll sein. Besonders wichtig: Gesundheitsfragen, Definition der versicherten Tätigkeit, spätere Anpassungsmöglichkeiten und Vertragsbedingungen. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Fragen? Schreib uns. #SchülerBU #Berufsunfähigkeit #Döbeln"
+    },
+    {
+      "date": "2026-11-23",
+      "time": "18:30",
+      "type": "carousel",
+      "id": "kasko",
+      "icon": "car",
+      "tag": "KFZ-SCHUTZ",
+      "slides": [
+        [
+          "TEIL ODER VOLL?",
+          "Welche Kaskoversicherung passt zu deinem Auto?"
+        ],
+        [
+          "TEILKASKO",
+          "Kann zum Beispiel bestimmte Glas-, Diebstahl- oder Naturereignisse umfassen."
+        ],
+        [
+          "VOLLKASKO",
+          "Ergänzt je nach Vertrag etwa selbst verursachte Unfallschäden."
+        ],
+        [
+          "SELBSTBETEILIGUNG",
+          "Die gewählte Höhe kann Beitrag und Kosten im Schadenfall verändern."
+        ],
+        [
+          "DEIN AUTO. DEIN BEDARF.",
+          "Fahrzeugwert, Nutzung und Vertragsdetails gemeinsam betrachten."
+        ]
+      ],
+      "caption": "Teilkasko oder Vollkasko? 🚙 Die Antwort hängt nicht nur vom Alter des Autos ab. Fahrzeugwert, Selbstbeteiligung, versicherte Gefahren und persönliche Risikobereitschaft sind entscheidend. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Wir schauen gemeinsam auf deinen Kfz-Schutz. #Teilkasko #Vollkasko #Döbeln"
+    },
+    {
+      "date": "2026-11-25",
+      "time": "18:30",
+      "type": "carousel",
+      "id": "elementar",
+      "icon": "rain",
+      "tag": "NATURGEFAHREN",
+      "slides": [
+        [
+          "STARKREGEN?",
+          "Ein Keller voller Wasser ist nicht automatisch ein Leitungswasserschaden."
+        ],
+        [
+          "WAS IST ELEMENTAR?",
+          "Überschwemmung und Rückstau werden je nach Vertrag gesondert abgesichert."
+        ],
+        [
+          "RÜCKSTAU",
+          "Ob Rückstau versichert ist, richtet sich nach dem Vertrag und möglichen Pflichten."
+        ],
+        [
+          "DAS SOLLTEST DU PRÜFEN",
+          "Versicherte Gefahren, Ausschlüsse, Selbstbehalte und Obliegenheiten."
+        ],
+        [
+          "LIEBER VORHER KLÄREN",
+          "Den Schutz für dein Zuhause rechtzeitig überprüfen."
+        ]
+      ],
+      "caption": "Starkregen kann jeden Ort treffen. 🌧️ Und nicht jeder Wasserschaden ist automatisch abgesichert. Bei Überschwemmung und Rückstau kommt es insbesondere auf vereinbarte Elementargefahren und Bedingungen an. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Wir prüfen deinen Schutz. #Starkregen #Elementarschutz #Döbeln"
+    },
+    {
+      "date": "2026-11-27",
+      "time": "18:30",
+      "type": "carousel",
+      "id": "unfall",
+      "icon": "shield",
+      "tag": "UNFALLSCHUTZ",
+      "slides": [
+        [
+          "UNFALLVERSICHERUNG",
+          "Vier Dinge, die viele falsch einschätzen."
+        ],
+        [
+          "FREIZEIT ZÄHLT",
+          "Die gesetzliche Unfallversicherung schützt nicht in jeder Alltagssituation."
+        ],
+        [
+          "INVALIDITÄT",
+          "Eine private Leistung richtet sich nach den versicherten Voraussetzungen."
+        ],
+        [
+          "FRISTEN UND BEDINGUNGEN",
+          "Melde- und Feststellungsfristen können wichtig sein."
+        ],
+        [
+          "SCHUTZ VERSTEHEN",
+          "Private Unfallvorsorge und BU schützen unterschiedliche Risiken."
+        ]
+      ],
+      "caption": "Unfallversicherung ist nicht gleich Berufsunfähigkeitsversicherung. 🛡️ Ein Blick auf versicherte Unfallfolgen, Invaliditätsleistungen und Fristen lohnt sich. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Fragen zum Unfallschutz? Melde dich. #Unfallversicherung #Versicherungswissen #Döbeln"
+    },
+    {
+      "date": "2026-11-30",
+      "time": "18:30",
+      "type": "carousel",
+      "id": "familie",
+      "icon": "family",
+      "tag": "FAMILIEN-CHECK",
+      "slides": [
+        [
+          "FAMILIE ABSICHERN",
+          "Fünf Risiken, die sich gemeinsam prüfen lassen."
+        ],
+        [
+          "EINKOMMEN",
+          "Wie werden laufende Kosten getragen, wenn jemand länger ausfällt?"
+        ],
+        [
+          "HAFTUNG",
+          "Wer springt bei berechtigten Schadenersatzforderungen ein?"
+        ],
+        [
+          "ZUHAUSE",
+          "Welche Risiken sind für Wohnung oder Eigenheim abgesichert?"
+        ],
+        [
+          "HINTERBLIEBENE",
+          "Welche finanziellen Folgen hätte der Verlust eines Einkommens?"
+        ]
+      ],
+      "caption": "Familienvorsorge beginnt nicht mit einem bestimmten Produkt, sondern mit guten Fragen. 👨‍👩‍👧 Einkommen, Haftung, Wohnen und Hinterbliebenenschutz sollten zum tatsächlichen Bedarf passen. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Wir helfen bei der Übersicht. #Familienvorsorge #Absicherung #Döbeln"
+    },
+    {
+      "date": "2026-12-02",
+      "time": "18:30",
+      "type": "carousel",
+      "id": "hausrat_wohngebaeude",
+      "icon": "house",
+      "tag": "ZUHAUSE",
+      "slides": [
+        [
+          "HAUSRAT ODER GEBÄUDE?",
+          "Zwei Versicherungen. Unterschiedliche Aufgaben."
+        ],
+        [
+          "WOHNGEBÄUDE",
+          "Betrifft grundsätzlich das versicherte Gebäude und feste Bestandteile."
+        ],
+        [
+          "HAUSRAT",
+          "Betrifft grundsätzlich bewegliche Sachen des Haushalts."
+        ],
+        [
+          "SCHADENURSACHE",
+          "Welche Gefahr versichert ist, hängt von den Bausteinen und Bedingungen ab."
+        ],
+        [
+          "KLARHEIT IM VERTRAG",
+          "Aufteilung, Versicherungssummen und Elementarschutz prüfen."
+        ]
+      ],
+      "caption": "Hausrat und Wohngebäude werden oft verwechselt. 🏠 Vereinfacht: Das Gebäude und seine festen Bestandteile sind etwas anderes als die beweglichen Sachen im Haushalt. Entscheidend sind immer die Vertragsbedingungen. 📍 Allianz Agentur Schmidt · Döbeln. #Hausrat #Wohngebäude #Döbeln"
+    },
+    {
+      "date": "2026-12-03",
+      "time": "12:30",
+      "type": "post",
+      "id": "beratung_doebeln",
+      "icon": "chat",
+      "tag": "PERSÖNLICHE BERATUNG",
+      "slides": [
+        [
+          "BERATUNG IN DÖBELN",
+          "Verständlich. Persönlich. Für die Fragen, die wirklich zählen."
+        ]
+      ],
+      "caption": "Versicherungen sollten verständlich sein – nicht kompliziert. 💙 In der Allianz Agentur Schmidt in Döbeln sprechen wir über deine Wünsche, deine Situation und passende Möglichkeiten. Keine pauschalen Lösungen. 💬 Schreib uns für einen Gesprächstermin. #Döbeln #Versicherungsberatung #AgenturSchmidt"
+    },
+    {
+      "date": "2026-12-04",
+      "time": "18:30",
+      "type": "carousel",
+      "id": "rechtsschutz",
+      "icon": "scales",
+      "tag": "RECHTSSCHUTZ",
+      "slides": [
+        [
+          "RECHTSSCHUTZ?",
+          "Vier Punkte, auf die du vor dem Abschluss achten solltest."
+        ],
+        [
+          "RECHTSBEREICHE",
+          "Privat, Beruf, Verkehr und Wohnen können unterschiedlich abgesichert sein."
+        ],
+        [
+          "WARTEZEITEN",
+          "Nicht jeder Streit ist unmittelbar nach Vertragsabschluss versichert."
+        ],
+        [
+          "AUSSCHLÜSSE",
+          "Bestehende Konflikte und bestimmte Rechtsgebiete können ausgeschlossen sein."
+        ],
+        [
+          "IN RUHE PRÜFEN",
+          "Leistungen, Selbstbeteiligung und Bedingungen vergleichen."
+        ]
+      ],
+      "caption": "Rechtsschutz ist nicht automatisch Schutz für jeden Rechtsstreit. ⚖️ Welche Bereiche versichert sind, ob Wartezeiten gelten und welche Ausschlüsse bestehen, steht in den Bedingungen. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Gerne schauen wir uns deinen Bedarf an. #Rechtsschutz #Versicherungswissen #Döbeln"
+    }
+  ],
+  "stories": [
+    {
+      "date": "2026-11-18",
+      "tag": "Zahnzusatz",
+      "question": "Eine hohe Erstattungsquote allein entscheidet nicht über den Leistungsumfang.",
+      "answer": "Was sind Zahnstaffeln und Erstattungsgrenzen?"
+    },
+    {
+      "date": "2026-11-19",
+      "tag": "Einkommensschutz",
+      "question": "Bei längerer Erkrankung bleiben viele laufende Kosten bestehen.",
+      "answer": "Eine BU-Rente setzt die vertraglichen Voraussetzungen voraus."
+    },
+    {
+      "date": "2026-11-20",
+      "tag": "Schüler-BU",
+      "question": "Berufsunfähigkeitsversicherung kann bereits für Schüler relevant sein.",
+      "answer": "Auf Gesundheitsfragen und spätere Anpassungsmöglichkeiten achten."
+    },
+    {
+      "date": "2026-11-21",
+      "tag": "BU oder Unfall",
+      "question": "Eine Unfallversicherung und eine BU decken unterschiedliche Risiken.",
+      "answer": "Berufsunfähigkeit muss nicht durch einen Unfall entstehen."
+    },
+    {
+      "date": "2026-11-22",
+      "tag": "Versicherungsfragen",
+      "question": "Welches Versicherungsthema beschäftigt dich gerade?",
+      "answer": "Wir erklären Verträge verständlich und ohne pauschale Versprechen."
+    },
+    {
+      "date": "2026-11-23",
+      "tag": "Kaskoschutz",
+      "question": "Teilkasko und Vollkasko unterscheiden sich beim eigenen Fahrzeug.",
+      "answer": "Selbstbeteiligung und versicherte Gefahren vergleichen."
+    },
+    {
+      "date": "2026-11-24",
+      "tag": "Steinschlag",
+      "question": "Ist ein Steinschlag in jeder Kfz-Versicherung versichert?",
+      "answer": "Ob die Kasko leistet, hängt vom Vertrag und Schaden ab."
+    },
+    {
+      "date": "2026-11-25",
+      "tag": "Starkregen",
+      "question": "Überschwemmung und Leitungswasser sind nicht dasselbe.",
+      "answer": "Für Naturgefahren können zusätzliche Bausteine nötig sein."
+    },
+    {
+      "date": "2026-11-26",
+      "tag": "Zuhause schützen",
+      "question": "Auch abseits großer Flüsse können Starkregenrisiken bestehen.",
+      "answer": "Elementarschutz, Rückstau und vertragliche Pflichten prüfen."
+    },
+    {
+      "date": "2026-11-27",
+      "tag": "Unfallversicherung",
+      "question": "Gesetzlicher Unfallschutz gilt nicht überall im Privatleben.",
+      "answer": "Private Unfall- und BU-Vorsorge sind unterschiedlich."
+    },
+    {
+      "date": "2026-11-28",
+      "tag": "Unfall-Mythos",
+      "question": "Nicht jede Verletzung löst automatisch eine Invaliditätsleistung aus.",
+      "answer": "Voraussetzungen und Fristen stehen in den Bedingungen."
+    },
+    {
+      "date": "2026-11-29",
+      "tag": "Dein Wunschthema",
+      "question": "Zu welchem Risiko wünschst du dir einen Faktencheck?",
+      "answer": "Schreib uns für eine verständliche Einordnung."
+    },
+    {
+      "date": "2026-11-30",
+      "tag": "Familienvorsorge",
+      "question": "Was wäre bei längerem Einkommensausfall zu bezahlen?",
+      "answer": "Finanzielle Risiken als Familie gemeinsam sortieren."
+    },
+    {
+      "date": "2026-12-01",
+      "tag": "Versicherungscheck",
+      "question": "Kennst du die drei wichtigsten Fragen vor jedem Abschluss?",
+      "answer": "Bedarf, Bedingungen und Selbstbeteiligung prüfen."
+    },
+    {
+      "date": "2026-12-02",
+      "tag": "Hausrat & Gebäude",
+      "question": "Was gehört zum Hausrat, was ist fester Bestandteil des Hauses?",
+      "answer": "Gebäude und bewegliche Sachen werden getrennt betrachtet."
+    },
+    {
+      "date": "2026-12-03",
+      "tag": "Beratung Döbeln",
+      "question": "Eine gute Beratung beginnt mit Fragen, nicht mit Produkten.",
+      "answer": "Wir erklären Unterschiede persönlich und verständlich."
+    },
+    {
+      "date": "2026-12-04",
+      "tag": "Rechtsschutz",
+      "question": "Ist Rechtsschutz automatisch bei jedem Streit zuständig?",
+      "answer": "Rechtsbereich, Wartezeiten und Ausschlüsse prüfen."
+    },
+    {
+      "date": "2026-12-05",
+      "tag": "Rechtsschutz-Mythen",
+      "question": "Auch beim Rechtsschutz gibt es verschiedene Bausteine.",
+      "answer": "Schau auf versicherte Bereiche und Selbstbehalte."
+    },
+    {
+      "date": "2026-12-06",
+      "tag": "Wochenrückblick",
+      "question": "Was möchtest du im Dezember über Versicherungen wissen?",
+      "answer": "Wir sammeln eure Fragen und erklären sie verständlich."
+    }
+  ],
+  "excluded_reels": [
+    {
+      "date": "2026-11-24",
+      "time": "19:00",
+      "topic": "Steinschlag-Reel",
+      "reason": "Kein vom Nutzer freigegebenes Qualitätsvideo"
+    },
+    {
+      "date": "2026-12-01",
+      "time": "19:00",
+      "topic": "Drei Fragen vor Abschluss",
+      "reason": "Kein freigegebenes Qualitätsvideo"
+    }
+  ]
+}
