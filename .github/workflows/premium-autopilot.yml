@@ -1,0 +1,55 @@
+name: Premium Instagram – automatische Produktion und Buffer-Nachfüllung
+on:
+  push:
+    paths:
+      - '.github/workflows/premium-autopilot.yml'
+  schedule:
+    - cron: '05 4,8,12,16 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  premium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Repository mit Schreibberechtigung laden
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Sichere Bildproduktion vorbereiten
+        run: python3 -m pip install --user Pillow
+      - name: Alle thematisch freigegebenen Premium-Karussells und Stories erzeugen
+        run: python3 scripts/premium_render.py
+      - name: Hochwertige Medien dauerhaft fuer Buffer bereitstellen
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/premium_autopilot_v1/
+          if ! git diff --cached --quiet; then
+            git commit -m "Generate logo-free premium carousel and story media for approved editorial plan"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                echo "Originalbilder in GitHub gespeichert"
+                break
+              fi
+              if [ "$attempt" -eq 5 ]; then
+                echo "Medien konnten nicht bereitgestellt werden; Veröffentlichung gestoppt"
+                exit 1
+              fi
+              sleep 4
+            done
+          else
+            echo "Die vorhandenen Premium-Medien sind unverändert"
+          fi
+      - name: Puenktliche Buffer-Buchung fuer kommende 43 Stunden sicherstellen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          PREMIUM_SERIES_RELEASE: approved-autopilot-premium-nov26-v1
+        run: python3 scripts/premium_publish.py
