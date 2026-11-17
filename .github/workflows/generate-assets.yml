@@ -1,36 +1,19 @@
-name: Allianz Instagram - Grafiken erzeugen
+name: Legacy Grafiken – nur manuell, NICHT veroeffentlichen
 on:
-  push:
-    paths:
-      - README.md
-      - 'scripts/render.py'
   workflow_dispatch:
-  schedule:
-    - cron: '30 7 * * 1-5'
 permissions:
-  contents: write
-concurrency:
-  group: allianz-assets
-  cancel-in-progress: false
+  contents: read
 jobs:
-  render:
+  validate_old:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
-      - name: Pillow installieren
-        run: python3 -m pip install --user Pillow
-      - name: Beitragsgrafiken erstellen
-        run: python3 scripts/render.py
-      - name: Grafiken versionieren
+      - name: Alte Entwuerfe sind gesperrt
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/
-          if ! git diff --cached --quiet; then
-            git commit -m "Generate original Instagram cards"
-            git push
-          else
-            echo "Grafiken unverändert."
-          fi
+          echo "Die 30 abgelehnten alten Designs bleiben mit approved:false gesperrt."
+          python3 - <<'PY'
+          import json
+          posts=json.load(open('posts.json',encoding='utf8'))
+          assert all(x.get('approved') is False for x in posts)
+          print('Alle',len(posts),'alten Designs sind gesperrt.')
+          PY
