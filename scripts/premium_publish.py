@@ -62,6 +62,12 @@ def check_image(local,remote):
             time.sleep(5)
 
 def publish():
+    # VISUELLE FREIGABESPERRE ab 18.11.2026:
+    # Nutzer hat die auto-generierten Standard-Storys explizit abgelehnt.
+    # Die gesamte generische Bildserie bleibt bis zur Designabnahme gesperrt.
+    if not PLAN.get("premium_visuals_explicitly_reapproved", False):
+        print("DESIGN-STOPP: Automatische Standard-Storys und Schablonen-Karussells sind gesperrt.")
+        return
     if os.getenv("GITHUB_REPOSITORY")!=REPO:
         raise RuntimeError("Falsches Repository – nichts posten")
     if os.getenv("PREMIUM_SERIES_RELEASE")!="approved-autopilot-premium-nov26-v1":
