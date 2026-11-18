@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "account": "allianzschmidtdoebeln",
+  "policy": "Jeder automatisch veröffentlichte Bild- oder Videodateipfad muss nach sichtbarer Nutzerfreigabe mit SHA256 einzeln eingetragen sein; ein bloßes allgemeines 'approved' reicht nicht. Automatisch erzeugte alte Text/Icon-Vorlagen sind abgelehnt.",
+  "created": "2026-11-18",
+  "media": {},
+  "explicitly_rejected_prefixes": [
+    "assets/premium_autopilot_v1/"
+  ],
+  "grandfathered_separately_approved_posts": {
+    "6afcef7893fa11d37df4d0b9": "Buß- und Bettag, 18.11.12 Uhr",
+    "6af4ec05bc9f3773a1a45de2": "Einkommensschutz, 19.11.12:30 Uhr",
+    "6af4ec063d8c751bfdfae8b0": "Starkregen, 26.11.12:30 Uhr",
+    "6afd62ea805b2f3bff404820": "Zahnzusatz hochwertige Ersatzstory, bereits gesendet"
+  },
+  "rejected_buffer_ids": [
+    "6afce981ab47737bddb3c4ca",
+    "6afce982f0c5ce9361ab4ef4",
+    "6afce983ab47737bddb3c4f8",
+    "6afce983ab47737bddb3c51e",
+    "6afcf087ab47737bddb698da"
+  ]
+}
