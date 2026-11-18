@@ -76,6 +76,20 @@ def icon(draw,kind,cx,cy,s,col):
             draw.line((xx,cy-s*.31,xx,cy+s*.09),fill=col,width=w//2)
             draw.arc((xx-s*.22,cy-s*.04,xx+s*.22,cy+s*.35),0,180,fill=GOLD,width=w)
         draw.line((cx-s*.40,cy+s*.52,cx+s*.40,cy+s*.52),fill=col,width=w)
+    elif kind=="candle":
+        draw.ellipse((cx-s*.46,cy-s*.50,cx+s*.46,cy+s*.42),outline=(143,179,203),width=max(3,w//3))
+        draw.rounded_rectangle((cx-s*.24,cy-s*.12,cx+s*.24,cy+s*.55),radius=int(s*.04),fill=(234,220,196),outline=col,width=max(4,w//3))
+        draw.line((cx,cy-s*.13,cx,cy-s*.32),fill=col,width=max(4,w//2))
+        draw.ellipse((cx-s*.11,cy-s*.56,cx+s*.11,cy-s*.26),fill=GOLD)
+        draw.ellipse((cx-s*.04,cy-s*.48,cx+s*.04,cy-s*.34),fill=(255,250,220))
+    elif kind=="star":
+        points=[]
+        for j in range(10):
+            a=-math.pi/2+j*math.pi/5
+            rad=s*(.62 if j%2==0 else .27)
+            points.append((cx+math.cos(a)*rad,cy+math.sin(a)*rad))
+        draw.polygon(points,fill=GOLD)
+        draw.ellipse((cx-s*.15,cy-s*.15,cx+s*.15,cy+s*.15),fill=(255,243,199))
     else:
         draw.rounded_rectangle((cx-s*.5,cy-s*.44,cx+s*.5,cy+s*.30),radius=25,outline=col,width=w)
         draw.line((cx-s*.2,cy+s*.30,cx-s*.34,cy+s*.52,cx+s*.12,cy+s*.30),fill=col,width=w)
@@ -110,8 +124,6 @@ def outname(row,number):
 
 def feed_image(row,i,head,body,number):
     path=outname(row,number)
-    if path.exists():
-        return
     path.parent.mkdir(parents=True,exist_ok=True)
     w,h=1080,1350
     im=background(w,h,i,row["icon"])
@@ -135,14 +147,15 @@ def feed_image(row,i,head,body,number):
 def story_image(day,part):
     date=day["date"]
     path=BASE/"stories"/(date+"_"+part+".jpg")
-    if path.exists():return
     path.parent.mkdir(parents=True,exist_ok=True)
     im=background(1080,1920,0 if part=="morning" else 4,day["tag"])
     d=ImageDraw.Draw(im)
     d.text((72,100),"ALLIANZ AGENTUR SCHMIDT",font=font(27,True),fill=WHITE)
     d.text((72,230),"DÖBELN  /  WISSEN STATT MYTHEN",font=font(27),fill=ICE)
     d.ellipse((530,300,1170,940),outline=(54,136,184),width=5)
-    icon(d,"chat" if part=="morning" else "shield",840,600,280,ICE)
+    label_lower=day["tag"].lower()
+    special="star" if "nikolaus" in label_lower else "candle" if "advent" in label_lower else None
+    icon(d,special or ("chat" if part=="morning" else "shield"),840,600,280,ICE)
     label="FRAGE DES TAGES" if part=="morning" else "GUT ZU WISSEN"
     d.text((85,1000),label,font=font(31,True),fill=GOLD)
     subject=day["tag"].upper()
