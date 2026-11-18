@@ -1,0 +1,58 @@
+name: Neue Zahnzusatz-Story SOFORT veröffentlichen – hochwertiger Ersatz
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-zahnzusatz-story-replacement.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  replacement:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Originalbild prüfen
+        run: python3 -m pip install --user Pillow
+      - name: Exakt neue, hochwertige 9:16-Story in Originalqualität übertragen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import io,hashlib,urllib.request
+          url="https://m.invideo.io/uploads/0f027811-f45f-45db-b770-3914b963976d/0f027811-f45f-45db-b770-3914b963976d?Expires=1795077206&Signature=MnhLmT1Kp1TWHBO1zDng~KSTD~-xqIByjfsvWKPf7MAFSD1G3cNVWyKRiXkrzhPV-9mlBENUTXdbnfN3emb5Ksz-NBsg0ENuhRQCPSgFEnyWyLtUeX1Eq2PQAx4Ev9VMhOTUhR38NyMCk82JXj8CSpyA7FMo6VRfwu0JtumghLjHOh3X0kV~EGwyzIdjKkNB~gnk6MMY2i1xt-TG3rziugUJzAYl0AynI3pw2E2YpvfLW23YuuIt7v~vWLk1ehLS8lQM4XcyBDZ-l6nI3OI0fElcGVkfwJe3Ofv9VHrbiTIIB8qpeB40tyU8kF9J6QseTyOb0uTp6MKJnaMeVeF4IA__&Key-Pair-Id=KX9I6OACHF5M3"
+          with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Schmidt-Story-Replacement/1.0"}),timeout=60) as r:
+              raw=r.read()
+          digest=hashlib.sha256(raw).hexdigest()
+          assert digest=="1557fefb930f948a6e3a0456e459e9c0985c95dfeee72eace24d80b87ac27b34",("Wrong image:",digest)
+          im=Image.open(io.BytesIO(raw))
+          assert im.format=="PNG" and im.size==(941,1672),(im.format,im.size)
+          dest=Path("assets/replacement_stories/zahnzusatz_20261118_editorial.png")
+          dest.parent.mkdir(parents=True,exist_ok=True)
+          dest.write_bytes(raw)
+          print("PREMIUM ERSATZBILD GEPRUEFT:",im.size,len(raw))
+          PY
+      - name: Bild für Buffer sicher hosten
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/replacement_stories/zahnzusatz_20261118_editorial.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Add quality-controlled replacement for rejected Instagram Story"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 3
+            done
+          fi
+      - name: Neue Ersatz-Story direkt an Buffer senden
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          REPLACE_STORY_RELEASE: replacement-zahnzusatz-2026-11-18
+        run: python3 scripts/publish_zahnzusatz_editorial_replacement_once.py
