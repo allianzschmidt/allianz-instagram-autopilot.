@@ -23,11 +23,34 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
+      - name: Designfreigabe vor ALLEM anderen prüfen – fail closed
+        id: gate
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          plan=json.loads(Path('content/premium_2026_11_12.json').read_text(encoding='utf8'))
+          approved=json.loads(Path('content/visual_approval_manifest.json').read_text(encoding='utf8'))
+          ok=(plan.get('premium_visuals_explicitly_reapproved') is True
+               and approved.get('account')=='allianzschmidtdoebeln'
+               and bool(approved.get('media')))
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf8') as out:
+              out.write('approved='+('true' if ok else 'false')+'\n')
+          if ok:
+              print('Designfreigaben vorhanden. Der zusätzliche SHA256-Mediencheck bleibt vor jedem Post aktiv.')
+          else:
+              print('SICHERHEITSSTOPP: Die vom Nutzer verworfenen Standardbilder werden WEDER neu erzeugt NOCH eingeplant.')
+              print('Bereits freigegebene, separat gebuchte Qualitätsbeiträge laufen unabhängig weiter.')
+          PY
       - name: Sichere Bildproduktion vorbereiten
+        if: steps.gate.outputs.approved == 'true'
         run: python3 -m pip install --user Pillow
       - name: Alle thematisch freigegebenen Premium-Karussells und Stories erzeugen
+        if: steps.gate.outputs.approved == 'true'
         run: python3 scripts/premium_render.py
       - name: Hochwertige Medien dauerhaft fuer Buffer bereitstellen
+        if: steps.gate.outputs.approved == 'true'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -52,6 +75,7 @@ jobs:
             echo "Die vorhandenen Premium-Medien sind unverändert"
           fi
       - name: Puenktliche Buffer-Buchung fuer kommende 43 Stunden sicherstellen
+        if: steps.gate.outputs.approved == 'true'
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           PREMIUM_SERIES_RELEASE: approved-autopilot-premium-nov26-v1
