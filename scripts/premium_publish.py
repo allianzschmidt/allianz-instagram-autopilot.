@@ -15,6 +15,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from autopilot import get_channel, posts_from_buffer, query
+from visual_quality_gate import require_approved_media
 
 ROOT=Path(__file__).resolve().parents[1]
 PLAN=json.loads((ROOT/"content/premium_2026_11_12.json").read_text(encoding="utf8"))
@@ -109,6 +110,8 @@ def publish():
             if d<now+timedelta(hours=17):
                 misses.append(item["label"]+": Buffer-Free-Warteschlange voll")
             continue
+        # Keine Serienfreigabe ohne einzeln gesichtete, unveränderte Medien.
+        require_approved_media(["assets/premium_autopilot_v1/"+name for name in item["image_paths"]])
         urls=[ROOT_URL+name for name in item["image_paths"]]
         for f,u in zip(item["image_paths"],urls):
             check_image(BASE/f,u)
