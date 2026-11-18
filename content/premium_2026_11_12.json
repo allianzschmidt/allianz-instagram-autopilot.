@@ -428,5 +428,7 @@
       "topic": "Drei Fragen vor Abschluss",
       "reason": "Kein freigegebenes Qualitätsvideo"
     }
-  ]
+  ],
+  "premium_visuals_explicitly_reapproved": false,
+  "visual_approval_status": "BLOCKED: user rejected repeating icon based Story and carousel designs on 2026-11-18; do not post without visual reapproval"
 }
