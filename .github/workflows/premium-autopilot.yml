@@ -53,3 +53,5 @@ jobs:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           PREMIUM_SERIES_RELEASE: approved-autopilot-premium-nov26-v1
         run: python3 scripts/premium_publish.py
+
+# Wiederholungstests sind idempotent: identische Buffer-Termine werden erkannt und nicht doppelt angelegt.
