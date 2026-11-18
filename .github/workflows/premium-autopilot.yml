@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - '.github/workflows/premium-autopilot.yml'
+      - 'scripts/premium_render.py'
+      - 'scripts/premium_publish.py'
+      - 'content/premium_2026_11_12.json'
   schedule:
     - cron: '05 4,8,12,16 * * *'
   workflow_dispatch:
