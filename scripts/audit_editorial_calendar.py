@@ -8,7 +8,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from autopilot import get_channel,posts_from_buffer
-from premium_publish import items
+from premium_publish import items,PLAN
 
 EXISTING_APPROVED={
  "2026-11-18T11:00:00+00:00":("Buß- und Bettag – werbefreier Gruß","6afcef7893fa11d37df4d0b9"),
@@ -21,7 +21,11 @@ def audit():
     now=datetime.now(timezone.utc)
     posts=posts_from_buffer(org["id"],ch["id"])
     print("INSTAGRAM:",ch["name"],"NOW:",now.isoformat(),"BUFFER COUNT:",len(posts))
-    events=items()
+    if PLAN.get('premium_visuals_explicitly_reapproved') is False:
+        print('DESIGN-FREIGABE-STOPP: Wiederholte Standardgrafiken sind vom Nutzer abgelehnt; deren fehlende Buffer-Termine gelten ausdrücklich NICHT als Ausfall.')
+        events=[]
+    else:
+        events=items()
     for instant,(label,post_id) in EXISTING_APPROVED.items():
         dt=datetime.fromisoformat(instant)
         events.append({"due":dt,"label":label,"caption":None,"expected_id":post_id})
