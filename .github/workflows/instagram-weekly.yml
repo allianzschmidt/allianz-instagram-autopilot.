@@ -1,5 +1,8 @@
-name: Allianz Instagram - Wochenanalyse
+name: Allianz Instagram – echte Premium-Wochenanalyse
 on:
+  push:
+    paths:
+      - '.github/workflows/instagram-weekly.yml'
   schedule:
     - cron: '00 9 * * 1'
   workflow_dispatch:
@@ -10,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Buffer-Status und Metriken auswerten
+      - name: Echte Premium-Veröffentlichungen, Reichweite und Buffer-Termine analysieren
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-        run: python3 scripts/autopilot.py report
+        run: python3 scripts/premium_analytics.py
