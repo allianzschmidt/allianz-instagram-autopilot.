@@ -1,5 +1,8 @@
 # Instagram-Autopilot – Allianz Schmidt Döbeln
 
+> **PREMIUM-AUTOPILOT LIVE seit 18.11.2026:** Automatische hochwertige Karussell- und Story-Bilder, regelmäßige Buffer-Nachfüllung und Prüfung der echten Termine laufen jetzt. Erster Lauf: 79 Grafiken erstellt, 4 kommende Beiträge direkt mit bestätigten Buffer-IDs eingeplant; auch ein zweiter Lauf ohne Doppelposts erfolgreich. [Aktueller Live-Status und technische Grenzen](./PREMIUM_AUTOPILOT_LIVE_2026-11-18.md). Alte Designs und abgelehnte Videos weiterhin gesperrt.
+
+
 > **NEUER CONTENT-SCHWERPUNKT:** Ab 05.11.2026 ist die Informationskampagne zur Altersvorsorgereform 2027 mit einem eigenen Reel, einem Premium-Karussell und Stories geplant. [Fakten, Termine und Freigabestatus](./KAMPAGNE_ALTERSVORSORGEDEPOT_2027.md). Sie wurde am 09.11.2026 für den freigegebenen fünfseitigen Karussellpost veröffentlicht; zwei Storys für 10.11.2026 sind eingeplant. Alle anderen Entwürfe bleiben gesperrt. Keine Logos, nur Pauls Originalporträt als Personenmotiv.
 
 **Instagram:** [@allianzschmidtdoebeln](https://www.instagram.com/allianzschmidtdoebeln/)  
