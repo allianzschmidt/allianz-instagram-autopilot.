@@ -45,7 +45,7 @@ def main():
             except ValueError:continue
             if abs((t-due).total_seconds())<120:
                 candidate=p;break
-        status=candidate.get("status") if candidate else "MISSING"
+        status=candidate.get("status") if candidate else ("NOCH NICHT FAELLIG ZUR VORPLANUNG" if due>now+timedelta(hours=43) else "MISSING")
         upcoming.append(status)
         add("- "+due.isoformat()+" | "+item["label"]+" | "+status)
     add("Kommende Premium-Termine: "+str(len(upcoming))+
