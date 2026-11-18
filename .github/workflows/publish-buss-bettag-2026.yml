@@ -1,0 +1,57 @@
+name: Feiertagsbeitrag Buß- und Bettag 2026 – werbefrei
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-buss-bettag-2026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-holiday-2026-11-18
+  cancel-in-progress: false
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Originalbild kontrollieren
+        run: python3 -m pip install --user Pillow
+      - name: Logo-freies Premium-Feiertagsmotiv mit SHA256 prüfen
+        run: |
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          import io,hashlib,urllib.request
+          url="https://m.invideo.io/uploads/afd681a2-1de5-4ce0-83ab-44f496daaf78/afd681a2-1de5-4ce0-83ab-44f496daaf78?Expires=1795047653&Signature=O-CtoRu2YmDjCFavXu59GUd2RXp7BejRRaGgJ~dD0f--IMuTr5NG5E-k~xIiFjKEcqa~hyrGUuSyPBE3UIPXHYBUZ0mTJTyZYN6o8Brta22yOCZH9Y9KBEEXHDavjoWmAnLo5C9DXMhzDkjTcPf9pj7yDt3zRFdKXNp1lJk1LgFVG-X7rbyJR38uuKlzQKTKCVd~-Xxc644NYC4U1tEuW7K7K4V4Cgq527QKXc5jaTU56710bcf4DHLNY~yy4T3GhFy4H1mC0U1toarDW16jaaiw-E7b-Q6z-CcbEXWl~4f49fNvq-NY0sRsX3nThykqC-LTJPlNzo9QuwhgJIkn0w__&Key-Pair-Id=KX9I6OACHF5M3"
+          with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Schmidt-Holiday/1.0"}),timeout=65) as resp:
+              content=resp.read()
+          assert hashlib.sha256(content).hexdigest()=="b9f7697f96cfc0671bbf5546406d5dc633a9a093b37d517de191aadaa4aa5be4", "Holiday image checksum mismatch"
+          im=Image.open(io.BytesIO(content))
+          assert im.format=="PNG" and im.size==(1122,1402), f"Unexpected image format: {im.format} {im.size}"
+          dest=Path("assets/community/buss_und_bettag_2026.png")
+          dest.parent.mkdir(parents=True,exist_ok=True)
+          dest.write_bytes(content)
+          print("Feiertagsbild hash-und formatgeprueft:",im.size,len(content))
+          PY
+      - name: Motiv für Buffer dauerhaft in GitHub bereitstellen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/community/buss_und_bettag_2026.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Add approved non-commercial Buß- und Bettag Instagram visual"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 4
+            done
+          fi
+      - name: Feiertagsbeitrag fuer 18. November 12 Uhr in Buffer planen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          HOLIDAY_RELEASE: buss-bettag-2026-approved
+        run: python3 scripts/publish_buss_und_bettag_2026.py
