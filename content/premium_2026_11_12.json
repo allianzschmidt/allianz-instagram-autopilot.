@@ -161,6 +161,21 @@
       "caption": "Unfallversicherung ist nicht gleich Berufsunfähigkeitsversicherung. 🛡️ Ein Blick auf versicherte Unfallfolgen, Invaliditätsleistungen und Fristen lohnt sich. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Fragen zum Unfallschutz? Melde dich. #Unfallversicherung #Versicherungswissen #Döbeln"
     },
     {
+      "date": "2026-11-29",
+      "time": "11:00",
+      "type": "post",
+      "id": "erster_advent_2026",
+      "icon": "candle",
+      "tag": "1. ADVENT",
+      "slides": [
+        [
+          "EINEN SCHÖNEN 1. ADVENT",
+          "Zeit für kleine Momente, Ruhe und die Menschen, die uns wichtig sind."
+        ]
+      ],
+      "caption": "🕯️ Heute ist der erste Advent.\n\nManchmal sind es die kleinen Momente, die diese Jahreszeit besonders machen: ein warmes Licht, ein gutes Gespräch und Zeit für Herzensmenschen.\n\nWir wünschen euch einen entspannten ersten Advent! 💙\n\nEure Allianz Agentur Schmidt aus Döbeln.\n\n#ErsterAdvent #Adventszeit #Döbeln #Mittelsachsen"
+    },
+    {
       "date": "2026-11-30",
       "time": "18:30",
       "type": "carousel",
@@ -267,6 +282,21 @@
         ]
       ],
       "caption": "Rechtsschutz ist nicht automatisch Schutz für jeden Rechtsstreit. ⚖️ Welche Bereiche versichert sind, ob Wartezeiten gelten und welche Ausschlüsse bestehen, steht in den Bedingungen. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Gerne schauen wir uns deinen Bedarf an. #Rechtsschutz #Versicherungswissen #Döbeln"
+    },
+    {
+      "date": "2026-12-06",
+      "time": "11:00",
+      "type": "post",
+      "id": "nikolaus_2026",
+      "icon": "star",
+      "tag": "NIKOLAUS · 2. ADVENT",
+      "slides": [
+        [
+          "SCHÖNEN NIKOLAUSTAG",
+          "Und einen gemütlichen zweiten Advent für euch und eure Familien."
+        ]
+      ],
+      "caption": "🎅🕯️ Nikolaustag und zweiter Advent an einem Tag!\n\nWir wünschen allen aus Döbeln und Umgebung einen entspannten Adventssonntag – mit schönen kleinen Überraschungen und Zeit füreinander.\n\nEure Allianz Agentur Schmidt. 💙\n\n#Nikolaus #ZweiterAdvent #Döbeln #Mittelsachsen"
     }
   ],
   "stories": [
@@ -290,15 +320,15 @@
     },
     {
       "date": "2026-11-21",
-      "tag": "BU oder Unfall",
-      "question": "Eine Unfallversicherung und eine BU decken unterschiedliche Risiken.",
-      "answer": "Berufsunfähigkeit muss nicht durch einen Unfall entstehen."
+      "tag": "Wochenende in Mittelsachsen",
+      "question": "Was gehört für dich zu einem entspannten Samstag?",
+      "answer": "Wir wünschen euch ein schönes Wochenende in Döbeln und Umgebung."
     },
     {
       "date": "2026-11-22",
-      "tag": "Versicherungsfragen",
-      "question": "Welches Versicherungsthema beschäftigt dich gerade?",
-      "answer": "Wir erklären Verträge verständlich und ohne pauschale Versprechen."
+      "tag": "Ruhiger Sonntag",
+      "question": "Wofür möchtest du dir heute etwas Zeit nehmen?",
+      "answer": "Manchmal ist ein ruhiger Sonntag das Schönste am ganzen Wochenende."
     },
     {
       "date": "2026-11-23",
@@ -332,15 +362,15 @@
     },
     {
       "date": "2026-11-28",
-      "tag": "Unfall-Mythos",
-      "question": "Nicht jede Verletzung löst automatisch eine Invaliditätsleistung aus.",
-      "answer": "Voraussetzungen und Fristen stehen in den Bedingungen."
+      "tag": "Unsere Region",
+      "question": "Was ist dein persönlicher Lieblingsplatz in Mittelsachsen?",
+      "answer": "Ob Stadtspaziergang oder Natur: Schön, hier zu Hause zu sein."
     },
     {
       "date": "2026-11-29",
-      "tag": "Dein Wunschthema",
-      "question": "Zu welchem Risiko wünschst du dir einen Faktencheck?",
-      "answer": "Schreib uns für eine verständliche Einordnung."
+      "tag": "1. Advent",
+      "question": "Der erste Advent ist da. Was macht diese Zeit für dich besonders?",
+      "answer": "Wir wünschen euch einen warmen und entspannten ersten Advent."
     },
     {
       "date": "2026-11-30",
@@ -374,15 +404,15 @@
     },
     {
       "date": "2026-12-05",
-      "tag": "Rechtsschutz-Mythen",
-      "question": "Auch beim Rechtsschutz gibt es verschiedene Bausteine.",
-      "answer": "Schau auf versicherte Bereiche und Selbstbehalte."
+      "tag": "Adventszeit",
+      "question": "Was gehört für dich unbedingt zur Adventszeit?",
+      "answer": "Ein kleiner Gruß aus Döbeln – genießt das Adventswochenende."
     },
     {
       "date": "2026-12-06",
-      "tag": "Wochenrückblick",
-      "question": "Was möchtest du im Dezember über Versicherungen wissen?",
-      "answer": "Wir sammeln eure Fragen und erklären sie verständlich."
+      "tag": "Nikolaus & 2. Advent",
+      "question": "Nikolaustag und zweiter Advent fallen 2026 zusammen. Was steht heute bei euch an?",
+      "answer": "Einen schönen Nikolaustag und zweiten Advent wünscht die Allianz Agentur Schmidt."
     }
   ],
   "excluded_reels": [
