@@ -3,7 +3,22 @@
   "account": "allianzschmidtdoebeln",
   "policy": "Jeder automatisch veröffentlichte Bild- oder Videodateipfad muss nach sichtbarer Nutzerfreigabe mit SHA256 einzeln eingetragen sein; ein bloßes allgemeines 'approved' reicht nicht. Automatisch erzeugte alte Text/Icon-Vorlagen sind abgelehnt.",
   "created": "2026-11-18",
-  "media": {},
+  "media": {
+    "assets/pending_visual_approval/schueler_bu_2026_11_20/story_01.jpg": {
+      "approved": false,
+      "user_visual_approval": false,
+      "sha256": "f2b6bf8dd87acc989264db372896e985634b062b0d5fbddf66a55742cd4847ab",
+      "status": "DRAFT - awaits visual approval",
+      "purpose": "Schüler-BU premium editorial Story 20 Nov 2026"
+    },
+    "assets/pending_visual_approval/schueler_bu_2026_11_20/story_02.jpg": {
+      "approved": false,
+      "user_visual_approval": false,
+      "sha256": "b3198cb1025c39e2e2b1571fb019977f9b1ea13e7106162d8476a38a75b7f646",
+      "status": "DRAFT - awaits visual approval",
+      "purpose": "Schüler-BU premium editorial Story 20 Nov 2026"
+    }
+  },
   "explicitly_rejected_prefixes": [
     "assets/premium_autopilot_v1/"
   ],
