@@ -1,0 +1,58 @@
+name: Nur Medienentwürfe speichern – Schüler BU 20.11.2026
+on:
+  push:
+    paths:
+      - '.github/workflows/stage-schueler-bu-stories.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-staged-schueler-stories
+  cancel-in-progress: false
+jobs:
+  stage-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Pillow installieren
+        run: python3 -m pip install --user Pillow
+      - name: Nur geprüfte Originaldateien übertragen, OHNE BUFFER-ZUGRIFF
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import urllib.request,hashlib,io
+          urls=["https://m.invideo.io/uploads/f1f338e5-e0db-4841-b703-297d89c9af52/f1f338e5-e0db-4841-b703-297d89c9af52?Expires=1795274582&Signature=KGlP8kvi4K53Q2YT07z0VuTJh9oIrVJtvmcAjjnEXuwow5MhciId-0xyXyDLP5ANGjeQFvSfb7QdSt-SD8y4zlMm2kecbHdyHnMK-J6yhsZwrb-U2B3bkQKm~49xYdEBNu1lq3pMDu3ykVuLe5PQBCq~wbrs-HEJpfa4H41Fp8Gekv6h2Qb2HX4wEX8s3d8FU-wzdt56iyG5JCtNy35j9CYOwAbzy-9XxVbW4ir2CC-b7KpoYmKt1s2oM-x99dbAoZXPNJ89g~O65XEIyWn6en4JIk9ZDjMYXk2Fq54eluHt6dNjjnwN~RCuWYyNOd7ZObuWX4FHZ0HiiyGLtrBG9g__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/2dbe7f4c-ccdf-4bf6-a203-297f9bdeac94/2dbe7f4c-ccdf-4bf6-a203-297f9bdeac94?Expires=1795274582&Signature=j3FrZbVY98Q2D40UY8heBHUgCSzSvmPmxWM7LPbvKN-b3PsmgOWiYx-QYqHsOnJCFGoGlpVLq162czYmQp1diANMNPa-TEvD~wEGC8PO0lFUq36TOrFfrpNO9OHcWCVyeda26rv7f2hJss2yqn6Di~FjTUMJK5-ZJlZCIIOOuqCGmGD~U89OBgL8XCKyp~BAsKv34QTJrZgaC7uVeNjZmmyCMwFKz59xrkP6eYQZhfF7ibMnPVWrb8XTycGMtwBrPVR7swMQ23ip11Er1xHMWuSaqVBzn02~0bBz79TONUtpIJ-ddTYuZVexP-NzCkurbRtIA-bL3xhJeVIuyT5-wg__&Key-Pair-Id=KX9I6OACHF5M3"]
+          checks=["f2b6bf8dd87acc989264db372896e985634b062b0d5fbddf66a55742cd4847ab","b3198cb1025c39e2e2b1571fb019977f9b1ea13e7106162d8476a38a75b7f646"]
+          folder=Path("assets/pending_visual_approval/schueler_bu_2026_11_20")
+          folder.mkdir(parents=True,exist_ok=True)
+          for idx,(url,check) in enumerate(zip(urls,checks),1):
+            req=urllib.request.Request(url,headers={"User-Agent":"Schmidt-Premium-Draft/1.0"})
+            with urllib.request.urlopen(req,timeout=60) as r:
+              content=r.read()
+            assert hashlib.sha256(content).hexdigest()==check, "Media does not match approved preview"
+            im=Image.open(io.BytesIO(content))
+            assert im.size==(1080,1920) and im.format=="JPEG", "Wrong Story dimensions/format"
+            target=folder/("story_%02d.jpg"%idx)
+            target.write_bytes(content)
+            print("DRAFT IMAGE ONLY:",target,len(content))
+          
+          PY
+      - name: Entwürfe im Repository sichern (KEINE Veröffentlichung)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/pending_visual_approval/schueler_bu_2026_11_20/
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage premium photo-style student BU Stories for individual review only"
+            for i in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then exit 0; fi
+              if [ "$i" -eq 5 ]; then exit 1; fi
+              sleep 3
+            done
+          fi
+          echo "Entwürfe bereits vorhanden, NICHT gepostet."
