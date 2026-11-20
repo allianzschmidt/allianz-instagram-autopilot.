@@ -17,6 +17,22 @@
       "sha256": "b3198cb1025c39e2e2b1571fb019977f9b1ea13e7106162d8476a38a75b7f646",
       "status": "DRAFT - awaits visual approval",
       "purpose": "Schüler-BU premium editorial Story 20 Nov 2026"
+    },
+    "assets/approved_schueler_bu_2026_11_20/01.png": {
+      "approved": true,
+      "user_visual_approval": true,
+      "sha256": "c253ca6934760fd5067254ebdb3c5c67e0440a664eadbb25553373c1640489f1",
+      "status": "USER APPROVED beautiful no-logo design and asked to post in conversation 20 Nov 2026",
+      "purpose": "Two exclusive premium student-BU Instagram Stories for 20.11.2026",
+      "no_allianz_logos": true
+    },
+    "assets/approved_schueler_bu_2026_11_20/02.png": {
+      "approved": true,
+      "user_visual_approval": true,
+      "sha256": "33a27080467b2c8ff426cc2a3285b169fa5f9ea479a69a5ad43c1ca1cc32a0b7",
+      "status": "USER APPROVED beautiful no-logo design and asked to post in conversation 20 Nov 2026",
+      "purpose": "Two exclusive premium student-BU Instagram Stories for 20.11.2026",
+      "no_allianz_logos": true
     }
   },
   "explicitly_rejected_prefixes": [
