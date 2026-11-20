@@ -1,0 +1,61 @@
+name: Zwei freigegebene Schüler-BU Storys jetzt veröffentlichen – 20 November
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-two-schueler-bu-stories-nov20.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  approved-story-pair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Bildformatprüfung installieren
+        run: python3 -m pip install --user Pillow
+      - name: Nur die zwei exakt freigegebenen originalen Premium-Grafiken importieren
+        run: |
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          from hashlib import sha256
+          from io import BytesIO
+          from urllib.request import Request,urlopen
+          urls=["https://m.invideo.io/uploads/c00d3c51-85a9-4c8e-a67e-aff874565820/c00d3c51-85a9-4c8e-a67e-aff874565820?Expires=1795282486&Signature=mzb0npSyH1yESxYzTvMIwWqyxv-nrTEIRUWVYRkEw35mIK~foecYYHt2MT9xxlApYmnaJYxHvterAgURgq2kV9ZCG4yfCxXdr6GP~1feDbySuh9O0a-wN6s6fvn~-TwsIFV3YKydbX-an1RE0ZpHTdudvBt0-SnG4ohJNiVQSSTgzU4kHd2iv2DryqLe6DUqYYSB~g1YAsa5t3h~Uw6W3QEOU7jHQHXpjVyb4GNITz7sSl~u8f5ubrJ63m356DYmgyklZ~Cneal1Rf508afNn1CL5F~yz8mSYCjaJl4QWkX85ved2Ki~FKnXbQTnAsDbFVsIrVMmjl~Lbt6f~esFSw__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/12ff732b-0337-4995-aff9-a1e583dcee0c/12ff732b-0337-4995-aff9-a1e583dcee0c?Expires=1795282487&Signature=VGv21j2aCnAmRuUjnudn0TgPUnOl5NCiC6k3L5rKDbzYwOJg6hwg8BW2nJcPfNLMT35G-o3UHPuUU9BFr7U6N6D-34ldlqejMcgqD7ZhJ4Gsdp3n5I9wovNLO8Fjgbh6jWJb7TssXt89U~YEA12S6SSuXZJSfrZGzhPwR9wNS50YZzmxbMXXAMn7r0JFr0XvxGnYtRkv~81456rC2voyn-5w~4-tViExY9JES~ZnaInpKEN1H5k3bdpeWBXfX4-lIt5YcAMDsBkdg71GTUBfA1ABX3rn9kr3weE~objszYGKmkS1eTN5mQX9Fd-2YdMYZZbHmmR1RmfDdU2eDJm9oQ__&Key-Pair-Id=KX9I6OACHF5M3"]
+          hashes=["c253ca6934760fd5067254ebdb3c5c67e0440a664eadbb25553373c1640489f1","33a27080467b2c8ff426cc2a3285b169fa5f9ea479a69a5ad43c1ca1cc32a0b7"]
+          p=Path("assets/approved_schueler_bu_2026_11_20");p.mkdir(parents=True,exist_ok=True)
+          for i,(url,digest) in enumerate(zip(urls,hashes),1):
+            req=Request(url,headers={"User-Agent":"SchmidtApprovedStoryTransfer/1.0"})
+            with urlopen(req,timeout=65) as r:raw=r.read()
+            assert sha256(raw).hexdigest()==digest,f"Original image SHA mismatch slide {i}"
+            image=Image.open(BytesIO(raw))
+            assert image.format=="PNG" and image.size==(941,1672),f"Wrong format {image.format} {image.size}"
+            dest=p/("%02d.png"%i);dest.write_bytes(raw)
+            print("PREMIUM STORY FREIGEGEBEN",i,"bytes",len(raw),"SHA",digest)
+          
+          PY
+      - name: Für Instagram Buffer sicher hosten
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/approved_schueler_bu_2026_11_20/
+          if ! git diff --cached --quiet; then
+            git commit -m "Store two exact user-approved photographic student BU Story images"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 4
+            done
+          fi
+      - name: Erste Story sofort senden und zweite auf 20.15 Uhr planen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          TWO_STORY_RELEASE: schueler-bu-no-logo-two-stories-2026-11-20
+        run: python3 scripts/publish_approved_schueler_bu_stories_nov20.py
