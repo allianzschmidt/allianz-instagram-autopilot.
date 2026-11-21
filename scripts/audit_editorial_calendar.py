@@ -11,10 +11,10 @@ from autopilot import get_channel,posts_from_buffer
 from premium_publish import items,PLAN
 
 EXISTING_APPROVED={
- "2026-11-21T11:45:00+00:00":("Golf-Kfz-Angebot Story 12:45 CET","6b017160d9cbb430a13b30f6"),
- "2026-11-21T14:45:00+00:00":("Golf-Kfz-Angebot Feed 15:45 CET","6b017160dd205ed779d9ba15"),
- "2026-11-21T17:45:00+00:00":("Golf-Kfz-Daten Story 18:45 CET","6b017160d9cbb430a13b3159"),
- "2026-11-21T19:45:00+00:00":("Golf-Kfz-DM Story 20:45 CET","6b01716120a2d09a0af0cc69"),
+ "2026-11-21T11:45:00+00:00":("Kfz Nutzeroriginal Story 12:45 CET","6b01732add205ed779da6602"),
+ "2026-11-21T14:45:00+00:00":("Kfz Nutzeroriginal Feed 15:45 CET","6b01732a510276624515cf54"),
+ "2026-11-21T17:45:00+00:00":("Kfz Nutzeroriginal Story 18:45 CET","6b01732b20a2d09a0af16e8c"),
+ "2026-11-21T19:45:00+00:00":("Kfz Nutzeroriginal Story 20:45 CET","6b01732b9ffbc8503c195f78"),
  "2026-11-18T11:00:00+00:00":("Buß- und Bettag – werbefreier Gruß","6afcef7893fa11d37df4d0b9"),
  "2026-11-19T11:30:00+00:00":("Einkommensschutz Foto","6af4ec05bc9f3773a1a45de2"),
  "2026-11-26T11:30:00+00:00":("Starkregen Foto","6af4ec063d8c751bfdfae8b0"),
