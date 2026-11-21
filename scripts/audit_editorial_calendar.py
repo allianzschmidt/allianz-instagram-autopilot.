@@ -11,6 +11,10 @@ from autopilot import get_channel,posts_from_buffer
 from premium_publish import items,PLAN
 
 EXISTING_APPROVED={
+ "2026-11-21T11:45:00+00:00":("Kfz-Wechselsaison Story 12:45 CET","6b0168fc9ffbc8503c151cae"),
+ "2026-11-21T14:45:00+00:00":("Kfz-Wechselsaison 5-Slide-Karussell 15:45 CET","6b0168fd5e993799d86a43fb"),
+ "2026-11-21T17:45:00+00:00":("Kfz-Versicherungsschutz Story 18:45 CET","6b0168fd20a2d09a0aecef43"),
+ "2026-11-21T19:45:00+00:00":("Kfz-Beratung Story 20:45 CET","6b0168fd9ffbc8503c151d0d"),
  "2026-11-18T11:00:00+00:00":("Buß- und Bettag – werbefreier Gruß","6afcef7893fa11d37df4d0b9"),
  "2026-11-19T11:30:00+00:00":("Einkommensschutz Foto","6af4ec05bc9f3773a1a45de2"),
  "2026-11-26T11:30:00+00:00":("Starkregen Foto","6af4ec063d8c751bfdfae8b0"),
