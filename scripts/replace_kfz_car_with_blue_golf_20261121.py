@@ -60,6 +60,7 @@ def preflight():
     print("GEPRÜFTES GOLF-ORIGINAL:",file,sha)
 
 def run():
+  raise RuntimeError("ALTEN GOLF-ERSATZ NICHT ERNEUT AKTIVIEREN. Der Nutzer hat explizit das hochgeladene Posterdesign ausgewaehlt, das jetzt in vier Buffer-Slots gebucht ist.")
   if os.getenv("GITHUB_REPOSITORY")!="allianzschmidt/allianz-instagram-autopilot.":
     raise RuntimeError("Falsches Repository")
   if os.getenv("GOLF_RELEASE")!="user-reference-blue-vw-golf-replacement-21nov2026":
