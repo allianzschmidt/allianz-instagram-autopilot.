@@ -53,6 +53,7 @@ def verify(name):
     return WEB+name
 
 def main():
+    raise RuntimeError("VERALTETES KFZ-MOTIV GESPERRT. Der Nutzer hat das finale, vollstaendige Footer-Design vom 21.11.2026 freigegeben. Dieses ist bereits fuer Feed 15:45 und EINE Story 20:45 gebucht.")
     if os.getenv("GITHUB_REPOSITORY")!="allianzschmidt/allianz-instagram-autopilot.":
         raise RuntimeError("Repository verwechselt")
     if os.getenv("EXACT_DESIGN_RELEASE")!="user-supplied-blue-vw-golf-exact-poster-nov21":
