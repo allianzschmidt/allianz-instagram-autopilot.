@@ -1,0 +1,38 @@
+name: Live-Veröffentlichungskontrolle – Schüler-BU Premium-Karussell
+on:
+  push:
+    paths:
+      - '.github/workflows/check-schueler-bu-premium.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instagram-Kanal und Buffer-Status des konkreten 5-Slide-Beitrags unabhängig prüfen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import sys
+          sys.path.insert(0,"scripts")
+          from autopilot import get_channel,posts_from_buffer
+          org,ch=get_channel()
+          id="6b015a8c20a2d09a0ae699b2"
+          found=[p for p in posts_from_buffer(org["id"],ch["id"]) if p.get("id")==id]
+          if not found:
+            raise RuntimeError("STOPP: der konkrete Schüler-BU Premium-Beitrag ist nicht in der Buffer-Abfrage sichtbar.")
+          p=found[0]
+          print("INSTAGRAM: @allianzschmidtdoebeln")
+          print("POST-ID:",p.get("id"))
+          print("PREMIUM SCHUELER BU 5-SLIDE POST STATUS:",p.get("status"))
+          print("VEROEFFENTLICHUNGSZEIT (UTC):",p.get("dueAt"))
+          print("TEXTSTART:",(p.get("text") or "")[:135])
+          if not (p.get("text") or "").startswith("SCHÜLER-BU: Schon in der Schulzeit absichern?"):
+            raise RuntimeError("Falscher Posttext – bitte prüfen")
+          if p.get("status")!="sent":
+            raise RuntimeError("Die Veröffentlichung ist noch NICHT bestätigt. Status: "+str(p.get("status")))
+          print("BESTAETIGT: Buffer hat die Schüler-BU-Premium-Veröffentlichung als sent markiert.")
+          PY
