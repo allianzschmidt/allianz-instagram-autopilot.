@@ -55,6 +55,7 @@ def verify(f):
     return WEB+f
 
 def main():
+    raise RuntimeError("ALTER KFZ-KAMPAGNENLAUF GESPERRT: Der Nutzer hat den normalen blauen VW Golf gefordert. Verwende nur die bereits gebuchten korrigierten Medien und nie erneut die alten Bilder.")
     if os.getenv("GITHUB_REPOSITORY")!="allianzschmidt/allianz-instagram-autopilot.":
         raise RuntimeError("Falsches Repository")
     if os.getenv("CAMPAIGN_RELEASE")!="explicit-user-request-kfz-21nov2026":
