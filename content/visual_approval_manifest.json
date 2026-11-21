@@ -45,7 +45,11 @@
     "6af4ec063d8c751bfdfae8b0": "Starkregen, 26.11.12:30 Uhr",
     "6afd62ea805b2f3bff404820": "Zahnzusatz hochwertige Ersatzstory, bereits gesendet",
     "6b0084ca6f199ec35b6ac360": "Schüler-BU Story 1 – 20.11.2026 um 18:35 gesendet (Bufffer sent), individueller SHA freigegeben",
-    "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben"
+    "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben",
+    "6b0168fc9ffbc8503c151cae": "Kfz-Wechselsaison Story 1 – 21.11.2026 12:45 CET",
+    "6b0168fd5e993799d86a43fb": "Kfz-Wechselsaison 5-Slide Premium-Karussell – 21.11.2026 15:45 CET",
+    "6b0168fd20a2d09a0aecef43": "Kfz-Prüfung Story 2 – 21.11.2026 18:45 CET",
+    "6b0168fd9ffbc8503c151d0d": "Kfz-Beratung Story 3 – 21.11.2026 20:45 CET"
   },
   "rejected_buffer_ids": [
     "6afce981ab47737bddb3c4ca",
@@ -62,6 +66,46 @@
       "manually_checked_for_logos_and_people": true,
       "campaign_assets": "assets/approved_specific/schueler_bu_2026_11_21/",
       "legacy_template_series_not_authorized": true
+    },
+    "6b0168fc9ffbc8503c151cae": {
+      "type": "directly_user_requested_same_day_campaign",
+      "visual_explicitly_approved_after_preview": false,
+      "quality_reviewed": true,
+      "logo_free": true,
+      "theme": "Kfz-Wechselsaison 2026",
+      "campaign_assets": "assets/campaign_kfz_2026_11_21/",
+      "date": "2026-11-21",
+      "status": "scheduled"
+    },
+    "6b0168fd5e993799d86a43fb": {
+      "type": "directly_user_requested_same_day_campaign",
+      "visual_explicitly_approved_after_preview": false,
+      "quality_reviewed": true,
+      "logo_free": true,
+      "theme": "Kfz-Wechselsaison 2026",
+      "campaign_assets": "assets/campaign_kfz_2026_11_21/",
+      "date": "2026-11-21",
+      "status": "scheduled"
+    },
+    "6b0168fd20a2d09a0aecef43": {
+      "type": "directly_user_requested_same_day_campaign",
+      "visual_explicitly_approved_after_preview": false,
+      "quality_reviewed": true,
+      "logo_free": true,
+      "theme": "Kfz-Wechselsaison 2026",
+      "campaign_assets": "assets/campaign_kfz_2026_11_21/",
+      "date": "2026-11-21",
+      "status": "scheduled"
+    },
+    "6b0168fd9ffbc8503c151d0d": {
+      "type": "directly_user_requested_same_day_campaign",
+      "visual_explicitly_approved_after_preview": false,
+      "quality_reviewed": true,
+      "logo_free": true,
+      "theme": "Kfz-Wechselsaison 2026",
+      "campaign_assets": "assets/campaign_kfz_2026_11_21/",
+      "date": "2026-11-21",
+      "status": "scheduled"
     }
   },
   "rejected_published_media": {
