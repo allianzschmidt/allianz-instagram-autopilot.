@@ -83,13 +83,30 @@
       "no_allianz_logos": true,
       "no_unrequested_redesign": true,
       "source_user_upload": "Jetzt Kfz-Angebot einholen(2).png"
+    },
+    "assets/kfz_final_footer_20261121/feed.jpg": {
+      "approved": true,
+      "user_visual_approval": true,
+      "sha256": "4dc56fd371dd87364d7d0cac460bb17d50d8f188340070c6d096d6ed8452e420",
+      "source": "User approved final image with complete footer Allianz Agentur Schmidt · Döbeln on 21.11.2026",
+      "no_allianz_logo": true,
+      "one_story_only": true
+    },
+    "assets/kfz_final_footer_20261121/story.jpg": {
+      "approved": true,
+      "user_visual_approval": true,
+      "sha256": "50ff5c86098242fc0e6e39d42cb87b4acc21c912b8d51e8f0045c21a5d326ba0",
+      "source": "User approved final image with complete footer Allianz Agentur Schmidt · Döbeln on 21.11.2026",
+      "no_allianz_logo": true,
+      "one_story_only": true
     }
   },
   "explicitly_rejected_prefixes": [
     "assets/premium_autopilot_v1/",
     "assets/approved_specific/schueler_bu_2026_11_21/",
     "assets/campaign_kfz_2026_11_21/",
-    "assets/kfz_golf_2026_11_21/"
+    "assets/kfz_golf_2026_11_21/",
+    "assets/kfz_exact_user_image_2026_11_21/"
   ],
   "grandfathered_separately_approved_posts": {
     "6afcef7893fa11d37df4d0b9": "Buß- und Bettag, 18.11.12 Uhr",
@@ -98,8 +115,8 @@
     "6afd62ea805b2f3bff404820": "Zahnzusatz hochwertige Ersatzstory, bereits gesendet",
     "6b0084ca6f199ec35b6ac360": "Schüler-BU Story 1 – 20.11.2026 um 18:35 gesendet (Bufffer sent), individueller SHA freigegeben",
     "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben",
-    "6b01732a510276624515cf54": "User's exact Kfz graphic Feed – 21.11. 15:45 CET",
-    "6b01732b9ffbc8503c195f78": "User's exact Kfz graphic Story 3 – 21.11. 20:45 CET"
+    "6b0177aed864a01105380378": "FINAL Kfz gold/navy flyer with correct agency footer – Feed 21 Nov 15:45 CET",
+    "6b0177ae0247969092c4a058": "FINAL Kfz gold/navy flyer with correct agency footer – ONE Story 21 Nov 20:45 CET"
   },
   "rejected_buffer_ids": [
     "6afce981ab47737bddb3c4ca",
@@ -117,7 +134,9 @@
     "6b017160d9cbb430a13b3159",
     "6b01716120a2d09a0af0cc69",
     "6b01732add205ed779da6602",
-    "6b01732b20a2d09a0af16e8c"
+    "6b01732b20a2d09a0af16e8c",
+    "6b01732a510276624515cf54",
+    "6b01732b9ffbc8503c195f78"
   ],
   "specific_campaign_publication_notes": {
     "6b015a8c20a2d09a0ae699b2": {
@@ -238,6 +257,18 @@
       ],
       "posted": false,
       "buffer_status": "scheduled"
+    },
+    "6b0177aed864a01105380378": {
+      "title": "FINAL Kfz gold/navy flyer with correct agency footer – Feed 21 Nov 15:45 CET",
+      "source": "User explicitly approved last two generated images and ordered same-day post",
+      "status": "scheduled",
+      "only_authorized_feed_and_story": true
+    },
+    "6b0177ae0247969092c4a058": {
+      "title": "FINAL Kfz gold/navy flyer with correct agency footer – ONE Story 21 Nov 20:45 CET",
+      "source": "User explicitly approved last two generated images and ordered same-day post",
+      "status": "scheduled",
+      "only_authorized_feed_and_story": true
     }
   },
   "rejected_published_media": {
