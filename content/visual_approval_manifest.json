@@ -36,7 +36,8 @@
     }
   },
   "explicitly_rejected_prefixes": [
-    "assets/premium_autopilot_v1/"
+    "assets/premium_autopilot_v1/",
+    "assets/approved_specific/schueler_bu_2026_11_21/"
   ],
   "grandfathered_separately_approved_posts": {
     "6afcef7893fa11d37df4d0b9": "Buß- und Bettag, 18.11.12 Uhr",
@@ -44,15 +45,15 @@
     "6af4ec063d8c751bfdfae8b0": "Starkregen, 26.11.12:30 Uhr",
     "6afd62ea805b2f3bff404820": "Zahnzusatz hochwertige Ersatzstory, bereits gesendet",
     "6b0084ca6f199ec35b6ac360": "Schüler-BU Story 1 – 20.11.2026 um 18:35 gesendet (Bufffer sent), individueller SHA freigegeben",
-    "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben",
-    "6b015a8c20a2d09a0ae699b2": "Schüler-BU 5-Slide Premium-Karussell – speziell vom Nutzer am 21.11.2026 zur Erstellung und Veröffentlichung beauftragt; 5 SHA-256-geprüfte neue Bilder, keine Freigabe der zuvor abgelehnten Standardserie"
+    "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben"
   },
   "rejected_buffer_ids": [
     "6afce981ab47737bddb3c4ca",
     "6afce982f0c5ce9361ab4ef4",
     "6afce983ab47737bddb3c4f8",
     "6afce983ab47737bddb3c51e",
-    "6afcf087ab47737bddb698da"
+    "6afcf087ab47737bddb698da",
+    "6b015a8c20a2d09a0ae699b2"
   ],
   "specific_campaign_publication_notes": {
     "6b015a8c20a2d09a0ae699b2": {
@@ -61,6 +62,15 @@
       "manually_checked_for_logos_and_people": true,
       "campaign_assets": "assets/approved_specific/schueler_bu_2026_11_21/",
       "legacy_template_series_not_authorized": true
+    }
+  },
+  "rejected_published_media": {
+    "6b015a8c20a2d09a0ae699b2": {
+      "date": "2026-11-21",
+      "reason": "User explicitly rejects five-slide student BU carousel visual design and demands immediate takedown",
+      "status": "SENT_NOT_REMOVABLE_WITH_BUFFER_CONNECTOR",
+      "must_never_republish": true,
+      "media_prefix": "assets/approved_specific/schueler_bu_2026_11_21/"
     }
   }
 }
