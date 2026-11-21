@@ -1,0 +1,20 @@
+name: Kfz 21 Nov – nur eine Story abends, keine Dreifach-Story
+on:
+  push:
+    paths:
+      - '.github/workflows/cancel-extra-kfz-stories-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  cancel-duplicates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ausschließlich Storys 12:45 und 18:45 zu Entwürfen machen, Feed und Abend-Story bewahren
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: python3 scripts/cancel_two_extra_kfz_stories_20261121.py
