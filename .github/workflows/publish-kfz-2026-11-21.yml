@@ -1,0 +1,67 @@
+name: Kfz-Wechselsaison 21 November – Premium Feed und 3 Stories
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-kfz-2026-11-21.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-kfz-weekend-2026
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Bilddateiprüfung aktivieren
+        run: python3 -m pip install --user Pillow
+      - name: Alle acht hochwertigen finalen Kfz-Medien mit SHA256 und Formatkontrolle importieren
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          from hashlib import sha256
+          from io import BytesIO
+          from urllib.request import Request,urlopen
+          files=["01_KFZ_Titel.jpg","02_KFZ_Stichtag.jpg","03_KFZ_Leistungen.jpg","04_KFZ_Sonderkuendigung.jpg","05_KFZ_Kontakt.jpg","Story_01_KFZ_Wechselsaison.jpg","Story_02_KFZ_Check.jpg","Story_03_KFZ_Direktnachricht.jpg"]
+          urls=["https://m.invideo.io/uploads/251628a3-813f-45fe-9e85-df7e7a716840/251628a3-813f-45fe-9e85-df7e7a716840?Expires=1795340903&Signature=YGgFU5ED8~AC4zsdINhEjYHzWZq71jKEnGknbPb~RBxx6Wt-whe3qPvflw6HGqw1Ct0V~RO3sJOuuf6c-SPaYHGor8c3w762m60bHFbNolW2mBxgUPbIpygWxQEnyjWQWWpE~U2V8BhPnjHtEcryEDokgi4v7IzncHcYA2G0zkvuVMy0r26vbSvWVc8x3ItT6ozaOFdUGmtuIvQNeS5Yv-QCyuBQH84S6Rottr~w9~5uA9~cBDehk2sHzpZp-DtN2aS-YzOusbHMKZgO4yt~uhIWKAC~EVB4m~Zu0sCtAa4ZXx6j4faCYGqEmY4jW1~-3tXsS~fWFyB8AEVaNuRSiw__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/23739f26-48c2-4ef3-8ae4-5b369e49dd89/23739f26-48c2-4ef3-8ae4-5b369e49dd89?Expires=1795340900&Signature=CcoxfjGluKfddzIaUJ9k4TLzU6EYjGdqAkUG7mck5DDA7SlwRYZkc~Ox6TKY7kAL52ABSf3LNjVKskk311d~zB3U0WiEPedR01IKTNi4~oRVPEOuS8w90k618FqTeX3L2TMV3w4eojO-HqNdjQDfXAPL4jPTOHB9gxz8X9myHWFdV9371K6KgQ8cloB7g-oe9KQ9Ptu3sKy3FlyFZgFVbFYeId4zd5kOF8BHt~DUVl3OC00mPN8MkpF~~zvPioxjk50i3ru8mXobxuRTZlvn1IUepZTqdBx3mvkUCpBEHu7cGHOqOg~Six8QxiosCWjjkVJwkyjk~fzZAyfSq4jwVg__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/6bc2ff28-ca90-4b7a-a764-47ec6f78b7d1/6bc2ff28-ca90-4b7a-a764-47ec6f78b7d1?Expires=1795340903&Signature=hv-tWINVEhQZkaODwE4pgxlfZCsQuECozIgVhwX2Pq05jszocsGjrCBxB6QHwur5tQJO2dDzOvi5rnlhjEAzYHylYXNVuMLWop039j9i9Nokl-OLlJCGsllRQk~botrsNsThuo0aTLU~QO8yGNS0cmAdxDvE2nTMYxcnQbVHHvMzMV7fRHgN5vdS4~QqW3SKCnMp298gHsIZ8u20IAorytsHMbE1gMm7H~S2ISIJ9IDV0GDSc7keeX2tIKjNr3MMZQW0-P3gnqprDgzOqES1hVyeS4UQBxYoBKlIqiPa7bXgS9-QuCPzlfkyiqQgyxwGbTFx6hpCT-QpUEEhoUBVQA__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/ee8c3cc5-af7b-4f69-91e9-df1531a3a8ff/ee8c3cc5-af7b-4f69-91e9-df1531a3a8ff?Expires=1795340900&Signature=NkBrNz~uRgM87QYR5yIhf229QzHR0Fgn41PwrJb8C14UHhBEpngZivmuD~teWm0uhjaSgg9HnmMIYR4g5akVXdOrO5nUgqXcWRb-VyeNg48k0jumQh1Hfv-RwxNYgy3ojLgm5oV1WSVplQkhL-yZkmY4QNP4OpsYop5yqhrtZvLu1UB8wvfDkSNaQ0dsf3O7jydq2sESzlQN4S0Jtnwdmkyyc6nuWLyfPH8wFXU2Vv-tlhhJglhEEjXaAbwmDcTWKUa8GsNPCBqHk1kmD7SWkXFs01Lrm9v~oTh6jhHONJECYjXAMjpc4GRJSyePvaTeuhq2aeUJs0P6hg3ICLLglA__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/1a9b6574-ecb2-4af8-aada-d2ad22804b1a/1a9b6574-ecb2-4af8-aada-d2ad22804b1a?Expires=1795340901&Signature=WTdIyT~0xeG6Zxr-dSTaWDxbVUesTs0KtJ3H30Mx-SVQtteXIFm6LTUfUo6VAP5zSMeZOs7R8nOyCjwwboliqKiHVz~OUs~fetXTL7Kr646EqsGQw9MrLuAe-e-cJPbr2-1Zt-gLyeDt~PvJN~holGobuG2g1mf7~y-1NyVJiQSynQLr7Lf27NRaZwX9msIZppOYFjUMXkQ0rsYnVARmUZTcK0WYOuQrYFvSbepTMi8TMOcGKZkw6dqYW0Vy7eadOGnaRiY46l8VHmsqni7F0DQ0SdbOziPBHAGGZd9-mkGn0GUw6JlddGJbCkAbjzhG3Jgb~HUV8N4918oZKUBXwQ__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/59e04680-e557-465e-bd02-b4bf00d6b910/59e04680-e557-465e-bd02-b4bf00d6b910?Expires=1795340903&Signature=RsmXEWnLhk2wkeNLH5m2AHT0VN9glh2p2D3R3hAmFZv9n90fURlDNRcncMdEr31NkIL-q7e9OIhX8dYOrEhyih9V6EmgHhqZspCJ-L4ogTm5mcJHl-8BPKiwI51WAB1gZnUxPYFy163lbQPbVlsisZxsQLHrHN8IFOnYYtOs2xAboNMNuHC8mVU6TS3ASEQh13orLWB9p39-cb~IXOyEx7Um1n7B10~IQcq93Csr0IShnOiJ8~7sVLZG~gDOwaUhBxHTF9-Li4-8uiaVIfoAFUD2BPyyZRXMsCdZXRFa5IwAPESGULwPdL2VU6wCmrmutB3VnTcjx7Vt9hk-2gZ6hA__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/1ee42477-bdf6-4594-8bb8-957c85ac978f/1ee42477-bdf6-4594-8bb8-957c85ac978f?Expires=1795340903&Signature=ql5xKTS3VZuA9Zp3xFgXM0p85nAa0YpBLDsTV781Wg9tuI4OcbIOvVbx-p1gQoTEtm1KfX3PBRUUf2d2v~KfZpA6YTnWTDqDTFrGcdyC4n~oIhJMBD6YLE7WP8VLgkJolfE9CssPI3cX4FM9BaoFwxUMFStLdkoc9HkPVAp6OXVII~NORJ992E-2DhxBrSi38NH3W6Nw0L-oa7~Dip1Vvu6Lt62Gb8ylK7UlxlG9hVQcH1q5fxwUS34Xro24AbyayFvN15UhgRQvi3QYOj~t-PCzCHbqFv~cl9Bda-ciodmFXft0w-cbADMkpFpGnCrnuR9wicts~HpzN-RPQtiKdg__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/2228119e-c1a3-4dbd-b71a-7836ae3995ca/2228119e-c1a3-4dbd-b71a-7836ae3995ca?Expires=1795340902&Signature=PIoqm3ePiLiFRSSVa1CDXkiQB~ZbHxAanAqvV1-7bB7~Z40iKhDtkrtlOw42~2~UPau8W46C~b4TycV8ZbO7Xx2UVC~z7vYbIwPPTKyyknoNNwiUvGU~N9HCl2KM3rSyiUwovvP1qi7g7YsZwgKq-sFIgF4zc6AtVY2HS9rsP20EmeZSbUMXjPu-0FBhHAnc1bR3EPDDt2YEbXv2e3uR9zhxVldbBJiNq3watM-sdOR6JY7gFUR9hTUjtcvtKW2Fq3UfkCu109vZ0VpwLzDR9PxbCZhf0fMM~N1P4DL4UKTf47d3GR7YPAKW64zQuQp5sUc~eIFLKtRJrvoMCRbJcw__&Key-Pair-Id=KX9I6OACHF5M3"]
+          checks=["4514f9420062459a7eb661546fdc08d28de78469f648366bafe93d44a1d5540e","29854602fcc221f91a07f5dc161d954c194bb5ec4b34195886ef66ba3c322121","243ce46c4c231cde99490221160f8af33424f8eafb6a52d91f1b78c3db8f6fea","e9a6df882dc3d39a86d776b7c5c2c3c680d478947015783456b77e96f514b654","4ae18af198f7af73f58b88ccf786c130c6a1d2509d59ce0ffae51de96ff24a3e","573504c11918a1daf1207aee939faa79311d2115a851af22816acaac63b19a41","efa44e160b4a0cf2275ea0f9b1938ef6f40dd61cfce51afbcda0fd4845bc25bc","c4f73d974b86e788bef99df514a14f19b6de791ee0c9693d5033389a35b07982"]
+          d=Path("assets/campaign_kfz_2026_11_21")
+          d.mkdir(parents=True,exist_ok=True)
+          for i,(f,url,chk) in enumerate(zip(files,urls,checks),1):
+              req=Request(url,headers={"User-Agent":"AgenturSchmidtKFZTransfer/1.0"})
+              with urlopen(req,timeout=60) as response:
+                  data=response.read()
+              h=sha256(data).hexdigest()
+              if h!=chk:raise RuntimeError("NICHT das freigegebene Original: "+f)
+              img=Image.open(BytesIO(data))
+              size=(1080,1350) if i<=5 else (1080,1920)
+              if img.format!="JPEG" or img.size!=size:
+                  raise RuntimeError(f"STOPP: Unerwartetes Format oder Größe {f}: {img.format} {img.size}")
+              (d/f).write_bytes(data)
+              print("EXAKTE PREMIUM-KFZ-MEDIEN ÜBERTRAGEN:",f,len(data),"Bytes, SHA",h)
+          PY
+      - name: Medien originalgetreu auf GitHub hosten, alte Designs weiterhin gesperrt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/campaign_kfz_2026_11_21/
+          if ! git diff --cached --quiet; then
+            git commit -m "Store eight checked high-quality Kfz Wechsel season Instagram visuals"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 4
+            done
+          fi
+      - name: Drei Kfz-Stories und das fünfteilige Karussell heute in Buffer buchen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          CAMPAIGN_RELEASE: explicit-user-request-kfz-21nov2026
+        run: python3 scripts/publish_kfz_campaign_2026_11_21.py
