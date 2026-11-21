@@ -11,8 +11,8 @@ from autopilot import get_channel,posts_from_buffer
 from premium_publish import items,PLAN
 
 EXISTING_APPROVED={
- "2026-11-21T14:45:00+00:00":("Kfz Nutzeroriginal Feed 15:45 CET","6b01732a510276624515cf54"),
- "2026-11-21T19:45:00+00:00":("Kfz Nutzeroriginal Story 20:45 CET","6b01732b9ffbc8503c195f78"),
+ "2026-11-21T14:45:00+00:00":("Kfz finaler Freigabe-Feed 15:45 CET","6b0177aed864a01105380378"),
+ "2026-11-21T19:45:00+00:00":("Kfz finale Freigabe-Story 20:45 CET","6b0177ae0247969092c4a058"),
  "2026-11-18T11:00:00+00:00":("Buß- und Bettag – werbefreier Gruß","6afcef7893fa11d37df4d0b9"),
  "2026-11-19T11:30:00+00:00":("Einkommensschutz Foto","6af4ec05bc9f3773a1a45de2"),
  "2026-11-26T11:30:00+00:00":("Starkregen Foto","6af4ec063d8c751bfdfae8b0"),
