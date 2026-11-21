@@ -102,12 +102,12 @@ def main():
         when=datetime.fromisoformat(due.replace("Z","+00:00"))
         mode="customScheduled" if now<when else "shareNow"
         extra=",dueAt:"+json.dumps(due) if mode=="customScheduled" else ""
-        metadata="metadata:{instagram:{type:"+kind+",shouldShareToFeed:"+("true" if kind=="post" else "false")+",isAiGenerated:false}}"
+        metadata="metadata:{instagram:{type:"+kind+",shouldShareToFeed:"+("true" if kind=="post" else "false")+",isAiGenerated:true}}"
         gql=("mutation {createPost(input:{text:"+json.dumps(caption,ensure_ascii=False)
              +",channelId:"+json.dumps(ch["id"])
              +",schedulingType:automatic,mode:"+mode+extra
              +",assets:[{image:{url:"+json.dumps(urls[name])+"}}]"
-             +",aiAssisted:false,"+metadata+
+             +",aiAssisted:true,"+metadata+
              "}) {... on PostActionSuccess{post{id status dueAt text assets{id mimeType}}} ... on MutationError{message}}}")
         response=query(gql).get("createPost",{})
         if not isinstance(response,dict) or not response.get("post"):
