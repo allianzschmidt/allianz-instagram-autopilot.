@@ -44,7 +44,8 @@
     "6af4ec063d8c751bfdfae8b0": "Starkregen, 26.11.12:30 Uhr",
     "6afd62ea805b2f3bff404820": "Zahnzusatz hochwertige Ersatzstory, bereits gesendet",
     "6b0084ca6f199ec35b6ac360": "Schüler-BU Story 1 – 20.11.2026 um 18:35 gesendet (Bufffer sent), individueller SHA freigegeben",
-    "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben"
+    "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben",
+    "6b015a8c20a2d09a0ae699b2": "Schüler-BU 5-Slide Premium-Karussell – speziell vom Nutzer am 21.11.2026 zur Erstellung und Veröffentlichung beauftragt; 5 SHA-256-geprüfte neue Bilder, keine Freigabe der zuvor abgelehnten Standardserie"
   },
   "rejected_buffer_ids": [
     "6afce981ab47737bddb3c4ca",
@@ -52,5 +53,14 @@
     "6afce983ab47737bddb3c4f8",
     "6afce983ab47737bddb3c51e",
     "6afcf087ab47737bddb698da"
-  ]
+  ],
+  "specific_campaign_publication_notes": {
+    "6b015a8c20a2d09a0ae699b2": {
+      "source": "User instruction 'dann mach das mensch' 21 Nov 2026 to create and post missing high-quality BU carousel.",
+      "explicitly_visual_approved_after_preview": false,
+      "manually_checked_for_logos_and_people": true,
+      "campaign_assets": "assets/approved_specific/schueler_bu_2026_11_21/",
+      "legacy_template_series_not_authorized": true
+    }
+  }
 }
