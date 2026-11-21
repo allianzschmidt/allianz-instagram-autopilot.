@@ -98,9 +98,7 @@
     "6afd62ea805b2f3bff404820": "Zahnzusatz hochwertige Ersatzstory, bereits gesendet",
     "6b0084ca6f199ec35b6ac360": "Schüler-BU Story 1 – 20.11.2026 um 18:35 gesendet (Bufffer sent), individueller SHA freigegeben",
     "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben",
-    "6b01732add205ed779da6602": "User's exact Kfz graphic Story 1 – 21.11. 12:45 CET",
     "6b01732a510276624515cf54": "User's exact Kfz graphic Feed – 21.11. 15:45 CET",
-    "6b01732b20a2d09a0af16e8c": "User's exact Kfz graphic Story 2 – 21.11. 18:45 CET",
     "6b01732b9ffbc8503c195f78": "User's exact Kfz graphic Story 3 – 21.11. 20:45 CET"
   },
   "rejected_buffer_ids": [
@@ -117,7 +115,9 @@
     "6b017160d9cbb430a13b30f6",
     "6b017160dd205ed779d9ba15",
     "6b017160d9cbb430a13b3159",
-    "6b01716120a2d09a0af0cc69"
+    "6b01716120a2d09a0af0cc69",
+    "6b01732add205ed779da6602",
+    "6b01732b20a2d09a0af16e8c"
   ],
   "specific_campaign_publication_notes": {
     "6b015a8c20a2d09a0ae699b2": {
@@ -248,5 +248,16 @@
       "must_never_republish": true,
       "media_prefix": "assets/approved_specific/schueler_bu_2026_11_21/"
     }
+  },
+  "cancelled_by_user_2026_11_21": {
+    "reason": "User explicitly wants just one Kfz Story late evening 20:45, not three during the day",
+    "cancelled_story_ids": [
+      "6b01732add205ed779da6602",
+      "6b01732b20a2d09a0af16e8c"
+    ],
+    "kept_feed_id": "6b01732a510276624515cf54",
+    "kept_evening_story_id": "6b01732b9ffbc8503c195f78",
+    "cancelled_status": "draft",
+    "checked_on": "2026-11-21"
   }
 }
