@@ -1,0 +1,63 @@
+name: Nur Kfz Feed und Abend-Story mit finalem Schriftzug buchen
+on:
+  push:
+    paths:
+      - '.github/workflows/replace-kfz-final-footer-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  replace-final:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Bildprüfung
+        run: python3 -m pip install --user Pillow
+      - name: Freigegebene Footer-Bilder bytegenau übernehmen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from hashlib import sha256
+          from PIL import Image
+          import io,urllib.request
+          urls=["https://m.invideo.io/uploads/39cc8524-275d-4aa0-8621-1453a8ea43ba/39cc8524-275d-4aa0-8621-1453a8ea43ba?Expires=1795344669&Signature=GjQHOCBLG0JMgD-bHPgw0T3M1z3MwAqnJYOgCh7EOsmGYQ~JB0dZyTd~VSpiwA6gUAsRmKL8JRD4cjgX5AvFKagY-PtAfXym2Ch3RFHsLsO8CEw4uevYYEBypKtLSgjr1-7-LnihklcbjuzUz7wx2moOcZj5iJLXSVAFJwZCh7u3w9dTzT9emBxxyHDmEaWmenAv4R284eh4UCHrBCB77llsfaHYSQzyoh2mMx2o6TnPI-QE~sg1waRg3jAwdm8PGavRs2O95wU6leH0JqLBQiivJ99h9H6VFe1bvBA0fKd~Y-WM3W5qHicj6teoiDKf16~5b4JJvLVUQVG0OwRXyg__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/fbed88e7-b0cf-4c77-8504-5d170b471ee7/fbed88e7-b0cf-4c77-8504-5d170b471ee7?Expires=1795344670&Signature=LJFpJFP7V35W7lYuTR4Cna7WNtLAs3P5HUZM-PA911~TRnd5nzjoFinhy97RM8OVd-sxBLeom9gt~qVA5WEXs5f61JusaqYgZC3RAs1lysLv9k2cyQDj1xx18TRDL6I1EPz0FzqOsJJIYt2dTrYrdTaohpHUtyYkab1SPSJsPln~~gJysooCu1OEkbvVBXc2c2b3SvHI6Ud5Pn7uvKcNNXGLGgEGBWrJVtlMmQcG~2CqWvea2yNwk5~O3EN9voBkWKiLmVkYxoYJGQ5boWoP-Gk~FFhUjjtmwOXqvxrFyt3orAFVemXLWpHEdVO623Xo3JUuimqEFja-MnEVD5mtQA__&Key-Pair-Id=KX9I6OACHF5M3"]
+          files=["feed.jpg","story.jpg"]
+          hashes=["4dc56fd371dd87364d7d0cac460bb17d50d8f188340070c6d096d6ed8452e420","50ff5c86098242fc0e6e39d42cb87b4acc21c912b8d51e8f0045c21a5d326ba0"]
+          sizes=[(1080,1080),(1080,1920)]
+          dest=Path("assets/kfz_final_footer_20261121");dest.mkdir(parents=True,exist_ok=True)
+          for url,file,digest,size in zip(urls,files,hashes,sizes):
+           req=urllib.request.Request(url,headers={"User-Agent":"SchmidtFinalFooterUpload/1.0"})
+           with urllib.request.urlopen(req,timeout=65) as res: raw=res.read()
+           assert sha256(raw).hexdigest()==digest, "Image does not match approved final footer version: "+file
+           im=Image.open(io.BytesIO(raw))
+           assert im.format=="JPEG" and im.size==size, f"Wrong format for {file}: {im.format} {im.size}"
+           (dest/file).write_bytes(raw)
+           print("EXAKTES FREIGEGEBENES ORIGINAL:",file,len(raw),digest)
+          
+          PY
+      - name: Originaldateien auf GitHub hosten
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/kfz_final_footer_20261121/
+          if ! git diff --cached --quiet; then
+            git commit -m "Host final footer-visible Kfz feed and Story user-approved visuals"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 4
+            done
+          fi
+      - name: Nur zwei verbleibende Kfz-Termine durch finales Motiv ersetzen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          FINAL_IMAGE_RELEASE: user-approved-footer-feed-story-nov21
+        run: python3 scripts/replace_kfz_with_final_footer_20261121.py
