@@ -1,0 +1,65 @@
+name: Schüler BU Premium 5 Slides – genehmigte Sofortveröffentlichung
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-schueler-bu-premium-once.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  user-requested:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: JPEG-Originale überprüfen
+        run: python3 -m pip install --user Pillow
+      - name: Fünf hochwertige Karussellbilder anhand der Prüfsummen importieren
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          from hashlib import sha256
+          import io,urllib.request
+          urls=["https://m.invideo.io/uploads/1154d071-1e57-4ebf-af44-012f114040d7/1154d071-1e57-4ebf-af44-012f114040d7?Expires=1795337208&Signature=Idz~FyG-0g7cv4mqidjSVbX8eYfEhCGYPOHkgqO1JAlYRb7~YkR3KPjBigzGwSvIKStN0l6daNfmB1ofZDVg50BJkgbryPU8Z5smAv7PZLrIGH1XTgWwa8Dv4hvg6TOMrF~xLmhesjtunJlSvZxdon8IaoFbmuZPFPVBfl8ggv~JjpQd5AV1a-ePjhedll44auXyN9338kE0j0cBdJgJhapcgeXkg05dzygt-0sQuM7~~zFBmueuCQnmzO6O4uTa49N7Mke5vCnFc7HLEjBWVe5CN0Oq54OPwbRM52OhonjjJYvwYha1JxfO40KrrnpNZWvqOeX51rJTx3G2SD1uMw__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/30dce428-1c66-48b6-accd-4e5902a26f5a/30dce428-1c66-48b6-accd-4e5902a26f5a?Expires=1795337208&Signature=ofr9LF08TZM6vgPEK8dXJxh3CVDMybrFl2z907fMkp7FWdZE98UxZXTX7gSgf7MvY8cUUjHtF-fleeHmEPGAw-rkrwTJy2Pv6ZHI5qoOior-xKrte028sKbzKlS7PM9vsX3Z4~Z-y8QmHyCqWI1JUc5DgaatKk9zvLFMYw9WhHc1OtRAJXOmCdkgHQTg2E6~M44C2b~jrxIIymbWOjqMW35rhhtIpj~d7nfEAXxQj9GeR4-BFBClvY7MM3qe-65gd52rFQc06OkQBW71Gve5J-akCJjzxPkFqoOCYmPEVDKwqgnh17-QYLXPrmBr~m542aVSTwoAqkEbnCW2s8ishg__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/9f9df72d-c5ce-40e4-8b6b-0f73db1aa575/9f9df72d-c5ce-40e4-8b6b-0f73db1aa575?Expires=1795337208&Signature=Gntf6z2HlPebhrrsxUlupj4S63lYJC5sq6JqL5Zy4yDMF2Iq-lEW-IVRcAi-FgnOH9NEQwAdNOQi93OqvRvNfZel8voeiqoYND8birx6liu0odVmdZpSpU4XGIfRq-qd19BuJh-LTbMsqoK74Gk0LZyzCgB~tfpF4lP3erYD4y-WnTYxh4~DwFWj2LOMTpoQBA0YnwGfTmAhpGyvJRBqKsd8XtycjaUQDU05MknljgdFN0FNMLb5ZTXxuFsbNrRQ6mgDgojLhwEmrPV1l0Gl0UX7xMJwfJC1CzhS1RxVR-SvoQ3NbqO5Inis8fUp5WEPvCpmmSZMUoL84wmek7gWnQ__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/d15a8273-4a70-4ebe-a0ac-231574d88380/d15a8273-4a70-4ebe-a0ac-231574d88380?Expires=1795337209&Signature=R58wlqCVJiVjZDFHRLcUQU01a8602~JX3Rq73Lbr~qjTeN4RHVzEDeAo-8s1uuJ8OPNpPL6370ymPSbKoqDeGdKgwhHzJlpRGHCU~MHJbruNyfztQFoXEcYyfDg3g-JIBh~FDtrFOCEsQjEIwpbmlulHwZKxaRMQcXUxwMEtoC61-TTBAZr5PWalwuRH6yJjIiHD0FtZVUytIYcgje1jzWQMpCPKPBzmWXYr4fhyYe~hnxL5aU0QxbemakWPkHNAu0tk2TswqXabhq3d5LdcAe34iHW~1tH-IoBx~H0H84sfTLoaphZ47JxIAXuY5DmZZ2DtcoTIrkuX~6ZT8luGoQ__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/a126a769-2dfa-4733-80da-92bf9188a74d/a126a769-2dfa-4733-80da-92bf9188a74d?Expires=1795337207&Signature=LY2QjJrJDbDHiR6jaZraSZCQMhT5GXK-B-ipSkE-J3nA8ImEMwYEOPj8dAhoOgCEGcm8YD3BXqEBMO-jY6uEIJrp708H5GiZ3JZ5LRY-irhoJHSek5FOLW84aS8nnKPMPq7eDwvy0sDVQy4LCSMBIe5kZMrS4TGBrPruJGt8CcXf9xPidFApdM6VV2tGULxFEw9rqnfW0k9kz7cQx98HQhQphzuzJ2VTRLT4e2Nt68tp5IjOt5HvLKL6BO5K-K~Vj7nsp9QHNAYs2FCyZL0zU4hFFGVRYNbaOtz2ozVyWFU6ZKZ~YN6TuBIYATcbXM0VA73HhiE55LPE0W6mvkn-DA__&Key-Pair-Id=KX9I6OACHF5M3"]
+          hashes=["40acfb56c62a2bed09f9a4e8150e5f67770b81002d396e500702fbe8e09fab46","c41a746b4452f4353716d2245df2d4fd75d68e6f22eaad6e2663b1b37062f678","325dce8dde8aa814826e0c8dfdab3ef2ad6fba18e7d365f375bbe8a6e51398b9","a0e6b34bd1e35ff3850d61c3c054508f7a6102aad3916c339b05a1d5df7c6f67","b197afed953f0960108e1e880b959be37ce2e0fc5af7454ddd1939d010342640"]
+          dest=Path("assets/approved_specific/schueler_bu_2026_11_21");dest.mkdir(parents=True,exist_ok=True)
+          for idx,(url,digest) in enumerate(zip(urls,hashes),1):
+              request=urllib.request.Request(url,headers={"User-Agent":"Schmidt-Premium-Carousel-Transfer/1.0"})
+              with urllib.request.urlopen(request,timeout=65) as resp:
+                  raw=resp.read()
+              got=sha256(raw).hexdigest()
+              if got!=digest:
+                  raise RuntimeError(f"STOPP! Slide {idx} stimmt nicht mit dem geprüften Original überein: {got}")
+              im=Image.open(io.BytesIO(raw))
+              if im.format!="JPEG" or im.size!=(1080,1350):
+                  raise RuntimeError(f"STOPP! Falsches Format der Slide {idx}: {im.size} {im.format}")
+              (dest/("%02d.jpg"%idx)).write_bytes(raw)
+              print("VERIFIZIERTE LOGOFREIE PREMIUM-SLIDE",idx,im.size,len(raw),digest)
+          
+          PY
+      - name: Medien auf GitHub hosten ohne andere Designs freizuschalten
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/approved_specific/schueler_bu_2026_11_21/
+          if ! git diff --cached --quiet; then
+            git commit -m "Upload five manually inspected student BU premium carousel originals"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 4
+            done
+          fi
+      - name: User-requested fünfteiligen Schüler-BU-Post sofort bei Buffer veröffentlichen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          USER_RELEASE: user-requested-schueler-bu-premium-feed-2026-11-21
+        run: python3 scripts/publish_schueler_bu_premium_once.py
