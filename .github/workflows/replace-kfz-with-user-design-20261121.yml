@@ -1,0 +1,65 @@
+name: KFZ – exaktes Nutzerbild statt vorheriger Bildvarianten
+on:
+  push:
+    paths:
+      - '.github/workflows/replace-kfz-with-user-design-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  exact-user-design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Pillow installieren
+        run: python3 -m pip install --user Pillow
+      - name: Exaktes hochgeladenes Nutzermotiv für Feed und Hochkant-Story verifizieren
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          from hashlib import sha256
+          import io,urllib.request
+          urls=["https://m.invideo.io/uploads/7059fb7c-b167-4bde-b698-95000b86bfa9/7059fb7c-b167-4bde-b698-95000b86bfa9?Expires=1795343511&Signature=mEzMUjS6XDK7lmqPnWqfkfJ4tEhjkNjdSq9~IKxRVLTDxQSiwaVlgJ2Vg5DeSFIdHcTbSqBbwHafwGicE9gzF1cb3VOquAboS3T7sOohecHgLz0HonqHW87DQWy1zRZ0wYmaYW8Z0jPSetmtSkT6ibXFxkIiscAUqN06dwWbdwhub7ZuZ91aATvykw8xTA6gkdTebEVNXPeTTwfuinE70~TjDp~jX7GZGBdcfxX38xJz91E~AngVN2auAM53aZysc7uSXJQWCQz4HJUa0EyTTSPGDKkrqPrOjwNZ2icTKX0mY9dKcuLaKxetn5-Y-d-LQK9CAjYQXxwTMHoFoQY7jQ__&Key-Pair-Id=KX9I6OACHF5M3","https://m.invideo.io/uploads/b93ab908-74bb-4c31-8e5c-cd7de04a04dc/b93ab908-74bb-4c31-8e5c-cd7de04a04dc?Expires=1795343511&Signature=MeBX~~il9wAEr8zYDoHeZAnUSsw8UlpS7T-xdEXf83FiqJcQBIkxx6q7uzj15z6NhLcPTH2c~7iXFpomIwyRv1CULwF7mHVuwygkJAa4z8hLsQ6QQ59FzFyYmaJd9D3F0FMCvzIr91u62JT8AmdKyL4b5TIkD43mUJhqlutp-TthvrE1vsXRSFZB4TdA6UfwOE1tEaxNLk3SsRg8qN7POTDHDMwBwf0LLm5jSX2cPnP8EHdZWB26ZwFM4Ze8zLWidYXeqFPzhR~qS15MUD7rfTSN2IkLCILYpFemSuf1g8InS~JYDKWKZxo4-ui~AbQYOCuEG05SwbBn6M~eHgHiNA__&Key-Pair-Id=KX9I6OACHF5M3"]
+          files=["feed.jpg","story.jpg"]
+          digests=["f2c552ede5125efe6ef67355aadb1b813b4d1512f5ccb7bbe7ab8921dac1cab6","05b1c2d7dfc23f56c01c42a49f3caa112d29dc4e9704b0080049f266983e4f06"]
+          sizes=[(1080,1080),(1080,1920)]
+          dest=Path("assets/kfz_exact_user_image_2026_11_21")
+          dest.mkdir(parents=True,exist_ok=True)
+          for url,file,digest,size in zip(urls,files,digests,sizes):
+            req=urllib.request.Request(url,headers={"User-Agent":"SchmidtExactUserKfzMedia/1.0"})
+            with urllib.request.urlopen(req,timeout=65) as resp:
+              raw=resp.read()
+            if sha256(raw).hexdigest()!=digest:raise RuntimeError("Dateipruefsumme falsch: "+file)
+            im=Image.open(io.BytesIO(raw))
+            if im.format!="JPEG" or im.size!=size:raise RuntimeError("Abweichendes Bildformat: "+file)
+            (dest/file).write_bytes(raw)
+            print("NUTZERORIGINAL PRUEFSUMME OK:",file,len(raw),digest)
+          
+          PY
+      - name: Beide Originaldesigns unverändert für Buffer hosten
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/kfz_exact_user_image_2026_11_21/
+          if ! git diff --cached --quiet; then
+            git commit -m "Store exact user-selected Kfz advertising imagery for feed and Stories"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 4
+            done
+          fi
+      - name: Alle vier heutigen Kfz-Buffer-Termine auf das Nutzeroriginal umstellen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          EXACT_DESIGN_RELEASE: user-supplied-blue-vw-golf-exact-poster-nov21
+        run: python3 scripts/replace_kfz_with_exact_user_uploaded_design_20261121.py
