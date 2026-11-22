@@ -1,0 +1,63 @@
+name: Freigegebene Sonntag-Story am 22.11. um 20.15 Uhr
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-sunday-story-20261122.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  sunday:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Bildprüfbibliothek installieren
+        run: python3 -m pip install --user Pillow
+      - name: Ausschließlich das zuvor gezeigte Sonntagsmotiv unverändert sichern
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          from hashlib import sha256
+          import io,urllib.request
+          url="https://m.invideo.io/uploads/3a6d4280-ff5a-436f-8d22-288bbdba23b7/3a6d4280-ff5a-436f-8d22-288bbdba23b7?Expires=1795444398&Signature=yCXwkCD0kz4llcEAzhDAC7SvPAgO~ljfkbyo0NX-6UfyZPeNpQY2Zv8quw1mhIB44SmZC5g6y7vTQkH~WbKqPT3HVTK~9eABZ5aufkC8lWnWqteMYJiztMbazPvvZI5OKEpPSbra69NiMEbijC1Gd3Va~vaqRJVDIbsUI1AxcMw~K56ijMxkjRAEZDmSxi82P3DvFarzoUujCeCdOqy0S8RIrYOx7fWJrlbWqtWTVmnzVTZKYLF4BkMyqFBUhpMK5~gTMKad01xvpN~SskO6NqVExrF7xsV0-Vnp7jgurQwEbrF5DnTTmj5h5ANNTJCnEWM35RgUFHX72hbkHaK0Yg__&Key-Pair-Id=KX9I6OACHF5M3"
+          digest="ef323baefa29bf25ceccfb3d158a3c76afa6ee133fa9ab1087b4020967d825f4"
+          req=urllib.request.Request(url,headers={"User-Agent":"Sunday-Schmidt-Image-Staging/1.0"})
+          with urllib.request.urlopen(req,timeout=70) as response:
+              content=response.read()
+          if sha256(content).hexdigest()!=digest:raise RuntimeError("Freigegebenes Story-Bild wurde verändert")
+          img=Image.open(io.BytesIO(content))
+          if img.format!="JPEG" or img.size!=(1080,1920):
+              raise RuntimeError("Bildformat stimmt nicht mit der Freigabe überein")
+          out=Path("assets/sunday_2026_11_22/sonntag_story_2015.jpg")
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_bytes(content)
+          print("SONNTAG STORY ORIGINAL GEPRUEFT:",len(content),img.size,digest)
+          
+          PY
+      - name: Bilddatei sicher für Buffer bereitstellen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/sunday_2026_11_22/
+          if ! git diff --cached --quiet; then
+            git commit -m "Host approved exact Sunday Story artwork for Nov 22"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 4
+            done
+          fi
+      - name: Eine einzige Instagram-Story um 20.15 Uhr in Buffer buchen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          SUNDAY_RELEASE: approved-sonntag-premium-single-story-nov22
+        run: python3 scripts/publish_approved_sunday_story_20261122.py
