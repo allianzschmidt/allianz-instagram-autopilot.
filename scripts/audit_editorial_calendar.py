@@ -15,7 +15,7 @@ EXISTING_APPROVED={
  "2026-11-21T19:45:00+00:00":("Kfz finale Freigabe-Story 20:45 CET","6b0177ae0247969092c4a058"),
  "2026-11-18T11:00:00+00:00":("Buß- und Bettag – werbefreier Gruß","6afcef7893fa11d37df4d0b9"),
  "2026-11-19T11:30:00+00:00":("Einkommensschutz Foto","6af4ec05bc9f3773a1a45de2"),
- "2026-11-22T19:15:00+00:00":("Freigegebene Sonntags-Story 20:15 CET","6b02fd3dd5eabfb8ccb562d9"),
+ "2026-11-22T15:00:00+00:00":("Freigegebene Sonntags-Story zur Kaffeezeit 16:00 CET","6b02fd3dd5eabfb8ccb562d9"),
  "2026-11-26T11:30:00+00:00":("Starkregen Foto","6af4ec063d8c751bfdfae8b0"),
 }
 
