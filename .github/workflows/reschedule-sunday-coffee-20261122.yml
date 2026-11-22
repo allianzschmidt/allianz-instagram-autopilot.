@@ -1,0 +1,20 @@
+name: Sonntags-Story zur Kaffeezeit statt 20.15 Uhr
+on:
+  push:
+    paths:
+      - '.github/workflows/reschedule-sunday-coffee-20261122.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  reschedule:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Einzige freigegebene Sonntags-Story direkt auf 16:00 Uhr verschieben
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: python3 scripts/reschedule_sunday_story_to_coffee_time_20261122.py
