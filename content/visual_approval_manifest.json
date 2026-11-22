@@ -99,6 +99,15 @@
       "source": "User approved final image with complete footer Allianz Agentur Schmidt · Döbeln on 21.11.2026",
       "no_allianz_logo": true,
       "one_story_only": true
+    },
+    "assets/sunday_2026_11_22/sonntag_story_2015.jpg": {
+      "sha256": "ef323baefa29bf25ceccfb3d158a3c76afa6ee133fa9ab1087b4020967d825f4",
+      "approved": true,
+      "user_visual_approval": true,
+      "source": "User approval 'na dann' following visual preview of Sonntag Story on 22 November 2026",
+      "purpose": "Only Sunday 22 November 2026 at 20:15 CET, 1 Instagram Story, no feed",
+      "no_allianz_logos": true,
+      "is_ai_generated": true
     }
   },
   "explicitly_rejected_prefixes": [
@@ -116,7 +125,8 @@
     "6b0084ca6f199ec35b6ac360": "Schüler-BU Story 1 – 20.11.2026 um 18:35 gesendet (Bufffer sent), individueller SHA freigegeben",
     "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben",
     "6b0177aed864a01105380378": "FINAL Kfz gold/navy flyer with correct agency footer – Feed 21 Nov 15:45 CET",
-    "6b0177ae0247969092c4a058": "FINAL Kfz gold/navy flyer with correct agency footer – ONE Story 21 Nov 20:45 CET"
+    "6b0177ae0247969092c4a058": "FINAL Kfz gold/navy flyer with correct agency footer – ONE Story 21 Nov 20:45 CET",
+    "6b02fd3dd5eabfb8ccb562d9": "Sunday 22 Nov 2026 20:15 CET – single approved premium Sunday greeting Story"
   },
   "rejected_buffer_ids": [
     "6afce981ab47737bddb3c4ca",
@@ -269,6 +279,14 @@
       "source": "User explicitly approved last two generated images and ordered same-day post",
       "status": "scheduled",
       "only_authorized_feed_and_story": true
+    },
+    "6b02fd3dd5eabfb8ccb562d9": {
+      "source": "User visually reviewed then approved by 'na dann', posted only as 1 Story",
+      "buffer_status": "scheduled",
+      "due_at_utc": "2026-11-22T19:15:00.000Z",
+      "format": "story",
+      "media": "assets/sunday_2026_11_22/sonntag_story_2015.jpg",
+      "no_feed": true
     }
   },
   "rejected_published_media": {
