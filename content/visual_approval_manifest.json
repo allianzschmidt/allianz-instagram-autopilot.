@@ -105,7 +105,7 @@
       "approved": true,
       "user_visual_approval": true,
       "source": "User approval 'na dann' following visual preview of Sonntag Story on 22 November 2026",
-      "purpose": "Only Sunday 22 November 2026 at 20:15 CET, 1 Instagram Story, no feed",
+      "purpose": "Only Sunday 22 November 2026 at 16:00 CET, 1 Instagram Story, no feed",
       "no_allianz_logos": true,
       "is_ai_generated": true
     }
@@ -126,7 +126,7 @@
     "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben",
     "6b0177aed864a01105380378": "FINAL Kfz gold/navy flyer with correct agency footer – Feed 21 Nov 15:45 CET",
     "6b0177ae0247969092c4a058": "FINAL Kfz gold/navy flyer with correct agency footer – ONE Story 21 Nov 20:45 CET",
-    "6b02fd3dd5eabfb8ccb562d9": "Sunday 22 Nov 2026 20:15 CET – single approved premium Sunday greeting Story"
+    "6b02fd3dd5eabfb8ccb562d9": "Sunday 22 Nov 2026 16:00 CET – single approved premium coffee-time Story"
   },
   "rejected_buffer_ids": [
     "6afce981ab47737bddb3c4ca",
@@ -283,10 +283,11 @@
     "6b02fd3dd5eabfb8ccb562d9": {
       "source": "User visually reviewed then approved by 'na dann', posted only as 1 Story",
       "buffer_status": "scheduled",
-      "due_at_utc": "2026-11-22T19:15:00.000Z",
+      "due_at_utc": "2026-11-22T15:00:00.000Z",
       "format": "story",
       "media": "assets/sunday_2026_11_22/sonntag_story_2015.jpg",
-      "no_feed": true
+      "no_feed": true,
+      "schedule_updated": "2026-11-22: user requested earlier coffee-time Story; moved from 20:15 to 16:00 CET; Buffer confirmed"
     }
   },
   "rejected_published_media": {
