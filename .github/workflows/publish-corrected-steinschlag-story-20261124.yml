@@ -1,0 +1,62 @@
+name: Korrigierte Steinschlag-Story heute 18.30 Uhr
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-corrected-steinschlag-story-20261124.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  corrected:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Bildverifizierung vorbereiten
+        run: python3 -m pip install --user Pillow
+      - name: Genau das korrigierte Bild per SHA256 pruefen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from hashlib import sha256
+          from PIL import Image
+          import io,urllib.request
+          url="https://m.invideo.io/uploads/e460892e-130d-4093-9617-05840152c728/e460892e-130d-4093-9617-05840152c728?Expires=1795613460&Signature=vwGo1n3zCSqeQRIWwps5fQWbnpv1htKkMdbMs9E8nXPpuVPvZ1Aum7Tn9GY8cAlvZWXTrk5f5I-D9EvV0pleaEZVX-KU1BjexB9GGeg~p8asO1GnOlEEw5GwfMRTDo46CvhYc-laVg-tQuExXdrF9F~aKWF64poQ2qiEeD0hsfDpv1M8GbRFjzTV73NbCNMO0rG2y6YlGbZ0BY2QB3zD8bakISO1wwbMYtGQoVT0aCV5jwDvwJrTUhg3JSe5uOwgFMlIt5f3T4kqYAdoMwfbcNlIYpmSd~P~tiL6XCSdQh2Z7f6LXyHXu1DWADGw5cUYGYWlmFXXDRUvp2D9fNWk3Q__&Key-Pair-Id=KX9I6OACHF5M3"
+          digest="79b71465b5c7f11e29331190aba3cfce7f9325f8708026b8026d63fb05cfee40"
+          req=urllib.request.Request(url,headers={"User-Agent":"Schmidt-Steinschlag-Corrected-2026/1.0"})
+          with urllib.request.urlopen(req,timeout=70) as response:
+           raw=response.read()
+          assert sha256(raw).hexdigest()==digest, "Falsches Steinschlag-Bild: SHA stimmt nicht"
+          img=Image.open(io.BytesIO(raw))
+          assert img.format=="JPEG" and img.size==(1080,1920),f"Falsches Format: {img.size} {img.format}"
+          dest=Path("assets/steinschlag_corrected_20261124/steinschlag_story.jpg")
+          dest.parent.mkdir(parents=True,exist_ok=True)
+          dest.write_bytes(raw)
+          print("ORIGINAL STEINSCHLAG KORRIGIERT GEPRUEFT",len(raw),img.size,digest)
+          
+          PY
+      - name: Fuer Buffer hoechstqualitatives Bild veroeffentlichen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/steinschlag_corrected_20261124/
+          if ! git diff --cached --quiet; then
+            git commit -m "Store one-off corrected windshield Story original, safe claim and no brand logo"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 4
+            done
+          fi
+      - name: Eine einzige Instagram Story um 18.30 CET bei Buffer einplanen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          STEINSCHLAG_RELEASE: corrected-windshield-story-20261124
+        run: python3 scripts/publish_corrected_steinschlag_story_20261124.py
