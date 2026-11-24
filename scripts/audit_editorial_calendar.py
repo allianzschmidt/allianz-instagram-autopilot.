@@ -16,6 +16,7 @@ EXISTING_APPROVED={
  "2026-11-18T11:00:00+00:00":("Buß- und Bettag – werbefreier Gruß","6afcef7893fa11d37df4d0b9"),
  "2026-11-19T11:30:00+00:00":("Einkommensschutz Foto","6af4ec05bc9f3773a1a45de2"),
  "2026-11-22T15:00:00+00:00":("Freigegebene Sonntags-Story zur Kaffeezeit 16:00 CET","6b02fd3dd5eabfb8ccb562d9"),
+ "2026-11-24T16:00:00+00:00":("Neuer Kfz-Angebots-Feed 17:00 CET","6b059f73589dfc670e86245d"),
  "2026-11-24T17:30:00+00:00":("Korrigierte Steinschlag-Story 18:30 CET","6b0591a79dcfd3880923c06b"),
  "2026-11-26T11:30:00+00:00":("Starkregen Foto","6af4ec063d8c751bfdfae8b0"),
 }
