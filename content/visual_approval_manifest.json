@@ -117,6 +117,15 @@
       "purpose": "One-off editorial Instagram Story 24 Nov 2026 at 18:30 CET with corrected windshield and Allianz repair conditions",
       "is_ai_generated": true,
       "no_allianz_logo": true
+    },
+    "assets/kfz_offer_nov24_2026/premium_kfz_feed.jpg": {
+      "sha256": "2bda36347ebd7b9caf820ca77ef0ca25e721c73322308afac9d572e2e3f06814",
+      "approved": true,
+      "user_visual_approval": false,
+      "authorization": "User specifically asked for a new feed contribution today on 24 Nov 2026; design preview presented in chat before posting, no subsequent explicit visual acceptance recorded.",
+      "purpose": "One-off Kfz offer feed post at 17:00 CET; no permission to reactivate general visual templates",
+      "no_allianz_logo": true,
+      "is_ai_generated": true
     }
   },
   "explicitly_rejected_prefixes": [
@@ -136,7 +145,8 @@
     "6b0177aed864a01105380378": "FINAL Kfz gold/navy flyer with correct agency footer – Feed 21 Nov 15:45 CET",
     "6b0177ae0247969092c4a058": "FINAL Kfz gold/navy flyer with correct agency footer – ONE Story 21 Nov 20:45 CET",
     "6b02fd3dd5eabfb8ccb562d9": "Sunday 22 Nov 2026 16:00 CET – single approved premium coffee-time Story",
-    "6b0591a79dcfd3880923c06b": "Steinschlag-Story – corrected windshield artwork, 24 Nov 18:30 CET"
+    "6b0591a79dcfd3880923c06b": "Steinschlag-Story – corrected windshield artwork, 24 Nov 18:30 CET",
+    "6b059f73589dfc670e86245d": "One-off Kfz offer feed 24 Nov 17:00 CET – specifically commissioned new design"
   },
   "rejected_buffer_ids": [
     "6afce981ab47737bddb3c4ca",
@@ -306,6 +316,15 @@
       "zone": "Europe/Berlin",
       "media": "assets/steinschlag_corrected_20261124/steinschlag_story.jpg",
       "limitations": "No blanket guarantee; covered glass repair without windshield replacement; contractual and possible glass partner rules; repair must be viable."
+    },
+    "6b059f73589dfc670e86245d": {
+      "date": "2026-11-24",
+      "time": "17:00",
+      "zone": "Europe/Berlin",
+      "buffer_status": "scheduled",
+      "media": "assets/kfz_offer_nov24_2026/premium_kfz_feed.jpg",
+      "feed_only": true,
+      "story_remains_untouched": "6b0591a79dcfd3880923c06b"
     }
   },
   "rejected_published_media": {
