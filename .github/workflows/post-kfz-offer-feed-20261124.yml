@@ -1,0 +1,61 @@
+name: Kfz-Angebot Feed heute 24.11. um 17.00 Uhr
+on:
+  push:
+    paths:
+      - '.github/workflows/post-kfz-offer-feed-20261124.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: schmidt-premium-publishing
+  cancel-in-progress: false
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Bildverifizierung vorbereiten
+        run: python3 -m pip install --user Pillow
+      - name: Das heute gezeigte 4-zu-5 Bild exakt übernehmen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from hashlib import sha256
+          from PIL import Image
+          import io,urllib.request
+          url="https://m.invideo.io/uploads/a9f425a3-b422-4f93-ba72-39796f00d645/a9f425a3-b422-4f93-ba72-39796f00d645?Expires=1795616994&Signature=UOylNXlm0w4UWujmiP9MSlJxiySO97yO5atpX8lw130rGUB1b6MlBCRMs~MMrmf01ivV5oaSEOKacxQOke1fgfOHBpscFByq4ZiUAXKdhcGg3biHzokiRfQB~oAdywuIfvW5TciOavckIrrtgDp6-vjqdOoiVFfcPB~J4uHKzjcMembRq~aEvixsqk2M4U2pwkmqMeCrdnoO-K4NC9pcvuZE0vLNphLlHaP14jpsON~~EBywFWaXwxaK~DMYGwMHmJIMW6SSfwhoGBmsaGSm~XPL~lqa71e59yKUWfCWDIqVIWAeMUm01zSGSQJw4UGtryexoWNXeXkdNRFuWRxztA__&Key-Pair-Id=KX9I6OACHF5M3"
+          digest="2bda36347ebd7b9caf820ca77ef0ca25e721c73322308afac9d572e2e3f06814"
+          req=urllib.request.Request(url,headers={"User-Agent":"Schmidt-Kfz-Nov24-Final-Feed/1.0"})
+          with urllib.request.urlopen(req,timeout=70) as response: raw=response.read()
+          assert sha256(raw).hexdigest()==digest,"Originalbild-Hash stimmt nicht, Veröffentlichung gestoppt"
+          im=Image.open(io.BytesIO(raw))
+          assert im.format=="JPEG" and im.size==(1080,1350),(im.format,im.size)
+          dest=Path("assets/kfz_offer_nov24_2026/premium_kfz_feed.jpg")
+          dest.parent.mkdir(parents=True,exist_ok=True)
+          dest.write_bytes(raw)
+          print("ORIGINAL PREMIUM KFZ FEED GEPRUEFT",len(raw),im.size,digest)
+          
+          PY
+      - name: Medien-Hosting für Buffer
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/kfz_offer_nov24_2026/
+          if ! git diff --cached --quiet; then
+            git commit -m "Host exact high-quality Kfz offer feed design for 24 November"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep 4
+            done
+          fi
+      - name: Nur den heutigen Feed-Beitrag 17 Uhr bei Buffer buchen
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          SINGLE_FEED_RELEASE: user-requested-kfz-feed-nov24-2026
+        run: python3 scripts/publish_kfz_offer_feed_20261124.py
