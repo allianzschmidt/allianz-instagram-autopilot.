@@ -108,6 +108,15 @@
       "purpose": "Only Sunday 22 November 2026 at 16:00 CET, 1 Instagram Story, no feed",
       "no_allianz_logos": true,
       "is_ai_generated": true
+    },
+    "assets/steinschlag_corrected_20261124/steinschlag_story.jpg": {
+      "approved": true,
+      "user_visual_approval": true,
+      "sha256": "79b71465b5c7f11e29331190aba3cfce7f9325f8708026b8026d63fb05cfee40",
+      "source": "User instruction 24 Nov 2026 'na dann mach es doch' after request to correct Steinschlag artwork with accurate windshield and contract claims.",
+      "purpose": "One-off editorial Instagram Story 24 Nov 2026 at 18:30 CET with corrected windshield and Allianz repair conditions",
+      "is_ai_generated": true,
+      "no_allianz_logo": true
     }
   },
   "explicitly_rejected_prefixes": [
@@ -126,7 +135,8 @@
     "6b0084d3d425f1473afe86e3": "Schüler-BU Story 2 – 20.11.2026 um 20:15 CET fest eingeplant, individueller SHA freigegeben",
     "6b0177aed864a01105380378": "FINAL Kfz gold/navy flyer with correct agency footer – Feed 21 Nov 15:45 CET",
     "6b0177ae0247969092c4a058": "FINAL Kfz gold/navy flyer with correct agency footer – ONE Story 21 Nov 20:45 CET",
-    "6b02fd3dd5eabfb8ccb562d9": "Sunday 22 Nov 2026 16:00 CET – single approved premium coffee-time Story"
+    "6b02fd3dd5eabfb8ccb562d9": "Sunday 22 Nov 2026 16:00 CET – single approved premium coffee-time Story",
+    "6b0591a79dcfd3880923c06b": "Steinschlag-Story – corrected windshield artwork, 24 Nov 18:30 CET"
   },
   "rejected_buffer_ids": [
     "6afce981ab47737bddb3c4ca",
@@ -288,6 +298,14 @@
       "media": "assets/sunday_2026_11_22/sonntag_story_2015.jpg",
       "no_feed": true,
       "schedule_updated": "2026-11-22: user requested earlier coffee-time Story; moved from 20:15 to 16:00 CET; Buffer confirmed"
+    },
+    "6b0591a79dcfd3880923c06b": {
+      "buffer_status": "scheduled",
+      "date": "2026-11-24",
+      "time": "18:30",
+      "zone": "Europe/Berlin",
+      "media": "assets/steinschlag_corrected_20261124/steinschlag_story.jpg",
+      "limitations": "No blanket guarantee; covered glass repair without windshield replacement; contractual and possible glass partner rules; repair must be viable."
     }
   },
   "rejected_published_media": {
