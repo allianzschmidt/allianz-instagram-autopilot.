@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "account": "allianzschmidtdoebeln",
+  "strategy": "INSTAGRAM_MASTER_STRATEGIE.md",
+  "timezone": "Europe/Berlin",
+  "slot_note": "Canonical calendar retained; pending briefs are not media approvals. Do not reschedule expired slots. New reviewed assets must be visually checked and hash bound; no false user_visual_approval.",
+  "slots": [
+    {
+      "due_at": "2026-11-28T07:30:00.000Z",
+      "label": "Abgelehnte Regionalstory – Vormittag verpasst",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "rejected",
+      "brief": "Regionale Idee vom Nutzer abgelehnt; Vormittag verpasst, nicht nachholen."
+    },
+    {
+      "due_at": "2026-11-28T19:15:00.000Z",
+      "label": "Kfz-Angebot: letzter Samstag vor 30.11.",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "Kfz-Wechselsaison: Jetzt dein persönliches Angebot einholen. Für viele Verträge mit Hauptfälligkeit zum 1. Januar ist der 30. November der reguläre Kündigungsstichtag. Die Kündigung muss rechtzeitig beim bisherigen Versicherer eingehen. Entscheidend ist der individuelle Vertragsablauf. Erst kündigen, wenn neuer Schutz sichergestellt ist. Schreib uns „KFZ“ per Nachricht. Allianz Agentur Schmidt · Döbeln.",
+      "review_status": "verified",
+      "brief": "Kfz-Wechselsaison: 30.11. beachten und individuelles Angebot einholen.",
+      "review_authority": "master_2026_11_28_operational",
+      "user_visual_approval": false,
+      "reviewed_at": "2026-11-28",
+      "review_note": "Tatsächlich gerendertes Original visuell geöffnet: korrekte Überschrift, verständlicher Stichtag mit Hauptfälligkeit, normaler dunkelblauer Kompaktwagen, Agenturfooter vollständig, keine Allianz-Logos, keine fremden Personen, keine falsche Ortsangabe, keine Überlagerungen oder abgeschnittenen Texte. Stil entspricht freigegebenen Kfz-Motiven. KI-Symbolmotiv.",
+      "sources": [
+        "https://www.allianz.de/auto/kfz-versicherung/wechseln/",
+        "https://www.allianz.de/auto/kfz-versicherung/kuendigen/"
+      ],
+      "rights": "KI-generiertes eigenes Symbolmotiv; keine externen Fotos",
+      "assets": [
+        {
+          "path": "assets/master_reviewed/2026-11-28_kfz_story.png",
+          "sha256": "22bd12f6ae1b6f7b8d025c320b79e94fc60172bceb62c0339d92edc1f9cef87d",
+          "width": 941,
+          "height": 1672,
+          "format": "PNG"
+        }
+      ]
+    },
+    {
+      "due_at": "2026-11-29T07:30:00.000Z",
+      "label": "STORY 1. Advent Morgen",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Erster Advent: eine brennende Kerze, freundlicher Morgengruß ohne Werbung."
+    },
+    {
+      "due_at": "2026-11-29T10:00:00.000Z",
+      "label": "1. ADVENT [erster_advent_2026]",
+      "kind": "post",
+      "expected_assets": 1,
+      "caption": "🕯️ Heute ist der erste Advent.\n\nManchmal sind es die kleinen Momente, die diese Jahreszeit besonders machen: ein warmes Licht, ein gutes Gespräch und Zeit für Herzensmenschen.\n\nWir wünschen euch einen entspannten ersten Advent! 💙\n\nEure Allianz Agentur Schmidt aus Döbeln.\n\n#ErsterAdvent #Adventszeit #Döbeln #Mittelsachsen",
+      "review_status": "pending",
+      "brief": "Werbefreier Adventskranz, genau eine brennende Kerze, Text Einen schönen 1. Advent, Agenturfooter."
+    },
+    {
+      "due_at": "2026-11-29T19:15:00.000Z",
+      "label": "STORY 1. Advent Abend",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Erster Advent: ruhige Winterabend-Szene, Dank und gute Wünsche ohne Werbung; eigenständiges Motiv."
+    },
+    {
+      "due_at": "2026-11-30T07:30:00.000Z",
+      "label": "STORY Familienvorsorge Morgen",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Familienvorsorge: fiktiv 2.400 € monatliche Fixkosten; welche Rücklagen sind tatsächlich verfügbar?"
+    },
+    {
+      "due_at": "2026-11-30T17:30:00.000Z",
+      "label": "FAMILIEN-CHECK [familie]",
+      "kind": "post",
+      "expected_assets": 5,
+      "caption": "Familienvorsorge beginnt nicht mit einem bestimmten Produkt, sondern mit guten Fragen. 👨‍👩‍👧 Einkommen, Haftung, Wohnen und Hinterbliebenenschutz sollten zum tatsächlichen Bedarf passen. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Wir helfen bei der Übersicht. #Familienvorsorge #Absicherung #Döbeln",
+      "review_status": "pending",
+      "brief": "Fünf Slides: konkretes fiktives Haushaltsbudget statt bloßer Fragen; Einkommen, Haftung, Zuhause, Hinterbliebenenschutz, Zahlen transparent ohne Produktzusage."
+    },
+    {
+      "due_at": "2026-11-30T19:15:00.000Z",
+      "label": "STORY Familienvorsorge Abend",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Familienvorsorge: Notfallordner, Vorsorgevollmacht als organisatorischer Hinweis; keine Rechtsberatung."
+    },
+    {
+      "due_at": "2026-12-01T07:30:00.000Z",
+      "label": "STORY Versicherungscheck Morgen",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Versicherungscheck: Beispiel Selbstbeteiligung 150 € versus 500 €, rein rechnerischer Unterschied 350 €; nicht als Tarifversprechen."
+    },
+    {
+      "due_at": "2026-12-01T19:15:00.000Z",
+      "label": "STORY Versicherungscheck Abend",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Versicherungscheck: Wohnfläche, neue Anschaffungen oder Berufswechsel als Anlass für Aktualisierung."
+    },
+    {
+      "due_at": "2026-12-02T07:30:00.000Z",
+      "label": "STORY Hausrat & Gebäude Morgen",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Hausrat oder Gebäude: lose Möbel versus fest verbaute Gebäudeteile; Vertragsdefinition beachten."
+    },
+    {
+      "due_at": "2026-12-02T17:30:00.000Z",
+      "label": "ZUHAUSE [hausrat_wohngebaeude]",
+      "kind": "post",
+      "expected_assets": 5,
+      "caption": "Hausrat und Wohngebäude werden oft verwechselt. 🏠 Vereinfacht: Das Gebäude und seine festen Bestandteile sind etwas anderes als die beweglichen Sachen im Haushalt. Entscheidend sind immer die Vertragsbedingungen. 📍 Allianz Agentur Schmidt · Döbeln. #Hausrat #Wohngebäude #Döbeln",
+      "review_status": "pending",
+      "brief": "Fünf Slides: konkretes fiktives Rohrbruchbeispiel, Gebäude/Wand/Boden und Möbel getrennt, Ursache und Vertragsbedingungen."
+    },
+    {
+      "due_at": "2026-12-02T19:15:00.000Z",
+      "label": "STORY Hausrat & Gebäude Abend",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Hausrat oder Gebäude: fiktives Leitungswasserbeispiel, getrennt beschädigte Möbel und Gebäudeteile; keine automatische Deckungszusage."
+    },
+    {
+      "due_at": "2026-12-03T07:30:00.000Z",
+      "label": "STORY Beratung Döbeln Morgen",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Beratung Döbeln: drei hilfreiche Unterlagen für den Termin; keine sensiblen Daten in Story/DM."
+    },
+    {
+      "due_at": "2026-12-03T11:30:00.000Z",
+      "label": "PERSÖNLICHE BERATUNG [beratung_doebeln]",
+      "kind": "post",
+      "expected_assets": 1,
+      "caption": "Versicherungen sollten verständlich sein – nicht kompliziert. 💙 In der Allianz Agentur Schmidt in Döbeln sprechen wir über deine Wünsche, deine Situation und passende Möglichkeiten. Keine pauschalen Lösungen. 💬 Schreib uns für einen Gesprächstermin. #Döbeln #Versicherungsberatung #AgenturSchmidt",
+      "review_status": "pending",
+      "brief": "Persönlicher Beratungsablauf, konkrete Vorbereitung und klare Einladung; kein fremdes Portrait."
+    },
+    {
+      "due_at": "2026-12-03T19:15:00.000Z",
+      "label": "STORY Beratung Döbeln Abend",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Beratung: konkret erklären, wie ein Beratungstermin abläuft, keine erfundenen Leistungen oder Öffnungszeiten."
+    },
+    {
+      "due_at": "2026-12-04T07:30:00.000Z",
+      "label": "STORY Rechtsschutz Morgen",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Rechtsschutz: Beispiel Konflikt bereits vor Vertragsbeginn; Wartezeiten und Versicherungsfall prüfen."
+    },
+    {
+      "due_at": "2026-12-04T17:30:00.000Z",
+      "label": "RECHTSSCHUTZ [rechtsschutz]",
+      "kind": "post",
+      "expected_assets": 5,
+      "caption": "Rechtsschutz ist nicht automatisch Schutz für jeden Rechtsstreit. ⚖️ Welche Bereiche versichert sind, ob Wartezeiten gelten und welche Ausschlüsse bestehen, steht in den Bedingungen. 📍 Allianz Agentur Schmidt · Döbeln. 💬 Gerne schauen wir uns deinen Bedarf an. #Rechtsschutz #Versicherungswissen #Döbeln",
+      "review_status": "pending",
+      "brief": "Fünf Slides: konkretes fiktives Streitbeispiel, versicherter Rechtsbereich, Wartezeit, Ausschlüsse und Selbstbeteiligung."
+    },
+    {
+      "due_at": "2026-12-04T19:15:00.000Z",
+      "label": "STORY Rechtsschutz Abend",
+      "kind": "story",
+      "expected_assets": 1,
+      "caption": "",
+      "review_status": "pending",
+      "brief": "Rechtsschutz: Bausteine Privat/Beruf/Verkehr/Wohnen, keine pauschale Kostenübernahme."
+    }
+  ]
+}
