@@ -1,15 +1,17 @@
-"""Read-only, honest check of ALL premium scheduled Instagram slots.
-
-Look for unqueued slots, not only entries known by Buffer ID.
-A previously missed post never blocks the pipeline forever.
-"""
-import sys
-from datetime import datetime, timezone, timedelta
+"""Rolling seven-day live audit. Old design stop is a block, never an excuse to hide gaps."""
+import json,sys
+from collections import Counter
+from datetime import datetime,timezone,timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from autopilot import get_channel,posts_from_buffer
+from autopilot import get_channel,posts_from_buffer,note
 from premium_publish import items,PLAN
+from visual_quality_gate import load_manifest
 
+ROOT=Path(__file__).resolve().parents[1]
+BERLIN=ZoneInfo("Europe/Berlin")
+ACTIVE={"scheduled","buffer","sending"}
 EXISTING_APPROVED={
  "2026-11-21T14:45:00+00:00":("Kfz finaler Freigabe-Feed 15:45 CET","6b0177aed864a01105380378"),
  "2026-11-21T19:45:00+00:00":("Kfz finale Freigabe-Story 20:45 CET","6b0177ae0247969092c4a058"),
@@ -21,55 +23,81 @@ EXISTING_APPROVED={
  "2026-11-26T11:30:00+00:00":("Starkregen Foto","6af4ec063d8c751bfdfae8b0"),
 }
 
+def parse(s):
+    return datetime.fromisoformat(s.replace("Z","+00:00")) if s else None
+
 def audit():
-    org,ch=get_channel()
     now=datetime.now(timezone.utc)
+    today=now.astimezone(BERLIN).date()
+    end=today+timedelta(days=7)
+    org,ch=get_channel()
     posts=posts_from_buffer(org["id"],ch["id"])
-    print("INSTAGRAM:",ch["name"],"NOW:",now.isoformat(),"BUFFER COUNT:",len(posts))
-    if PLAN.get('premium_visuals_explicitly_reapproved') is False:
-        print('DESIGN-FREIGABE-STOPP: Wiederholte Standardgrafiken sind vom Nutzer abgelehnt; deren fehlende Buffer-Termine gelten ausdrücklich NICHT als Ausfall.')
-        events=[]
-    else:
-        events=items()
+    manifest=load_manifest()
+    allowed=manifest.get("grandfathered_separately_approved_posts",{})
+    blocked=set(manifest.get("rejected_buffer_ids",[]))
+    ready_path=ROOT/"content/master_ready_queue.json"
+    ready=json.loads(ready_path.read_text(encoding="utf8")) if ready_path.exists() else {"slots":[]}
+    by_slot={parse(x["due_at"]):x for x in ready.get("slots",[])}
+    events={x["due"]:dict(x) for x in items()}
     for instant,(label,post_id) in EXISTING_APPROVED.items():
-        dt=datetime.fromisoformat(instant)
-        events.append({"due":dt,"label":label,"caption":None,"expected_id":post_id})
-    events.sort(key=lambda x:x["due"])
-    errors=[]; counted=0
-    for item in events:
-        due=item["due"]
-        if due>now+timedelta(hours=16):
-            continue
-        if due<now-timedelta(days=1):
-            continue  # historic gaps are separately documented; not silently fixed
-        found=[]
+        dt=parse(instant)
+        events[dt]={"due":dt,"label":label,"caption":None,"expected_id":post_id}
+    for dt,row in by_slot.items():
+        events[dt]={"due":dt,"label":row["label"],"caption":row.get("caption"),"expected_id":row.get("buffer_id"),"ready":row}
+    old_stop=PLAN.get("premium_visuals_explicitly_reapproved") is not True
+    active=[p for p in posts if p.get("status") in ACTIVE]
+    note("INSTAGRAM: "+ch["name"]+" UTC: "+now.isoformat()+" | Buffer-Einträge: "+str(len(posts))+" | aktive Queue: "+str(len(active)))
+    note("ROLLIERENDER 7-TAGE-PLAN: "+str(today)+" bis "+str(end-timedelta(days=1))+" Europe/Berlin")
+    note("ALTE SERIE GESPERRT: "+str(old_stop)+"; Lücken werden weiterhin erfasst.")
+    history=Counter()
+    for p in posts:
+        try:d=parse(p.get("dueAt"))
+        except ValueError:continue
+        if d and now-timedelta(days=7)<=d<=now:
+            if p.get("status")=="sent":
+                history["sent"]+=1
+                note("VERGANGEN: "+d.astimezone(BERLIN).isoformat()+" | sent | "+p["id"]+" | "+(p.get("text") or "")[:100].replace("\n"," "))
+            elif p.get("status") in {"error","failed"}:history["error"]+=1
+    note("LETZTE 7 TAGE Buffer: "+str(dict(history))+" (sent ist kein unabhängiger Instagram-Permalink)")
+    errors=[];counts=Counter();covered=set()
+    for dt,item in sorted(events.items()):
+        day=dt.astimezone(BERLIN).date()
+        if day<today-timedelta(days=1) or day>=end:continue
+        row=item.get("ready") or {}
+        candidates=[]
         for p in posts:
-            if not p.get("dueAt"):continue
-            try:
-                t=datetime.fromisoformat(p["dueAt"].replace("Z","+00:00"))
+            try:d=parse(p.get("dueAt"))
             except ValueError:continue
-            if abs((t-due).total_seconds())<=120:
-                found.append(p)
-        if item.get("expected_id"):
-            found=[p for p in found if p.get("id")==item["expected_id"]]
-        status=found[0].get("status") if found else "MISSING"
-        label=item["label"]
-        counted+=1
-        print("PLAN:",due.isoformat(),label,"BUFFER:",status,
-              "ID:",found[0].get("id") if found else "-")
-        if not found:
-            errors.append(due.isoformat()+" "+label+" ist NICHT eingeplant")
-        elif item.get("caption") and found[0].get("text")!=item["caption"]:
-            errors.append(due.isoformat()+" "+label+" – FALSCHER INHALT")
-        elif now>due+timedelta(minutes=45) and status!="sent":
-            errors.append(due.isoformat()+" "+label+" – NICHT gesendet: "+str(status))
-        elif now<due and status not in ("scheduled","buffer","sending","sent"):
-            errors.append(due.isoformat()+" "+label+" – unerwarteter Zustand: "+str(status))
-    print("KONTROLLIERTE FÄLLIGE/NAHE TERMINE:",counted)
-    print("AUSGENOMMENE, NICHT FREIGEGEBENE REELS: 24.11., 01.12. (keine fremde Stimme)")
-    for problem in errors:
-        print("!!! LIVE-PLAN-LUECKE:",problem)
+            if not d or abs((d-dt).total_seconds())>120 or p["id"] in blocked:continue
+            if item.get("expected_id") and p["id"]!=item["expected_id"]:continue
+            if not item.get("expected_id"):
+                if p["id"] not in allowed:continue
+                if not item.get("caption") or p.get("text")!=item["caption"]:continue
+            if p.get("status") in ACTIVE|{"sent","error","failed"}:candidates.append(p)
+        if len(candidates)>1:
+            state="DUPLIKAT";errors.append(item["label"]+" doppelt")
+        elif candidates:
+            p=candidates[0];state=p["status"]
+            if state=="sent" or state in ACTIVE:covered.add(day)
+            if day>=today and (state in {"error","failed"} or (now>dt+timedelta(minutes=45) and state!="sent")):
+                errors.append(item["label"]+" nicht gesendet: "+state)
+        else:
+            state="BLOCKIERT_ALTES_DESIGN" if old_stop and not row else ("MEDIEN_BEREIT_NICHT_GEBUCHT" if row.get("review_status")=="verified" else "MEDIEN_FEHLEN_ODER_UNGEPRUEFT")
+            if dt<now:state="VERPASST_"+state
+            if day>=today:
+                # A fully reviewed future media reserve is acceptable only beyond the next 24h.
+                if not (row.get("review_status")=="verified" and dt>now+timedelta(hours=24)):
+                    errors.append(dt.astimezone(BERLIN).isoformat()+" "+item["label"]+" "+state)
+        if day>=today:counts[state]+=1
+        note("PLAN: "+dt.astimezone(BERLIN).isoformat()+" | "+item["label"]+" | "+state+" | ID "+(candidates[0]["id"] if candidates else "-"))
+    for offset in range(7):
+        day=today+timedelta(days=offset)
+        if not any(d.astimezone(BERLIN).date()==day for d in events):
+            errors.append(str(day)+" KEIN REDAKTIONSKALENDER")
+        if day not in covered:note("TAG OHNE BESTAETIGTE BUCHUNG: "+str(day))
+    note("7-TAGE-STATUS: "+str(dict(counts)))
+    if not counts:errors.append("Kein einziger Kalenderslot geprüft")
+    for e in errors:note("!!! LIVE-PLAN-LUECKE: "+e)
     if errors:raise SystemExit(1)
-    print("LIVE-KALENDER: alle kurzfristigen Slots richtig eingeplant bzw. gesendet")
-if __name__=="__main__":
-    audit()
+    note("LIVE-KALENDER: alle geprüften Slots sind gebucht/gesendet oder mit geprüftem Medienvorrat abgedeckt.")
+if __name__=="__main__":audit()
