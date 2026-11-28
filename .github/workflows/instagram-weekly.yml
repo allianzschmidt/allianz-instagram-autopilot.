@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/instagram-weekly.yml'
+      - 'scripts/premium_analytics.py'
   schedule:
     - cron: '00 9 * * 1'
   workflow_dispatch:
