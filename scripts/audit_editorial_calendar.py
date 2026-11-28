@@ -1,5 +1,5 @@
 """Rolling seven-day live audit. Old design stop is a block, never an excuse to hide gaps."""
-import json,sys
+import json,sys,hashlib
 from collections import Counter
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
@@ -25,6 +25,20 @@ EXISTING_APPROVED={
 
 def parse(s):
     return datetime.fromisoformat(s.replace("Z","+00:00")) if s else None
+
+def has_ready_media(row,manifest):
+    if row.get("review_status")!="verified" or not row.get("review_note") or not row.get("rights") or not row.get("sources"):
+        return False
+    assets=row.get("assets") or []
+    if not assets or len(assets)!=row.get("expected_assets"):return False
+    for a in assets:
+        rel=Path(a.get("path",""))
+        key=rel.as_posix()
+        if rel.is_absolute() or ".." in rel.parts or not key.startswith("assets/master_reviewed/"):return False
+        if any(key.startswith(prefix) for prefix in manifest.get("explicitly_rejected_prefixes",[])):return False
+        path=ROOT/rel
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=a.get("sha256"):return False
+    return True
 
 def audit():
     now=datetime.now(timezone.utc)
@@ -82,11 +96,11 @@ def audit():
             if day>=today and (state in {"error","failed"} or (now>dt+timedelta(minutes=45) and state!="sent")):
                 errors.append(item["label"]+" nicht gesendet: "+state)
         else:
-            state="BLOCKIERT_ALTES_DESIGN" if old_stop and not row else ("MEDIEN_BEREIT_NICHT_GEBUCHT" if row.get("review_status")=="verified" else "MEDIEN_FEHLEN_ODER_UNGEPRUEFT")
+            state="BLOCKIERT_ALTES_DESIGN" if old_stop and not row else ("MEDIEN_BEREIT_NICHT_GEBUCHT" if has_ready_media(row,manifest) else "MEDIEN_FEHLEN_ODER_UNGEPRUEFT")
             if dt<now:state="VERPASST_"+state
             if day>=today:
                 # A fully reviewed future media reserve is acceptable only beyond the next 24h.
-                if not (row.get("review_status")=="verified" and dt>now+timedelta(hours=24)):
+                if not (has_ready_media(row,manifest) and dt>now+timedelta(hours=24)):
                     errors.append(dt.astimezone(BERLIN).isoformat()+" "+item["label"]+" "+state)
         if day>=today:counts[state]+=1
         note("PLAN: "+dt.astimezone(BERLIN).isoformat()+" | "+item["label"]+" | "+state+" | ID "+(candidates[0]["id"] if candidates else "-"))
