@@ -39,7 +39,10 @@
           "height": 1672,
           "format": "PNG"
         }
-      ]
+      ],
+      "buffer_id": "6b0ab646e897dadb1d7651f4",
+      "buffer_status": "scheduled",
+      "booked_at": "2026-11-28T11:08:54.918413+00:00"
     },
     {
       "due_at": "2026-11-29T07:30:00.000Z",

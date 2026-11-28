@@ -146,7 +146,8 @@
     "6b0177ae0247969092c4a058": "FINAL Kfz gold/navy flyer with correct agency footer – ONE Story 21 Nov 20:45 CET",
     "6b02fd3dd5eabfb8ccb562d9": "Sunday 22 Nov 2026 16:00 CET – single approved premium coffee-time Story",
     "6b0591a79dcfd3880923c06b": "Steinschlag-Story – corrected windshield artwork, 24 Nov 18:30 CET",
-    "6b059f73589dfc670e86245d": "One-off Kfz offer feed 24 Nov 17:00 CET – specifically commissioned new design"
+    "6b059f73589dfc670e86245d": "One-off Kfz offer feed 24 Nov 17:00 CET – specifically commissioned new design",
+    "6b0ab646e897dadb1d7651f4": "Kfz-Angebot: letzter Samstag vor 30.11. (Master: tatsächlich visuell geprüft)"
   },
   "rejected_buffer_ids": [
     "6afce981ab47737bddb3c4ca",
@@ -325,6 +326,21 @@
       "media": "assets/kfz_offer_nov24_2026/premium_kfz_feed.jpg",
       "feed_only": true,
       "story_remains_untouched": "6b0591a79dcfd3880923c06b"
+    },
+    "6b0ab646e897dadb1d7651f4": {
+      "due_at_utc": "2026-11-28T19:15:00.000Z",
+      "buffer_status": "scheduled",
+      "review_authority": "master_2026_11_28_operational",
+      "user_visual_approval": false,
+      "assets": [
+        {
+          "path": "assets/master_reviewed/2026-11-28_kfz_story.png",
+          "sha256": "22bd12f6ae1b6f7b8d025c320b79e94fc60172bceb62c0339d92edc1f9cef87d",
+          "width": 941,
+          "height": 1672,
+          "format": "PNG"
+        }
+      ]
     }
   },
   "rejected_published_media": {
